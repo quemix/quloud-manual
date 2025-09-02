@@ -8,5 +8,11 @@ https://staging.2g.quloud-platform.com/applicant
 
 すると、以下の画面に移ります。
 
+.. image:: images/screenshot_0039.png
+.. image:: images/screenshot_0040.png
 
-.. 名前を入力し、パスワードを新たに設定し２か所に記入して、「登録」ボタンを押せば完了です。
+必須項目を入力し、「確認」ボタンを押すと、確認画面に進みます。
+
+.. image:: images/screenshot_0041.png
+
+入力内容を確認し、「申込」ボタンを押せば完了です。
