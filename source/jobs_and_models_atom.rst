@@ -20,10 +20,17 @@
 .. image:: images/screenshot_0007.png
 
 登録したい原子構造にチェックを入れ、
-ウィンドウの下部にある「Submit」をクリックすると、検索ウィンドウが閉じて
-（原子構造が登録された状態で）元の画面に戻ります。
+ウィンドウの下部にある「Submit」をクリックします。
 
 .. image:: images/screenshot_0008.png
+
+すると、検索ウィンドウが閉じて、原子構造（ここでは "mp-149" ）が表示された状態で登録画面に戻ります。
+
+.. image:: images/screenshot_0051.png
+
+Material の名前（ここでは "Si" ）を設定し、「Submit」をクリックすれば、原子構造が登録された状態でトップ画面に戻ります。
+
+.. image:: images/screenshot_0003.png
 
 ++++++++++++++++++++++++++++++
 分子構造（PubChem）
@@ -32,13 +39,23 @@
 「Search in Molecule DB」をクリックすると、分子の名前や化学式で分子の座標データを検索するモードとなります。
 （現在、分子構造をそのまま計算できるソフトは搭載されておらず、
 結晶や表面といった周期系と組み合わせたモデルを作成する目的でのみ利用できます。）
+
+.. image:: images/screenshot_0052.png
+
 分子の名前や化学式を入力して「Search」をクリックすると、
 条件に合致する物質の原子構造が一覧で表示されます。
-登録したい原子構造にチェックを入れ、
-ウィンドウの下部にある「Submit」をクリックすると、検索ウィンドウが閉じて
-（原子構造が登録された状態で）元の画面に戻ります。
 
 .. image:: images/screenshot_0009.png
+
+登録したい原子構造にチェックを入れ、
+ウィンドウの下部にある「Submit」をクリックすると、検索ウィンドウが閉じて、
+原子構造（ここでは "6325" ）が表示された状態で登録画面に戻ります。
+
+.. image:: images/screenshot_0053.png
+
+Material の名前（ここでは "Ethylene Molecule" ）を設定し、「Submit」をクリックすれば、原子構造が登録された状態でトップ画面に戻ります。
+
+.. image:: images/screenshot_0005.png
 
 ---------------------------------
 ファイルアップロードによる登録
@@ -52,11 +69,22 @@
 
 -	CIF
 -	XYZ
--	POSCAR（VASP形式）
--	RSDFT形式
--	OpenMX入力ファイル
--	Quntum ESPRESSO入力ファイル
+-	POSCAR（VASP 形式）
+-	OpenMX 入力ファイル
+-	Quantum ESPRESSO 入力ファイル
 
 となっています。ファイル選択後「Submit」ボタンをクリックすると、
 アップロードした原子構造が Quloud に登録されます。
 
+例として、OpenMX のウェブサイト（https://www.openmx-square.org/openmx_man3.9jp/node20.html）
+に載っているメタン分子の構造ファイル「Methane.dat」をアップロードしてみます。
+
+.. image:: images/screenshot_0054.png
+
+「Submit」をクリックすると、ウィンドウが閉じて、入力ファイル「Methane.dat」が表示された状態で登録画面に戻ります。
+
+.. image:: images/screenshot_0055.png
+
+Material の名前（ここでは "Methane (OpenMX)" ）を設定し、「Submit」をクリックすれば、原子構造が登録された状態でトップ画面に戻ります。
+
+.. image:: images/screenshot_0056.png

@@ -17,7 +17,7 @@ https://staging.2g.quloud-platform.com/sign_in
 
 上図の画面で、登録したメールアドレス、設定したパスワードを入力し、「Sign In」をクリックすると、トップ画面に移ります。
 
-.. image:: images/screenshot_0029.png
+.. image:: images/screenshot_0001.png
 
 ------------------------------
 パスワードを忘れたときは
