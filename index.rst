@@ -12,9 +12,7 @@ Home
 
   source/dashboard
   source/jobs_and_models_atom
-  source/job1
   source/jobdetail
-  source/side
   source/modeling
   source/calculation
   source/runjob
