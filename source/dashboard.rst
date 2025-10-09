@@ -33,7 +33,7 @@ Project の重要な機能として、例えば Project 内の Material から J
 （ただし元になった Material が複数の Project に属していたとしても、そこから派生した Job は、
 現在選択中の Project にのみ、自動的に登録されます。）
 
-**また、 Project を削除すると、配下にある Material や Job もすべて削除されてしまうのでご注意ください。**
+**また、Project を削除すると、配下にある Material や Job もすべて削除されてしまいますのでご注意ください。**
 
 ------------------------------------
 Materials
