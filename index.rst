@@ -10,6 +10,7 @@ Home
   :maxdepth: 2
   :numbered:
 
+  source/version
   source/dashboard
   source/jobs_and_models_atom
   source/jobdetail
