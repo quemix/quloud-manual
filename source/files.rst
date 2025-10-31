@@ -1018,7 +1018,7 @@ Energy Barrier (NEB) では、以下の設定が追加されています。
 
     -   NEB.Atoms.SpeciesAndCoordinates：生成物の原子座標および各スピン毎の電子数を指定します。記述の方法は Atoms.SpeciesAndCoordinates（反応物の場合）と同様です。
 
--   その他のパラメータ
+-   ファイル最下部のパラメータ
 
     -   MD.Type：NEB 計算を行う場合、NEB に設定します。
     -   MD.NEB.Number.Images：エネルギー経路中のイメージ数を指定します。ただし、２つの終端構造（反応物と生成物）はイメージの数から除きます。デフォルトでは 10 となっています。
@@ -1027,6 +1027,197 @@ Energy Barrier (NEB) では、以下の設定が追加されています。
     -   MD.Opt.criterion：エネルギー経路の最適化計算の収束条件を設定します。原子にかかる力の最大絶対値がここで指定した値より小さくなった場合に、最適化計算は終了します。デフォルトでは 0.01 Hartree/Bohr となっています。
     -   MD.Opt.StartDIIS：エネルギー経路の最適化はハイブリッド最適化法（DIIS + BFGS）によって行います。ここでは、ハイブリッド最適化法を開始するステップを指定します。それ以前のステップでは最急降下法が使用されます。デフォルトでは 5 となっています。
     -   MD.Opt.DIIS.History：エネルギー経路の最適化のために参照する過去のステップ数を指定します。デフォルトでは 3 となっています。
+
+**First-Principles MD の場合**
+
+::
+
+    #
+    #    File Name
+    #
+
+    System.CurrrentDirectory ./
+    System.Name QuloudJob
+    DATA.PATH /usr/local/rsdft/DFT_DATA19
+
+    #
+    # Definition of Atomic Species
+    #
+
+    Species.Number 3
+    <Definition.of.Atomic.Species
+     Ba Ba10.0-s3p2d2 Ba_PBE19
+     O O6.0-s2p2d1 O_PBE19
+     Ti Ti7.0-s3p2d1 Ti_PBE19
+    Definition.of.Atomic.Species>
+
+    #
+    # Atoms
+    #
+
+    Atoms.Number 5
+    Atoms.SpeciesAndCoordinates.Unit FRAC
+    <Atoms.SpeciesAndCoordinates
+     1 Ba 0.5 0.5 0.58254146 5.0 5.0
+     2 Ti 0.0 0.0 0.1000427 6.0 6.0
+     3 O 0.0 0.5 0.06422054 3.0 3.0
+     4 O 0.5 0.0 0.06422054 3.0 3.0
+     5 O 0.0 0.0 0.54897175 3.0 3.0
+    Atoms.SpeciesAndCoordinates>
+    Atoms.UnitVectors.Unit Ang
+    <Atoms.UnitVectors
+     3.99037921 0.0 2.443402563455322e-16
+     6.417019188399763e-16 3.99037921 2.443402563455322e-16
+     0.0 0.0 4.10265539
+    Atoms.UnitVectors>
+
+    #atomic.orbital Standard 
+    ###
+    ### SCF or Electronic System
+    ###
+
+    scf.XcType GGA-PBE 
+    scf.SpinPolarization off 
+    scf.ElectronicTemperature  300 
+    scf.energycutoff 224.94602771541878 
+    # scf.Ngrid 36 36 36 
+    scf.maxIter 100 
+    scf.EigenvalueSolver band 
+    scf.Kgrid 4 4 4 
+    scf.criterion 1e-10 
+    scf.system.charge 0 
+    scf.Mixing.Type rmm-diisk 
+    scf.Init.Mixing.Weight 0.3 
+    scf.Min.Mixing.Weight 0.001 
+    scf.Max.Mixing.Weight 0.4 
+    scf.Mixing.History 5 
+    scf.Mixing.StartPulay 6 
+    scf.Electric.Field 0 0 0 
+    MD.Type NVT_NH
+    MD.maxIter 2000
+    MD.TimeStep 1
+    NH.Mass.HeatBath 20
+    <MD.TempControl
+      1
+      1000 300
+    MD.TempControl>
+    <MD.InitVelocity
+    MD.InitVelocity>
+
+First-Principles MD では、以下の設定が追加されています。
+
+-   ファイル最下部のパラメータ
+
+    -   MD.Type：分子動力学計算のタイプを指定します。デフォルトでは NVT_NH（Nose-Hoover 法による NVT アンサンブル MD）となっています。
+    -   MD.maxIter：分子動力学計算における最大の反復回数を指定します。デフォルトでは 2000 となっています。
+    -   MD.TimeStep：時間ステップ（fs）を指定します。デフォルトでは 1 fs となっています。
+    -   NH.Mass.HeatBath：MD.Type で NVT_NH を指定した場合、熱浴の質量を設定します。次元は「長さ^2 × 質量」で、長さにはボーア半径（Bohr）、質量には統一原子質量単位（炭素原子の主同位体の質量を 12.0 とする単位。記号は u）を用います。デフォルトでは 20 bohr²・u となっています。
+    -   MD.TempControl：NVT アンサンブルの分子動力学計算における原子運動の温度を指定します。NVT_NH を選択した場合の記述の方法は以下の通りです。
+
+        記述は <MD.TempControl で開始し、MD.TempControl> で終わります。
+
+        最初の数字で、続く温度指定の行数を指定します。上の例では１行あります。
+
+        後続する行の第１、２列では、それぞれ MD ステップ数と原子運動の温度を指定します。指定された MD ステップ間の温度は線形補完されます。
+
+    -   MD.InitVelocity：分子動力学のシミュレーションでは、各原子に初期速度を与えることができますが、Quloud のデフォルトでは設定されていません。
+
+**Exchange Coupling Parameters の場合**
+
+::
+
+    #
+    #    File Name
+    #
+
+    System.CurrrentDirectory ./
+    System.Name QuloudJob
+    DATA.PATH /usr/local/rsdft/DFT_DATA19
+
+    #
+    # Definition of Atomic Species
+    #
+
+    Species.Number 3
+    <Definition.of.Atomic.Species
+     Ba Ba10.0-s3p2d2 Ba_PBE19
+     O O6.0-s2p2d1 O_PBE19
+     Ti Ti7.0-s3p2d1 Ti_PBE19
+    Definition.of.Atomic.Species>
+
+    #
+    # Atoms
+    #
+
+    Atoms.Number 5
+    Atoms.SpeciesAndCoordinates.Unit FRAC
+    <Atoms.SpeciesAndCoordinates
+     1 Ba 0.5 0.5 0.58254146 5.0 5.0
+     2 Ti 0.0 0.0 0.1000427 6.0 6.0
+     3 O 0.0 0.5 0.06422054 3.0 3.0
+     4 O 0.5 0.0 0.06422054 3.0 3.0
+     5 O 0.0 0.0 0.54897175 3.0 3.0
+    Atoms.SpeciesAndCoordinates>
+    Atoms.UnitVectors.Unit Ang
+    <Atoms.UnitVectors
+     3.99037921 0.0 2.443402563455322e-16
+     6.417019188399763e-16 3.99037921 2.443402563455322e-16
+     0.0 0.0 4.10265539
+    Atoms.UnitVectors>
+
+    #atomic.orbital Standard 
+    ###
+    ### SCF or Electronic System
+    ###
+
+    scf.XcType GGA-PBE 
+    scf.SpinPolarization off 
+    scf.ElectronicTemperature  300 
+    scf.energycutoff 224.94602771541878 
+    # scf.Ngrid 36 36 36 
+    scf.maxIter 100 
+    scf.EigenvalueSolver band 
+    scf.Kgrid 4 4 4 
+    scf.criterion 1e-10 
+    scf.system.charge 0 
+    scf.Mixing.Type rmm-diisk 
+    scf.Init.Mixing.Weight 0.3 
+    scf.Min.Mixing.Weight 0.001 
+    scf.Max.Mixing.Weight 0.4 
+    scf.Mixing.History 5 
+    scf.Mixing.StartPulay 6 
+    scf.Electric.Field 0 0 0 
+    HS.fileout  on
+
+Exchange Coupling Parameters では、以下の設定が追加されています。
+
+-   ファイル最下部のパラメータ
+
+    -   HS.fileout：Exchange Coupling Parameters では、SCF 計算の結果をもとに交換結合パラメータを計算します。SCF 計算の出力ファイル「scfout」を生成するために、ここでは ON に設定します。
+
+++++++++++++++++++++++++++++
+jx.config
+++++++++++++++++++++++++++++
+
+Exchange Coupling Parameters で、交換結合パラメータを計算するための設定ファイルです。
+
+::
+
+    Flag.PeriodicSum off
+    Num.Poles 60
+    Num.Kgrid 1 1 1
+    Num.ij.pairs 1870
+    Bunch.ij.pairs 1870
+    <ijpairs.cellid
+      1 1 -2 -2 -2
+      1 1 -2 -2 -1
+      1 1 -2 -2 0
+        ・・・
+        ・・・
+      5 5 2 2 0
+      5 5 2 2 1
+      5 5 2 2 2
+    ijpairs.cellid>
 
 --------------------------------------------------------------
 RSDFT
@@ -1057,8 +1248,5 @@ Quloud-Mag-LLG
 --------------------------------------------------------------
 
 
---------------------------------------------------------------
-ログ
---------------------------------------------------------------
 
 
