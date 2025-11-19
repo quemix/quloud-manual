@@ -1,9 +1,10 @@
 ==============================
-原子構造モデリング
+Material のモデリング
 ==============================
+
 右側のメニューの「Modeling」をクリックすると、モデリングのタイプを選択するメニューが現れます。
 
-Material が Crystal の場合、
+Material が Crystal（結晶構造）の場合、
 
 -	Basic（セル変形、スーパーセル、原子削除、置換、移動）
 -	Slab model（表面スラブモデル）
@@ -14,7 +15,7 @@ Material が Crystal の場合、
 
 .. image:: images/screenshot_0063.png
 
-一方、Material が Molecule の場合、
+一方、Material が Molecule（分子構造）の場合、
 
 -	Basic
 -	Add Cell（孤立分子からスーパーセルモデルを作る）
@@ -24,6 +25,9 @@ Material が Crystal の場合、
 .. image:: images/screenshot_0141.png
 
 以下で各モデリング機能の説明を行います。
+
+|
+|
 
 ------------------------------------
 基本モデリング（Basic）
@@ -62,9 +66,6 @@ Unit Cell
 例として、格子ベクトル a3 の数値を大きくすると、以下のようになります。
 
 .. image:: images/screenshot_0079.png
-
-ここでの数値変更は、モデリング開始時点の単位胞の長さの変更であり、
-スーパーセルモデルの単位胞の長さではないことに注意してください。
 
 Supercell
 
@@ -163,10 +164,8 @@ Reset
 
 .. image:: images/screenshot_0096.png
 
-さらに、初期スピン差、構造最適化時の原子移動の拘束条件
-（動く方向を制限したり、完全に動かさないようにしたり）といった設定も可能です。
-また表面スラブモデル作成（後述）で付加できる終端用の擬水素原子については、上記に加えて、
-結合長と電荷の設定も可能になります。
+|
+|
 
 **********
 ボタン
@@ -195,6 +194,8 @@ Undo および Redo はモデリング途中の操作を戻したり、戻すの
 追加前の状態に戻った後 Redo を押すと、再び原子が１個追加された状態になります。
 Undo されていない状態で Redo を押した場合は何も起こりません。
 
+|
+|
 
 ------------------------------------
 表面スラブモデル（Slab model）
@@ -219,91 +220,133 @@ Slab Generator
 
 -	Miller index：真空領域に露出する表面のミラー指数を指定します。例えば、Si のコンベンショナルセルで表面スラブモデルを作成する際、ミラー指数を (001) とし、「Generate Slab」を押すと、スラブモデルの側面図は次のようになります。
 
- .. image:: images/screenshot_0100.png
+    .. image:: images/screenshot_0100.png
 
- 上面図は次のようになります。
+    |
 
- .. image:: images/screenshot_0101.png
+    上面図は次のようになります。
 
- 一方で、ミラー指数を (111) とし、「Generate Slab」を押すと、真空領域に露出する表面が変わり、側面図は次のようになります。
+    .. image:: images/screenshot_0101.png
 
- .. image:: images/screenshot_0102.png
+    |
 
- 上面図は次のようになります。 
+    一方で、ミラー指数を (111) とし、「Generate Slab」を押すと、真空領域に露出する表面が変わり、側面図は次のようになります。
 
- .. image:: images/screenshot_0103.png
+    .. image:: images/screenshot_0102.png
+
+    |
+
+    上面図は次のようになります。 
+
+    .. image:: images/screenshot_0103.png
+
+|
 
 -	slab size：スラブ層の厚さを指定します。元になるバルク構造のユニットセルを単位とします。例えば、スラブ層厚さを３とし、「Generate Slab」を押すと、次のようになります。
 
- .. image:: images/screenshot_0104.png
+    .. image:: images/screenshot_0104.png
+
+|
 
 -	vacuum size：真空層の厚さを指定します。単位はスラブサイズと同じです。例えば、真空層厚さを３とし、「Generate Slab」を押すと、次のようになります。
 
- .. image:: images/screenshot_0105.png
+    .. image:: images/screenshot_0105.png
+
+|
 
 -	orthogonal c slab：表面に垂直な軸を c 軸とするセルを取ります。
  
- **この機能では、ベクトル a3 が表面に対して厳密に垂直になるよう、強制的にセルを取り直すため、原子構造が変化してしまう場合がありますのでご注意ください。**
+    **この機能では、ベクトル a3 が表面に対して厳密に垂直になるよう、強制的にセルを取り直すため、Material の構造が変化してしまう場合がありますのでご注意ください。**
  
- 例として、Si の Primitive セルをバルク構造とするスラブモデルでは、下図のように、格子ベクトル a3 は表面に対して垂直にはなりません。
+    例として、Si の Primitive セルをバルク構造とするスラブモデルでは、下図のように、格子ベクトル a3 は表面に対して垂直にはなりません。
 
- .. image:: images/screenshot_0106.png
+    .. image:: images/screenshot_0106.png
 
- ここで「orthogonal c slab」にチェックを入れ、「Generate Slab」を押すと、表面に垂直になるよう、ベクトル a3 が取り直されます。
+    |
 
- .. image:: images/screenshot_0107.png
+    ここで「orthogonal c slab」にチェックを入れ、「Generate Slab」を押すと、表面に垂直になるよう、ベクトル a3 が取り直されます。
+
+    .. image:: images/screenshot_0107.png
+
+|
 
 -	center slab：スラブ領域をセルの中央に配置します。もともとチェックが入っています。
 
- .. image:: images/screenshot_0108.png
+    .. image:: images/screenshot_0108.png
 
- チェックを外し、「Generate Slab」を押すと、次のようになります。
+    |
 
- .. image:: images/screenshot_0109.png
+    チェックを外し、「Generate Slab」を押すと、次のようになります。
+
+    .. image:: images/screenshot_0109.png
+
+|
 
 -	pseudo H：終端用の擬水素原子を、表面の上部または下部に追加します。Z=1 以外の電荷を設定したり、表面原子との結合距離を設定することが可能です。
 
- .. image:: images/screenshot_0111.png
- .. image:: images/screenshot_0112.png
+    .. image:: images/screenshot_0111.png
+
+    .. image:: images/screenshot_0112.png
+
+|
 
 -	flip upside down：スラブモデルの上下を反転させます。例として、以下のようなモデルを作成します。
 
- .. image:: images/screenshot_0113.png
+    .. image:: images/screenshot_0113.png
 
- ここで「flip upside down」にチェックを入れ、「Generate Slab」を押すと、次のようになります。
+    |
 
- .. image:: images/screenshot_0114.png
+    ここで「flip upside down」にチェックを入れ、「Generate Slab」を押すと、次のようになります。
+
+    .. image:: images/screenshot_0114.png
+
+|
 
 Detailed Settings
 
 -	primitive：スラブモデルを primitive セルに変換します。例として、以下のようなモデルを作成します。
 
- .. image:: images/screenshot_0115.png
+    .. image:: images/screenshot_0115.png
 
- 上面図は以下の通りです。
+    |
 
- .. image:: images/screenshot_0116.png
+    上面図は以下の通りです。
 
- ここで「primitive」にチェックを入れ、「Generate Slab」を押すと、側面図は次のようになります。
+    .. image:: images/screenshot_0116.png
 
- .. image:: images/screenshot_0117.png
+    |
 
- 上面図を見ると、モデルが primitive セルに変換されていることが分かります。
+    ここで「primitive」にチェックを入れ、「Generate Slab」を押すと、側面図は次のようになります。
 
- .. image:: images/screenshot_0118.png
+    .. image:: images/screenshot_0117.png
+
+    |
+
+    上面図を見ると、モデルが primitive セルに変換されていることが分かります。
+
+    .. image:: images/screenshot_0118.png
+
+|
 
 -	lll_reduce：「orthogonal c slab」とは異なり、原子構造は変化させずに、ベクトル a3 を表面になるべく垂直にとる機能です。例として、以下のようなモデルを作成します。
 
- .. image:: images/screenshot_0119.png
+    .. image:: images/screenshot_0119.png
 
- ここで「lll_reduce」にチェックを入れ、「Generate Slab」を押すと、ベクトル a3 が垂直に近づいています。
+    |
 
- .. image:: images/screenshot_0120.png
+    ここで「lll_reduce」にチェックを入れ、「Generate Slab」を押すと、ベクトル a3 が垂直に近づいています。
+
+    .. image:: images/screenshot_0120.png
+
+|
 
 -	reorient：
 
 その他にもいくつかのパラメータが設定可能ですが、それらはすべて pymatgen（https://pymatgen.org）の 
 SlabGenerator の機能に準じていますので、詳しくは pymatgen のドキュメントをご参照ください。
+
+|
+|
 
 -----------------------------------------
 界面モデリング（Interface）
@@ -338,6 +381,9 @@ SlabGenerator の機能に準じていますので、詳しくは pymatgen の�
 選択した界面構造のモデリング画面に遷移します。
 
 .. image:: images/screenshot_0123.png
+
+|
+|
 
 -----------------------------------------------------
 分子挿入（Add Molecule）
@@ -379,6 +425,9 @@ SlabGenerator の機能に準じていますので、詳しくは pymatgen の�
 .. image:: images/screenshot_0128.png
 
 「Translate」を押すと再び平行移動モードに戻ります。
+
+|
+|
 
 -----------------------------------------------------
 孤立分子のスーパーセル（Add Cell）

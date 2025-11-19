@@ -16,14 +16,17 @@ Material 詳細画面は、左サイドメニューで「Property」「Job」「
 
 .. image:: images/screenshot_0058.png
 
+|
+|
+
 ------------------------------------
 Property
 ------------------------------------
 
-左サイドメニューの「Property」を選択すると、 Material の原子構造を確認できます。
+左サイドメニューの「Property」を選択すると、 Material の構造を確認できます。
 「Property」はさらに、「Summary」「Structure」「Properties」の３つのパートに分かれています。
 
-「Summary」では、一番上の図のように、原子構造の図が示されています。ドラッグすれば向きを変えることもできます。
+「Summary」では、一番上の図のように、Material の構造が図で示されています。ドラッグすれば向きを変えることもできます。
 また、マウスホイールやタッチパッドで拡大・縮小もできます。
 図の右上のアイコンをクリックすれば、ポップアップ表示させることもできます。
 
@@ -73,11 +76,14 @@ Property
 
 -	First-Principles Calculation（第一原理計算）
 -	Classical Molecular Dynamics Simulation（古典分子動力学法）
--	Advanced Classical MD（機械学習 MD & 自己学習ハイブリッドモンテカルロ法）
+-	Advanced Classical MD（機械学習 MD）
 -	Quloud-Mag（第一原理磁性材料シミュレーション）
 
 が選択可能です。カテゴリーを選択すると、各カテゴリーごとのさらに詳細な計算機能の一覧が表示されます。
 各カテゴリーの計算機能の詳細については章を改めて説明します。
+
+|
+|
 
 ----------------------------------------------
 Job
@@ -119,9 +125,12 @@ Job
 
 .. image:: images/screenshot_0074.png
 
-画面左上の「Structure」タブで「final」を選択すると、計算の収束状況も確認できます。
+画面左上の「Structure」タブで「final」を選択すると、計算の収束状況も確認できます（表示されない Job もあります）。
 
 .. image:: images/screenshot_0073.png
+
+|
+|
 
 ----------------------------------------------
 File
@@ -139,6 +148,9 @@ Job が実行前の場合（Status が Registered の場合）、
 .. image:: images/screenshot_0137.png
 
 この機能を用いて、GUI で提供していない、各計算ソフトの設定を行うことが可能です。
+
+|
+|
 
 ----------------------------------------------
 Delete
