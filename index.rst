@@ -3,25 +3,26 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Home
+Index
 ============================================
 
 .. toctree::
   :maxdepth: 2
   :numbered:
 
-  source/version
+  source/signup
+  source/signin
+  source/invitation
   source/dashboard
   source/jobs_and_models_atom
   source/jobdetail
   source/modeling
   source/calculation
   source/runjob
-  source/files
   source/visualization
+  source/files
   source/header
-  source/signin
-  source/signup
+  source/version
 
   
 
