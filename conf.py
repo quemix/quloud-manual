@@ -14,7 +14,7 @@ version = 'ver. 6.0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages']
+extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'sphinx_last_updated_by_git']
 # extensions = ['sphinx.ext.mathjax', 'sphinx_rtd_theme']
 
 templates_path = ['_templates']
@@ -49,3 +49,4 @@ html_theme_options = {
     # 'language_selector': True,
     # 'collapse_navigation': True,
 }
+html_last_updated_fmt = '%b %d, %Y'
