@@ -50,3 +50,4 @@ html_theme_options = {
     # 'collapse_navigation': True,
 }
 html_last_updated_fmt = '%b %d, %Y'
+html_favicon = 'source/images/favicon/Quloud_B.png'
