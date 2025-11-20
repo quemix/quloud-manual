@@ -4,7 +4,7 @@
 
 Quloud の利用を開始するには、まずサインアップを行う必要があります。以下の URL にアクセスしてください。
 
-https://staging.2g.quloud-platform.com/applicant
+https://2g.quloud-platform.com/applicant
 
 すると、以下の画面に移ります。
 

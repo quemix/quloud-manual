@@ -4,7 +4,7 @@
 
 サインアップ（１章参照）したアカウントでサインインするには、まず以下の URL にアクセスしてください。
 
-https://staging.2g.quloud-platform.com/sign_in
+https://2g.quloud-platform.com/sign_in
 
 すると、以下の画面に移ります。
 
