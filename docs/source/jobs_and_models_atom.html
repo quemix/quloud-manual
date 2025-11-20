@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Material の登録</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="6. Material 詳細画面" href="jobdetail.html" />
+    <link rel="prev" title="4. ダッシュボード（トップ画面）" href="dashboard.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="signup.html">1. サインアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signin.html">2. サインイン・サインアウト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invitation.html">3. 新規ユーザーの招待</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">4. ダッシュボード（トップ画面）</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Material の登録</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">5.1. 外部データベースからの登録</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#materials-project">5.1.1. 結晶構造（データベース：Materials Project）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pubchem">5.1.2. 分子構造（データベース：PubChem）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.2. ファイルアップロードによる登録</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobdetail.html">6. Material 詳細画面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Material の登録</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/jobs_and_models_atom.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="material">
+<h1><span class="section-number">5. </span>Material の登録<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
+<p>Mateiral の登録では、外部データベースから登録する方法と、ファイルをアップロードして登録する方法の２種類があります。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>外部データベースからの登録<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>結晶構造（Crystal）と分子構造（Molecule）では、使用するデータベースが異なります。以下、それぞれの場合での Material 登録方法を説明します。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="materials-project">
+<h3><span class="section-number">5.1.1. </span>結晶構造（データベース：Materials Project）<a class="headerlink" href="#materials-project" title="Link to this heading"></a></h3>
+<p>「Search in Crystal DB」のボタンをクリックすると、下図のようなデータベース検索のウィンドウが現れます。</p>
+<img alt="../_images/screenshot_0006.png" src="../_images/screenshot_0006.png" />
+<p>ここで元素名や組成、バンドギャップ等の物性値を入力し「Search」をクリックすると、
+条件に合致する物質の結晶構造が一覧で表示されます（下図）。</p>
+<img alt="../_images/screenshot_0007.png" src="../_images/screenshot_0007.png" />
+<p>登録したい結晶構造にチェックを入れ、
+ウィンドウの下部にある「Submit」をクリックします。</p>
+<img alt="../_images/screenshot_0008.png" src="../_images/screenshot_0008.png" />
+<p>すると、検索ウィンドウが閉じて、結晶構造（ここでは &quot;mp-149&quot; ）が表示された状態で登録画面に戻ります。</p>
+<img alt="../_images/screenshot_0051.png" src="../_images/screenshot_0051.png" />
+<p>Material の名前（ここでは &quot;Si&quot; ）を設定し、「Submit」をクリックすれば、結晶構造が登録された状態でトップ画面に戻ります。</p>
+<img alt="../_images/screenshot_0003.png" src="../_images/screenshot_0003.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="pubchem">
+<h3><span class="section-number">5.1.2. </span>分子構造（データベース：PubChem）<a class="headerlink" href="#pubchem" title="Link to this heading"></a></h3>
+<p>「Search in Molecule DB」をクリックすると、分子の名前や化学式で分子の座標データを検索するモードとなります。
+（現在、分子構造をそのまま計算できるソフトは搭載されておらず、
+結晶や表面といった周期系と組み合わせたモデルを作成する目的でのみ利用できます。）</p>
+<img alt="../_images/screenshot_0052.png" src="../_images/screenshot_0052.png" />
+<p>分子の名前や化学式を入力して「Search」をクリックすると、
+条件に合致する物質の分子構造が一覧で表示されます。</p>
+<img alt="../_images/screenshot_0009.png" src="../_images/screenshot_0009.png" />
+<p>登録したい分子構造にチェックを入れ、
+ウィンドウの下部にある「Submit」をクリックすると、検索ウィンドウが閉じて、
+分子構造（ここでは &quot;6325&quot; ）が表示された状態で登録画面に戻ります。</p>
+<img alt="../_images/screenshot_0053.png" src="../_images/screenshot_0053.png" />
+<p>Material の名前（ここでは &quot;Ethylene Molecule&quot; ）を設定し、「Submit」をクリックすれば、分子構造が登録された状態でトップ画面に戻ります。</p>
+<img alt="../_images/screenshot_0005.png" src="../_images/screenshot_0005.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2. </span>ファイルアップロードによる登録<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>「File Upload」のボタンをクリックすると、下図のようなファイルを選択するウィンドウが現れます。</p>
+<img alt="../_images/screenshot_0010.png" src="../_images/screenshot_0010.png" />
+<p>複数のファイルをアップロードする事も可能です。アップロード可能な結晶構造や分子構造のフォーマットは、現在</p>
+<ul class="simple">
+<li><p>CIF</p></li>
+<li><p>XYZ</p></li>
+<li><p>POSCAR（VASP 形式）</p></li>
+<li><p>OpenMX 入力ファイル</p></li>
+<li><p>Quantum ESPRESSO 入力ファイル</p></li>
+</ul>
+<p>となっています。ファイル選択後「Submit」ボタンをクリックすると、
+アップロードした結晶構造や分子構造が Quloud に登録されます。</p>
+<p>例として、OpenMX のウェブサイト（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/node20.html">https://www.openmx-square.org/openmx_man3.9jp/node20.html</a>）
+に載っているメタン分子の構造ファイル「Methane.dat」をアップロードしてみます。</p>
+<img alt="../_images/screenshot_0054.png" src="../_images/screenshot_0054.png" />
+<p>「Submit」をクリックすると、ウィンドウが閉じて、入力ファイル「Methane.dat」が表示された状態で登録画面に戻ります。</p>
+<img alt="../_images/screenshot_0055.png" src="../_images/screenshot_0055.png" />
+<p>Material の名前（ここでは &quot;Methane (OpenMX)&quot; ）を設定し、「Submit」をクリックすれば、メタン分子の構造が登録された状態でトップ画面に戻ります。</p>
+<img alt="../_images/screenshot_0056.png" src="../_images/screenshot_0056.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="dashboard.html" class="btn btn-neutral float-left" title="4. ダッシュボード（トップ画面）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jobdetail.html" class="btn btn-neutral float-right" title="6. Material 詳細画面" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Quemix inc.
+      <span class="lastupdated">最終更新: 11月 19, 2025
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

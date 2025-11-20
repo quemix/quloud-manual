@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12. ヘッダーメニュー（各種管理）</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="13. 本バージョンの仕様" href="version.html" />
+    <link rel="prev" title="11. 入出力ファイルとログ" href="files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="signup.html">1. サインアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signin.html">2. サインイン・サインアウト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invitation.html">3. 新規ユーザーの招待</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">4. ダッシュボード（トップ画面）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">5. Material の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobdetail.html">6. Material 詳細画面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">12. ヘッダーメニュー（各種管理）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tenant">12.1. Tenant 管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">12.2. ポイント・ストレージの利用状況確認</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">12.3. ユーザー管理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">12.4. お問い合わせ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">12.5. 利用規約</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">12. </span>ヘッダーメニュー（各種管理）</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/header.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">12. </span>ヘッダーメニュー（各種管理）<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>下図のように、Quloud の画面右上には常時４つのアイコンが表示されており、それぞれ</p>
+<ul class="simple">
+<li><p>「ｉ」：            お知らせ</p></li>
+<li><p>「？」：    このドキュメント、お問い合わせ、利用規約</p></li>
+<li><p>歯車：     メンバー一覧、招待、計算ポイント＆ストレージ</p></li>
+<li><p>ユーザー：   ユーザー情報、サインアウト</p></li>
+</ul>
+<p>という機能に対応しています。</p>
+<img alt="../_images/screenshot_0019.png" src="../_images/screenshot_0019.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="tenant">
+<h2><span class="section-number">12.1. </span>Tenant 管理<a class="headerlink" href="#tenant" title="Link to this heading"></a></h2>
+<p>ヘッダー部の歯車のアイコンをクリックすると、</p>
+<ul class="simple">
+<li><p>Tenant メンバー一覧（Users）</p></li>
+<li><p>Tenant への招待（Invitation）</p></li>
+<li><p>ポイント・ストレージの利用状況確認（Usage Status）</p></li>
+</ul>
+<p>という機能が選択できます。</p>
+<img alt="../_images/screenshot_0129.png" src="../_images/screenshot_0129.png" />
+<p>それぞれの機能を以下に説明します。</p>
+<p>「Users」をクリックすると、Tenant メンバーの一覧画面が表示されます。</p>
+<img alt="../_images/screenshot_0022.png" src="../_images/screenshot_0022.png" />
+<p>「Show User」ボタンで各メンバーの詳細情報を確認できます。</p>
+<img alt="../_images/screenshot_0130.png" src="../_images/screenshot_0130.png" />
+<p>管理ユーザー（Owner）は「Edit User」ボタンでメンバーの権限（Owner/Member）を変更することが可能です。</p>
+<img alt="../_images/screenshot_0131.png" src="../_images/screenshot_0131.png" />
+<p>また、管理ユーザーは「Delete User」ボタンでメンバーを Tenant から削除することも可能です。</p>
+<img alt="../_images/screenshot_0132.png" src="../_images/screenshot_0132.png" />
+<p>Tenant からメンバーを外す際に、そのメンバーに属している Job 等を他のメンバーに引き継ぐか、
+あるいは Quloud 上から完全に削除するかを選ぶ必要があります。
+他のメンバーに引き継ぐ場合、「Please select user」で移管先のメンバーを指定します。</p>
+<img alt="../_images/screenshot_0133.png" src="../_images/screenshot_0133.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">12.2. </span>ポイント・ストレージの利用状況確認<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>歯車のアイコンをクリックし、「Usage Status」をクリックすると、下図のような画面が表示されます。
+この画面では、現在の（Tenant 全体の）保有計算ポイントと、各ユーザーのポイント・ストレージ利用状況を確認することができます。</p>
+<img alt="../_images/screenshot_0020.png" src="../_images/screenshot_0020.png" />
+<p>ポイントをクリックすると、そのユーザーのポイント消費の履歴を確認することができます。</p>
+<img alt="../_images/screenshot_0038.png" src="../_images/screenshot_0038.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">12.3. </span>ユーザー管理<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>ヘッダー部のユーザーのアイコンをクリックし、「Profile」をクリックします。</p>
+<img alt="../_images/screenshot_0134.png" src="../_images/screenshot_0134.png" />
+<p>すると、下図のような画面が表示されます。</p>
+<img alt="../_images/screenshot_0023.png" src="../_images/screenshot_0023.png" />
+<p>ここで、ユーザー情報の確認や編集、パスワードの変更が行えます。</p>
+<p>右の鉛筆のマークをクリックすると、ユーザー情報の編集画面に移ります。</p>
+<img alt="../_images/screenshot_0024.png" src="../_images/screenshot_0024.png" />
+<p>情報を編集し、「Submit」をクリックすると、変更した内容が反映されます。</p>
+<p>また、右の鍵のマークをクリックすると、パスワード変更画面に移ります。</p>
+<img alt="../_images/screenshot_0025.png" src="../_images/screenshot_0025.png" />
+<p>現在のパスワードと、新しいパスワード（２か所）を入力し、「Submit」をクリックすると、パスワード変更が反映されます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">12.4. </span>お問い合わせ<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<p>ヘッダー部の「？」のアイコンをクリックし、「Inquiry」をクリックします。</p>
+<img alt="../_images/screenshot_0135.png" src="../_images/screenshot_0135.png" />
+<p>すると、下図のような画面が表示されます。</p>
+<img alt="../_images/screenshot_0026.png" src="../_images/screenshot_0026.png" />
+<p>お問い合わせのカテゴリを選択し、タイトル・内容を記入後、「確認」ボタンを押すと、お問い合わせ内容の確認画面に移ります。</p>
+<img alt="../_images/screenshot_0027.png" src="../_images/screenshot_0027.png" />
+<p>内容を確認後、「送信」ボタンを押すと、お問い合わせ完了画面が表示され、入力したメールアドレスに確認メールが送信されます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id5">
+<h2><span class="section-number">12.5. </span>利用規約<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<p>ヘッダー部の「？」のアイコンをクリックし、「Terms of service」をクリックします。</p>
+<img alt="../_images/screenshot_0166.png" src="../_images/screenshot_0166.png" />
+<p>すると、利用規約が確認できます。</p>
+<img alt="../_images/screenshot_0167.png" src="../_images/screenshot_0167.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="files.html" class="btn btn-neutral float-left" title="11. 入出力ファイルとログ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="version.html" class="btn btn-neutral float-right" title="13. 本バージョンの仕様" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Quemix inc.
+      <span class="lastupdated">最終更新: 11月 19, 2025
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

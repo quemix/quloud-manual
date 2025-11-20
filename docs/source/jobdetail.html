@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Material 詳細画面</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="7. Material のモデリング" href="modeling.html" />
+    <link rel="prev" title="5. Material の登録" href="jobs_and_models_atom.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="signup.html">1. サインアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signin.html">2. サインイン・サインアウト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invitation.html">3. 新規ユーザーの招待</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">4. ダッシュボード（トップ画面）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">5. Material の登録</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Material 詳細画面</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#property">6.1. Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job">6.2. Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file">6.3. File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delete">6.4. Delete</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Material 詳細画面</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/jobdetail.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="material">
+<h1><span class="section-number">6. </span>Material 詳細画面<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
+<p>ダッシュボードの一覧から項目名をクリックすることで、下図のような Material 詳細画面に遷移します。</p>
+<img alt="../_images/screenshot_0011.png" src="../_images/screenshot_0011.png" />
+<p>ここでは各 Material/Job の詳細な情報や、
+計算終了後は、その計算の結果等を確認することができます。またサイドメニューから、
+登録情報をベースにした新たな Job の作成やモデリングを行うこともできます。
+詳細画面からの Job 作成は全て GUI 形式で行うため、
+直感的な操作で材料計算を実行することができます。</p>
+<p>Material 詳細画面は、左サイドメニューで「Property」「Job」「File」「Delete」の４つのパートに分かれています。</p>
+<img alt="../_images/screenshot_0058.png" src="../_images/screenshot_0058.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="property">
+<h2><span class="section-number">6.1. </span>Property<a class="headerlink" href="#property" title="Link to this heading"></a></h2>
+<p>左サイドメニューの「Property」を選択すると、 Material の構造を確認できます。
+「Property」はさらに、「Summary」「Structure」「Properties」の３つのパートに分かれています。</p>
+<p>「Summary」では、一番上の図のように、Material の構造が図で示されています。ドラッグすれば向きを変えることもできます。
+また、マウスホイールやタッチパッドで拡大・縮小もできます。
+図の右上のアイコンをクリックすれば、ポップアップ表示させることもできます。</p>
+<img alt="../_images/screenshot_0136.png" src="../_images/screenshot_0136.png" />
+<p>「Structure」では、下図のようにユニットセルの情報や、含まれる原子の種類や原子数の情報が示されています。</p>
+<img alt="../_images/screenshot_0012.png" src="../_images/screenshot_0012.png" />
+<p>「Properties」では、下図のようにブリルアン・ゾーンの図が示されています。</p>
+<img alt="../_images/screenshot_0057.png" src="../_images/screenshot_0057.png" />
+<p>計算済みの Job が存在する場合、ここでは計算結果も確認できます。
+まず、画面左上の「Job」タブで当該 Job を選択します。</p>
+<img alt="../_images/screenshot_0138.png" src="../_images/screenshot_0138.png" />
+<p>次に、「Structure」タブで「final」が選択されていることを確認します。</p>
+<img alt="../_images/screenshot_0139.png" src="../_images/screenshot_0139.png" />
+<p>下にスクロールすると、計算で出てきた物質の様々な情報が確認できます。</p>
+<img alt="../_images/screenshot_0140.png" src="../_images/screenshot_0140.png" />
+<p>画面右上の「Modeling」ボタンをクリックすると、モデリングのタイプを選択するメニューが表示されます。</p>
+<img alt="../_images/screenshot_0063.png" src="../_images/screenshot_0063.png" />
+<p>現在</p>
+<ul class="simple">
+<li><p>Basic（セル変形、スーパーセル、原子削除、置換、移動）</p></li>
+<li><p>Slab model（表面スラブモデル）</p></li>
+<li><p>Interface（界面モデル）</p></li>
+<li><p>Add Molecule（表面分子吸着）</p></li>
+<li><p>Add Cell（孤立分子からスーパーセルモデルを作る）</p></li>
+</ul>
+<p>という選択肢があります。モデリング機能および各メニューの詳細については章を改めて説明します。</p>
+<p>画面右上の「Create Job」ボタンをクリックすると、
+材料計算のカテゴリーを選択するメニューが表示されます。</p>
+<img alt="../_images/screenshot_0064.png" src="../_images/screenshot_0064.png" />
+<p>現在</p>
+<ul class="simple">
+<li><p>First-Principles Calculation（第一原理計算）</p></li>
+<li><p>Classical Molecular Dynamics Simulation（古典分子動力学法）</p></li>
+<li><p>Advanced Classical MD（機械学習 MD）</p></li>
+<li><p>Quloud-Mag（第一原理磁性材料シミュレーション）</p></li>
+</ul>
+<p>が選択可能です。カテゴリーを選択すると、各カテゴリーごとのさらに詳細な計算機能の一覧が表示されます。
+各カテゴリーの計算機能の詳細については章を改めて説明します。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="job">
+<h2><span class="section-number">6.2. </span>Job<a class="headerlink" href="#job" title="Link to this heading"></a></h2>
+<p>左サイドメニューの「Job」を選択すると、 次のように表示されます。</p>
+<img alt="../_images/screenshot_0065.png" src="../_images/screenshot_0065.png" />
+<p>ここでは、作成した Job が存在する場合、Job の実行、編集、コピー、削除、キャンセルを行うことができます。
+その前にまず、画面左上の「Job」タブで Job を選択する必要があります。</p>
+<img alt="../_images/screenshot_0066.png" src="../_images/screenshot_0066.png" />
+<p>例として、「Si Electron Band Structure (Quantum ESPRESSO)」を選択すると、Job の設定が表示され、
+画面右上に「Edit Job」「Copy Job」「Delete Job」ボタンが現れます。
+実行していない Job の場合は、「Run Job」ボタンも現れます。</p>
+<img alt="../_images/screenshot_0067.png" src="../_images/screenshot_0067.png" />
+<p>実行中の Job の場合は「Cancel Job」ボタンが現れます。</p>
+<img alt="../_images/screenshot_0071.png" src="../_images/screenshot_0071.png" />
+<p>「Job」はさらに、「Settings」「Computation」の２つのパートに分かれています。
+実行中または実行済みの Job の場合は、３つ目の「Log」パートも存在します。</p>
+<img alt="../_images/screenshot_0072.png" src="../_images/screenshot_0072.png" />
+<p>「Settings」では、Job 作成時に設定した計算条件が表示されます。</p>
+<img alt="../_images/screenshot_0068.png" src="../_images/screenshot_0068.png" />
+<p>「Computation」では、計算リソースや計算時間などの設定が表示されます。</p>
+<img alt="../_images/screenshot_0069.png" src="../_images/screenshot_0069.png" />
+<p>「Log」では、計算ログファイルの確認およびダウンロードが可能です。</p>
+<img alt="../_images/screenshot_0074.png" src="../_images/screenshot_0074.png" />
+<p>画面左上の「Structure」タブで「final」を選択すると、計算の収束状況も確認できます（表示されない Job もあります）。</p>
+<img alt="../_images/screenshot_0073.png" src="../_images/screenshot_0073.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="file">
+<h2><span class="section-number">6.3. </span>File<a class="headerlink" href="#file" title="Link to this heading"></a></h2>
+<p>左サイドメニューの「File」を選択すると、各 Job の入力ファイル、
+出力ファイルのダウンロードが可能です。</p>
+<img alt="../_images/screenshot_0070.png" src="../_images/screenshot_0070.png" />
+<p>Job が実行前の場合（Status が Registered の場合）、
+入力ファイルについては、「Edit」ボタンをクリックすると、
+テキストファイルであれば、その内容を確認することができ、さらに編集も可能です。</p>
+<img alt="../_images/screenshot_0137.png" src="../_images/screenshot_0137.png" />
+<p>この機能を用いて、GUI で提供していない、各計算ソフトの設定を行うことが可能です。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="delete">
+<h2><span class="section-number">6.4. </span>Delete<a class="headerlink" href="#delete" title="Link to this heading"></a></h2>
+<p>左サイドメニューの「Delete」を選択すると、 次のように表示されます。</p>
+<img alt="../_images/screenshot_0075.png" src="../_images/screenshot_0075.png" />
+<p>ここでは、Material の削除を行うことができます。関連する Job が存在する場合は、Job も含めて削除されます。
+「配下の Job が削除されることを確認しました」にチェックを入れると、「Submit」ボタンがアクティブになります。</p>
+<img alt="../_images/screenshot_0076.png" src="../_images/screenshot_0076.png" />
+<p>「Submit」ボタンをクリックすると、Material が削除され、TOP 画面に移ります。</p>
+<img alt="../_images/screenshot_0077.png" src="../_images/screenshot_0077.png" />
+<p>また、関連する Job も削除されています。</p>
+<img alt="../_images/screenshot_0078.png" src="../_images/screenshot_0078.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jobs_and_models_atom.html" class="btn btn-neutral float-left" title="5. Material の登録" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modeling.html" class="btn btn-neutral float-right" title="7. Material のモデリング" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Quemix inc.
+      <span class="lastupdated">最終更新: 11月 19, 2025
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

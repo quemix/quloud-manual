@@ -1,0 +1,178 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. 計算 Job の実行</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="10. 計算結果の可視化" href="visualization.html" />
+    <link rel="prev" title="8. 計算 Job の登録" href="calculation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="signup.html">1. サインアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signin.html">2. サインイン・サインアウト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invitation.html">3. 新規ユーザーの招待</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">4. ダッシュボード（トップ画面）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">5. Material の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobdetail.html">6. Material 詳細画面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. 計算 Job の実行</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">9.1. Job の実行とキャンセル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">9.2. Job の実行によるポイント消費</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">9. </span>計算 Job の実行</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/runjob.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="job">
+<h1><span class="section-number">9. </span>計算 Job の実行<a class="headerlink" href="#job" title="Link to this heading"></a></h1>
+<p>ここでは、計算 Job を登録（８章参照）した後、Job を実行・キャンセルするための方法と、Job 実行によるポイント消費量の確認方法を説明します。計算結果の確認については次章で説明します。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="id1">
+<h2><span class="section-number">9.1. </span>Job の実行とキャンセル<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>前章で説明した方法で Job の登録を行うと、当該 Job が TOP 画面の Job 一覧に追加されます。</p>
+<img alt="../_images/screenshot_0146.png" src="../_images/screenshot_0146.png" />
+<p>登録直後は、Job の Status は Registered となっています。
+Job の名前をクリックすると、関連する Material の詳細画面に移ります。</p>
+<img alt="../_images/screenshot_0147.png" src="../_images/screenshot_0147.png" />
+<p>画面左上の「Job」タブで当該 Job を選択します。</p>
+<img alt="../_images/screenshot_0148.png" src="../_images/screenshot_0148.png" />
+<p>左サイドメニューで「Job」を選択します。</p>
+<img alt="../_images/screenshot_0149.png" src="../_images/screenshot_0149.png" />
+<p>すると、Job 登録時に設定した計算条件が表示されます。</p>
+<img alt="../_images/screenshot_0150.png" src="../_images/screenshot_0150.png" />
+<p>Job を実行するには、右上の「Run Job」ボタンをクリックします。クリックすると、下図のようなダイアログが表示されます。</p>
+<img alt="../_images/screenshot_0151.png" src="../_images/screenshot_0151.png" />
+<p>MPI 数、スレッド数、ノード数、計算時間の上限（Elapsed Time Limit (sec.)）を設定して「Submit」ボタンをクリックすると、Job が実行されます。
+Job のデータが計算サーバに伝達されると、Status が「Submitted」になります。</p>
+<img alt="../_images/screenshot_0152.png" src="../_images/screenshot_0152.png" />
+<p>計算が始まると、Job の Status が Running になります。</p>
+<img alt="../_images/screenshot_0153.png" src="../_images/screenshot_0153.png" />
+<p>Job の実行をキャンセルする場合は、右上の「Cancel Job」ボタンをクリックします。
+クリックすると、Status が Cancelled になります。</p>
+<img alt="../_images/screenshot_0154.png" src="../_images/screenshot_0154.png" />
+<p>計算が終了し、Job が正常に完了した場合は Status が Succeeded になり、何らかの異常があった場合は Failed になります。</p>
+<img alt="../_images/screenshot_0155.png" src="../_images/screenshot_0155.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">9.2. </span>Job の実行によるポイント消費<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<p>Job の実行では、以下の計算式に従ってポイントが消費されます。</p>
+<p><strong>「消費ポイント」＝「Required VCPUs / Node」×「Nodes」×「計算時間 (h)」× 20</strong></p>
+<p>「Required VCPUs / Node」と「Nodes」は、「Run Job」ボタンをクリックした後に表示されるダイアログで確認できます。</p>
+<img alt="../_images/screenshot_0156.png" src="../_images/screenshot_0156.png" />
+<p>「Required VCPUs / Node」と「Nodes」は、ここで設定する「MPI processes」と「Threads」により変化します。</p>
+<p>また、計算時間は単位が時間 (h) なので、例えば 6 分（360 秒）の場合は 0.1 となります。
+計算に費やした時間は、下図の「Elapsed Time」に表示されます。</p>
+<img alt="../_images/screenshot_0157.png" src="../_images/screenshot_0157.png" />
+<p>ここでは単位が秒 (sec) で表示されていますので、上の計算式に当てはめる際には、数値を 3600 で割って代入してください。</p>
+<p>なお、「Submit」ボタンで Job の実行を開始してから、Status が Succeeded（または Failed）になるまでの時間には、
+Job 情報を計算サーバに伝達したり、計算結果をサーバから取得したりする時間も含まれているため、
+「Elapsed Time」で表示される実際の計算時間とは異なりますのでご注意ください。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="calculation.html" class="btn btn-neutral float-left" title="8. 計算 Job の登録" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="visualization.html" class="btn btn-neutral float-right" title="10. 計算結果の可視化" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Quemix inc.
+      <span class="lastupdated">最終更新: 11月 19, 2025
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

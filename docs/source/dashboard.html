@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. ダッシュボード（トップ画面）</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=c033477b"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=4755f45a"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="5. Material の登録" href="jobs_and_models_atom.html" />
+    <link rel="prev" title="3. 新規ユーザーの招待" href="invitation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Quloud Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="signup.html">1. サインアップ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signin.html">2. サインイン・サインアウト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="invitation.html">3. 新規ユーザーの招待</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. ダッシュボード（トップ画面）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project">4.1. Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.1.1. Project の作成・共有</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.1.2. Project の削除</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#material">4.2. Material</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job">4.3. Job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">5. Material の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobdetail.html">6. Material 詳細画面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quloud Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">4. </span>ダッシュボード（トップ画面）</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/dashboard.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>ダッシュボード（トップ画面）<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>下図は Quloud のログイン直後の画面です。これから計算を始めていくにあたって重要な要素として、
+Project，Material，Job があります。</p>
+<img alt="../_images/screenshot_0001.png" src="../_images/screenshot_0001.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="project">
+<h2><span class="section-number">4.1. </span>Project<a class="headerlink" href="#project" title="Link to this heading"></a></h2>
+<p>Quloud では、材料のモデリングやシミュレーションは Project の中で行われます。そしてそれぞれの Project の中に、Material や Job が配置されます。
+Material はモデリングを行うための要素、Job はシミュレーションを行うための要素です。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="id2">
+<h3><span class="section-number">4.1.1. </span>Project の作成・共有<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>画面左上にある「New Project」をクリックすると、下図のようなメニューが開きます。</p>
+<img alt="../_images/screenshot_0181.png" src="../_images/screenshot_0181.png" />
+<p>管理ユーザー（Owner）の場合、作成した Project を Tenant 内のメンバーと共有することができます。
+「Name」に新しい Project の名前（ここでは &quot;Project_1&quot;）を入力し、Project を共有するメンバー（ここでは &quot;Planck Nicolas&quot;）にチェックを入れます。</p>
+<img alt="../_images/screenshot_0182.png" src="../_images/screenshot_0182.png" />
+<p>「Submit」をクリックすると、トップ画面左の Project 一覧に Project_1 が追加されていることが分かります。</p>
+<img alt="../_images/screenshot_0183.png" src="../_images/screenshot_0183.png" />
+<p>Project を共有した Planck Nicolas のアカウントからサインインすると、先ほど作成した Project_1 がここでも表示されています。</p>
+<img alt="../_images/screenshot_0002.png" src="../_images/screenshot_0002.png" />
+<p>Project が増えると、画面左上の「All Projects」をクリックしたとき、例えば下図のように Project の一覧が表示されるので、
+使用したい Project をクリックすれば、その Project に切り替わるようになっています。
+Project を切り替えると、画面上部に選択中の Project の名前（ここでは &quot;Project_1&quot;）が表示されます。
+このとき、Material や Job は、
+その Project に登録されているものだけが表示されるようになるので、データの整理等に利用できます。</p>
+<img alt="../_images/screenshot_0003.png" src="../_images/screenshot_0003.png" />
+<p>Project の重要な機能として、例えば Project 内の Material から Job を作ると、
+その Job も自動的に Project のメンバーとして登録されるというものがあります。
+（ただし元になった Material が複数の Project に属していたとしても、そこから派生した Job は、
+現在選択中の Project にのみ、自動的に登録されます。）</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">4.1.2. </span>Project の削除<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p><strong>まず、Project を削除すると、配下にある Material や Job もすべて削除されてしまいますのでご注意ください。</strong></p>
+<p>トップ画面左の Project 一覧で、削除する Project（ここでは &quot;Project_1&quot;）をクリックします。</p>
+<img alt="../_images/screenshot_0184.png" src="../_images/screenshot_0184.png" />
+<p>画面右上にゴミ箱のマークが現れるので、それをクリックすると、次のようなダイアログが出ます。</p>
+<img alt="../_images/screenshot_0185.png" src="../_images/screenshot_0185.png" />
+<p>警告メッセージを読み、削除に問題がなければチェックを入れます。すると、「Submit」ボタンがアクティブになります。</p>
+<img alt="../_images/screenshot_0186.png" src="../_images/screenshot_0186.png" />
+<p>「Submit」ボタンを押すと、トップ画面から Project_1 が消えます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="material">
+<h2><span class="section-number">4.2. </span>Material<a class="headerlink" href="#material" title="Link to this heading"></a></h2>
+<p>Project の名前の下にある「Materials」と「Jobs」のうち、左の「Materials」をクリックし、
+右側の「＋」のアイコンをクリックすると、次のようなメニューが開きます。</p>
+<img alt="../_images/screenshot_0004.png" src="../_images/screenshot_0004.png" />
+<p>ここでは計算したい物質の原子座標ファイルを登録します。
+「Atomic Structures」のメニュー内には３つのボタンがあり、それぞれ</p>
+<ul class="simple">
+<li><p>結晶構造データベース（Materials Project）で検索＆取得</p></li>
+<li><p>分子構造データベース（PubChem）で検索＆取得</p></li>
+<li><p>手持ちのファイルをアップロードする</p></li>
+</ul>
+<p>という登録方法に対応しています。データベース検索の方法等については後述することにして、
+とにかく原子座標ファイルが登録できたら、下記のように、
+最初の画面の「Materials」の欄に登録した情報が追加されます。</p>
+<img alt="../_images/screenshot_0005.png" src="../_images/screenshot_0005.png" />
+<p>登録した Material をクリックすると、
+次のような、その Material の詳細画面に移動することができます。</p>
+<img alt="../_images/screenshot_0059.png" src="../_images/screenshot_0059.png" />
+<p>この画面から、Material のモデリングを行ったり、各種計算を行ったりすることができます。
+Quloud では、モデリングの結果も「Material」というデータとして登録されます。
+また、計算結果は「Job」というデータとして登録されます。</p>
+<p>具体的なモデリングの方法については後述することにして、ここでは例として、
+Si のコンベンショナルセル（立方体セル）にするモデリングを実行したとします。
+すると、以下のように、最初の画面の「Materials」の欄にデータが追加されるのがわかります。</p>
+<img alt="../_images/screenshot_0060.png" src="../_images/screenshot_0060.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="job">
+<h2><span class="section-number">4.3. </span>Job<a class="headerlink" href="#job" title="Link to this heading"></a></h2>
+<p>Project の名前の下にある「Materials」と「Jobs」のうち、右の「Jobs」をクリックすると、
+次のような画面になります。</p>
+<img alt="../_images/screenshot_0061.png" src="../_images/screenshot_0061.png" />
+<p>Material 詳細画面から Job を作成すると、そのデータが追加されます。</p>
+<p>具体的な計算設定の方法については後述することにして、ここでは例として、
+Si のバンド計算の Job を作成したとします。
+すると、以下のように、最初の画面の「Jobs」の欄にデータが追加されるのがわかります。</p>
+<img alt="../_images/screenshot_0062.png" src="../_images/screenshot_0062.png" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="invitation.html" class="btn btn-neutral float-left" title="3. 新規ユーザーの招待" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jobs_and_models_atom.html" class="btn btn-neutral float-right" title="5. Material の登録" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Quemix inc.
+      <span class="lastupdated">最終更新: 11月 19, 2025
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
