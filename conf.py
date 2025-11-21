@@ -51,3 +51,4 @@ html_theme_options = {
 }
 html_last_updated_fmt = '%b %d, %Y'
 html_favicon = 'source/images/favicon/Quloud_B.png'
+html_show_sphinx = False
