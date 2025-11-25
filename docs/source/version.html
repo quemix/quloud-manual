@@ -60,9 +60,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#project">13.1. Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#material">13.2. Material</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">13.3. モデリング機能</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#job">13.4. 計算 Job</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#openmx">13.4.1. OpenMX に関する注意事項</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lammps">13.4.2. LAMMPS に関する注意事項</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#job">13.4. 計算 Job</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">13.5. 注意事項</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum-espresso">13.5.1. Quantum ESPRESSO に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openmx">13.5.2. OpenMX に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rsdft">13.5.3. RSDFT に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lammps">13.5.4. LAMMPS に関する注意事項</a></li>
 </ul>
 </li>
 </ul>
@@ -201,17 +204,52 @@
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
+</section>
+<section id="id3">
+<h2><span class="section-number">13.5. </span>注意事項<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="quantum-espresso">
+<h3><span class="section-number">13.5.1. </span>Quantum ESPRESSO に関する注意事項<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h3>
+<p>Electron Band Structure と Electron DOS で MPI Process 数を増やすとエラーが出てしまうため、デフォルト設定の 1 のまま実行してください。</p>
+<p>また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
 <section id="openmx">
-<h3><span class="section-number">13.4.1. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h3>
+<h3><span class="section-number">13.5.2. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h3>
 <p>OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf">https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf</a>）の Table 1 と Table 2 をご参照ください。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
+<section id="rsdft">
+<h3><span class="section-number">13.5.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h3>
+<p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
 <section id="lammps">
-<h3><span class="section-number">13.4.2. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h3>
-<p>計算 Job 登録時に原子間ポテンシャルファイルをユーザー自身でアップロードする場合、アップロード可能なファイル形式が下記に限定されておりますのでご注意ください。</p>
+<h3><span class="section-number">13.5.4. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h3>
+<p>計算 Job 登録時に原子間ポテンシャルファイルをユーザー自身でアップロードする場合、アップロード可能なファイル形式（拡張子）が下記に限定されておりますのでご注意ください。</p>
+<ul class="simple">
+<li><p>'.eam'</p></li>
+<li><p>'.meam'</p></li>
+<li><p>'.tersoff'</p></li>
+<li><p>'.tersoff.mod'</p></li>
+<li><p>'.tersoff.modc'</p></li>
+<li><p>'.ann'</p></li>
+<li><p>'.flare'</p></li>
+</ul>
+<p>また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。</p>
+<p>さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
 </section>
 </section>
 </section>
@@ -226,7 +264,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Nov 21, 2025.</p>
+    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Nov 25, 2025.</p>
   </div>
 
    

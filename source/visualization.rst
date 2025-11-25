@@ -27,11 +27,39 @@
 Quantum ESPRESSO
 ------------------------------------------------------------------------
 
--   Single-Point SCF：Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Atomic Structure Opt.：Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Lattice Opt.：Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Electron Band Structure：Electron Band、Effective Mass、Effective Mass (Table)、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Electron DOS：Electron Density Of States、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
+-   Single-Point SCF
+
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Atomic Structure Opt.
+
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Lattice Opt.
+
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Electron Band Structure
+
+    -   Electron Band
+    -   Effective Mass
+    -   Effective Mass (Table)
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Electron DOS
+
+    -   Electron Density Of States
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
 
 |
 |
@@ -40,14 +68,61 @@ Quantum ESPRESSO
 OpenMX
 ------------------------------------------------------------------------
 
--   Single-Point SCF：Total Electron Density、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Atomic Structure Opt.：Total Electron Density、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Lattice Opt.：Volume Vs Energy、Total Electron Density、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Electron Band Structure：Electron Band、Effective Mass、Effective Mass (Table)、Total Electron Density、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Electron DOS：Electron Density Of States、Total Electron Density、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Energy Barrier (NEB)：Energy Barrier、Atomic Structure Trajectory、Brillouin Zone、Total Electron Density
--   First-Principles MD：Total Electron Density、Kohn-Sham Levels、Brillouin Zone、Total Energy Information
--   Exchange Coupling Parameters：
+-   Single-Point SCF
+
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Atomic Structure Opt.
+
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Lattice Opt.
+
+    -   Volume Vs Energy
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Electron Band Structure
+
+    -   Electron Band
+    -   Effective Mass
+    -   Effective Mass (Table)
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Electron DOS
+
+    -   Electron Density Of States
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Energy Barrier (NEB)
+
+    -   Energy Barrier
+    -   Atomic Structure Trajectory
+    -   Brillouin Zone
+    -   Total Electron Density
+
+-   First-Principles MD
+
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Exchange Coupling Parameters
 
 |
 |
@@ -56,6 +131,54 @@ OpenMX
 RSDFT
 ------------------------------------------------------------------------
 
+-   Single-Point SCF
+
+    -   Total Electron Density
+    -   Kohn-Sham Orbitals
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Atomic Structure Opt.
+
+    -   Total Electron Density
+    -   Kohn-Sham Orbitals
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Lattice Opt.
+
+    -   Volume Vs Energy
+    -   Total Electron Density
+    -   Kohn-Sham Orbitals
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Electron Band Structure
+
+    -   Electron Band
+    -   Total Electron Density
+    -   Kohn-Sham Orbitals
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Electron DOS
+
+    -   Electron Density Of States
+    -   Total Electron Density
+    -   Kohn-Sham Orbitals
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   First-Principles MD
+
+    -   Brillouin Zone
+    -   Total Energy Information
+
 |
 |
 
@@ -63,12 +186,31 @@ RSDFT
 LAMMPS
 ------------------------------------------------------------------------
 
+-   Atomic Structure Opt.
+
+-   Molecular Dynamics
+
+    -   Atomic Structure Trajectory
+
 |
 |
 
 ------------------------------------------------------------------------
 FLARE
 ------------------------------------------------------------------------
+
+-   On-the-Fly MD
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   Potential Energy
+        -   Pressure
+        -   Volume
+        -   Density
+        -   Standard Deviation
+
+    -   Atomic Structure Trajectory
 
 |
 |
@@ -84,9 +226,23 @@ ASE-MD
 SPRKKR
 ------------------------------------------------------------------------
 
+-   First-Principles SCF
+
+    -   Brillouin Zone
+    -   Total Energy Information
+
+-   Exchange Coupling Parameters
+
+    -   Brillouin Zone
+    -   Curie Temperature
+
 |
 |
 
 ------------------------------------------------------------------------
 Quloud-Mag
 ------------------------------------------------------------------------
+
+-   Monte Carlo
+
+-   Micro-Magnetic Simulation
