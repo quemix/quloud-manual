@@ -85,6 +85,8 @@ Material
     -   Atomic Structure Opt.（LAMMPS）
     -   Molecular Dynamics（LAMMPS）
 
+        **dipole（双極子モーメント）の計算は、本バージョンではできなくなりました。**
+
     **Phonon Calculation は、本バージョンでは廃止となりました。**
 
     |
@@ -101,7 +103,9 @@ Material
     -   First-Principles SCF（SPRKKR）
     -   Exchange Coupling Parameters（SPRKKR）
     -   Monte Carlo（Quloud-Mag）
-    -   Micro-Magnetic Simulation（Quloud-Mag-LLG）（Job 登録時の Option Magnetic 選択欄は廃止）
+    -   Micro-Magnetic Simulation（Quloud-Mag-LLG）
+
+        **Job 登録時の Option Magnetic 選択欄は、本バージョンでは廃止となりました。**
 
     **Gilbert Damping Parameter、Transport Property、Monte Carlo (Snapshot of magnetic moments)、UppASD は、本バージョンでは廃止となりました。**
 

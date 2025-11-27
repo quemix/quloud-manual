@@ -188,7 +188,20 @@ LAMMPS
 
 -   Atomic Structure Opt.
 
+    -   Optimized Atomic Structure
+
 -   Molecular Dynamics
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   Total Energy
+        -   Pressure
+        -   Volume
+        -   Density
+        -   Uncertainty（FLARE ポテンシャル使用時のみ）
+        -   Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）
+        -   Radial Distribution Function（Job 登録時に compute 選択欄で選択した場合のみ）
 
     -   Atomic Structure Trajectory
 
