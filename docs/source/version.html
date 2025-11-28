@@ -172,11 +172,10 @@
 </div>
 </li>
 <li><p>Classical Molecular Dynamics Simulation</p>
-<ul>
+<ul class="simple">
 <li><p>Atomic Structure Opt.（LAMMPS）</p></li>
-<li><p>Molecular Dynamics（LAMMPS）</p>
-<p><strong>dipole（双極子モーメント）の計算は、本バージョンではできなくなりました。</strong></p>
-</li>
+<li><p>Molecular Dynamics（LAMMPS）
+<strong>※ dipole（双極子モーメント）の計算は、本バージョンではできなくなりました。</strong></p></li>
 </ul>
 <p><strong>Phonon Calculation は、本バージョンでは廃止となりました。</strong></p>
 <div class="line-block">
@@ -193,13 +192,12 @@
 </div>
 </li>
 <li><p>Quloud-Mag</p>
-<ul>
+<ul class="simple">
 <li><p>First-Principles SCF（SPRKKR）</p></li>
 <li><p>Exchange Coupling Parameters（SPRKKR）</p></li>
 <li><p>Monte Carlo（Quloud-Mag）</p></li>
-<li><p>Micro-Magnetic Simulation（Quloud-Mag-LLG）</p>
-<p><strong>Job 登録時の Option Magnetic 選択欄は、本バージョンでは廃止となりました。</strong></p>
-</li>
+<li><p>Micro-Magnetic Simulation（Quloud-Mag-LLG）
+<strong>※ Job 登録時の Option Magnetic 選択欄は、本バージョンでは廃止となりました。</strong></p></li>
 </ul>
 <p><strong>Gilbert Damping Parameter、Transport Property、Monte Carlo (Snapshot of magnetic moments)、UppASD は、本バージョンでは廃止となりました。</strong></p>
 </li>
@@ -211,6 +209,7 @@
 </section>
 <section id="id3">
 <h2><span class="section-number">13.5. </span>注意事項<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>以下に、計算 Job 実行時の注意事項をソフトウェアごとに記載します。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -234,7 +233,8 @@
 </section>
 <section id="rsdft">
 <h3><span class="section-number">13.5.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h3>
-<p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
+<strong>また、Thread 数を増やし過ぎると、計算が不安定になり、エラーが出てしまう場合もございますので、ユーザー自身で適切な Thread 数を設定してください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -268,7 +268,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Nov 27, 2025.</p>
+    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Nov 28, 2025.</p>
   </div>
 
    

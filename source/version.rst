@@ -84,8 +84,7 @@ Material
 
     -   Atomic Structure Opt.（LAMMPS）
     -   Molecular Dynamics（LAMMPS）
-
-        **dipole（双極子モーメント）の計算は、本バージョンではできなくなりました。**
+        **※ dipole（双極子モーメント）の計算は、本バージョンではできなくなりました。**
 
     **Phonon Calculation は、本バージョンでは廃止となりました。**
 
@@ -104,8 +103,7 @@ Material
     -   Exchange Coupling Parameters（SPRKKR）
     -   Monte Carlo（Quloud-Mag）
     -   Micro-Magnetic Simulation（Quloud-Mag-LLG）
-
-        **Job 登録時の Option Magnetic 選択欄は、本バージョンでは廃止となりました。**
+        **※ Job 登録時の Option Magnetic 選択欄は、本バージョンでは廃止となりました。**
 
     **Gilbert Damping Parameter、Transport Property、Monte Carlo (Snapshot of magnetic moments)、UppASD は、本バージョンでは廃止となりました。**
 
@@ -115,6 +113,8 @@ Material
 ----------------------------------------
 注意事項
 ----------------------------------------
+
+以下に、計算 Job 実行時の注意事項をソフトウェアごとに記載します。
 
 |
 |
@@ -144,6 +144,7 @@ RSDFT に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
+**また、Thread 数を増やし過ぎると、計算が不安定になり、エラーが出てしまう場合もございますので、ユーザー自身で適切な Thread 数を設定してください。**
 
 |
 |
