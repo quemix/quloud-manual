@@ -71,22 +71,18 @@ OpenMX
 -   Single-Point SCF
 
     -   Total Electron Density
-    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
 -   Atomic Structure Opt.
 
     -   Total Electron Density
-    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
 -   Lattice Opt.
 
-    -   Volume Vs Energy
     -   Total Electron Density
-    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
@@ -113,12 +109,9 @@ OpenMX
     -   Energy Barrier
     -   Atomic Structure Trajectory
     -   Brillouin Zone
-    -   Total Electron Density
 
 -   First-Principles MD
 
-    -   Total Electron Density
-    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
@@ -134,7 +127,6 @@ RSDFT
 -   Single-Point SCF
 
     -   Total Electron Density
-    -   Kohn-Sham Orbitals
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -142,16 +134,13 @@ RSDFT
 -   Atomic Structure Opt.
 
     -   Total Electron Density
-    -   Kohn-Sham Orbitals
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
 -   Lattice Opt.
 
-    -   Volume Vs Energy
     -   Total Electron Density
-    -   Kohn-Sham Orbitals
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -160,7 +149,6 @@ RSDFT
 
     -   Electron Band
     -   Total Electron Density
-    -   Kohn-Sham Orbitals
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -169,7 +157,6 @@ RSDFT
 
     -   Electron Density Of States
     -   Total Electron Density
-    -   Kohn-Sham Orbitals
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -232,6 +219,21 @@ FLARE
 ASE-MD
 ------------------------------------------------------------------------
 
+-   OPT
+
+    -   Optimized Atomic Structure
+
+-   MD
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   Total Energy
+        -   Potential Energy
+        -   Kinetic Energy
+
+    -   Atomic Structure Trajectory
+
 |
 |
 
@@ -248,6 +250,7 @@ SPRKKR
 
     -   Brillouin Zone
     -   Curie Temperature
+    -   Exchange Coupling Parameters
 
 |
 |
