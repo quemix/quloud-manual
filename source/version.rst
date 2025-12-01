@@ -123,7 +123,7 @@ Material
 Quantum ESPRESSO に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-Electron Band Structure と Electron DOS で MPI Process 数を増やすとエラーが出てしまうため、デフォルト設定の 1 のまま実行してください。
+Electron Band Structure と Electron DOS では、MPI Process 数を増やすとエラーが出てしまうため、デフォルト設定の 1 のまま実行してください。
 
 また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 
@@ -135,6 +135,8 @@ OpenMX に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf）の Table 1 と Table 2 をご参照ください。
+
+**また、Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
 
 |
 |
