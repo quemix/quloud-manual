@@ -33,17 +33,23 @@ Quantum ESPRESSO
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Atomic Structure Opt.
 
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Lattice Opt.
 
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
 
 -   Electron Band Structure
 
@@ -53,6 +59,8 @@ Quantum ESPRESSO
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
 
 -   Electron DOS
 
@@ -74,17 +82,23 @@ OpenMX
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Atomic Structure Opt.
 
     -   Total Electron Density
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Lattice Opt.
 
     -   Total Electron Density
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
 
 -   Electron Band Structure
 
@@ -96,6 +110,8 @@ OpenMX
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Electron DOS
 
     -   Electron Density Of States
@@ -104,16 +120,22 @@ OpenMX
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Energy Barrier (NEB)
 
     -   Energy Barrier
     -   Atomic Structure Trajectory
     -   Brillouin Zone
 
+    |
+
 -   First-Principles MD
 
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
 
 -   Exchange Coupling Parameters
 
@@ -131,6 +153,8 @@ RSDFT
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Atomic Structure Opt.
 
     -   Total Electron Density
@@ -138,12 +162,16 @@ RSDFT
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Lattice Opt.
 
     -   Total Electron Density
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
 
 -   Electron Band Structure
 
@@ -153,6 +181,8 @@ RSDFT
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Electron DOS
 
     -   Electron Density Of States
@@ -160,6 +190,8 @@ RSDFT
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
 
 -   First-Principles MD
 
@@ -177,6 +209,8 @@ LAMMPS
 
     -   Optimized Atomic Structure
 
+    |
+
 -   Molecular Dynamics
 
     -   Time Evolution Data (MD)
@@ -189,6 +223,8 @@ LAMMPS
         -   Uncertainty（FLARE ポテンシャル使用時のみ）
         -   Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）
         -   Radial Distribution Function（Job 登録時に compute 選択欄で選択した場合のみ）
+
+        |
 
     -   Atomic Structure Trajectory
 
@@ -210,6 +246,8 @@ FLARE
         -   Density
         -   Standard Deviation
 
+        |
+
     -   Atomic Structure Trajectory
 
 |
@@ -223,6 +261,8 @@ ASE-MD
 
     -   Optimized Atomic Structure
 
+    |
+
 -   MD
 
     -   Time Evolution Data (MD)
@@ -231,6 +271,8 @@ ASE-MD
         -   Total Energy
         -   Potential Energy
         -   Kinetic Energy
+
+        |
 
     -   Atomic Structure Trajectory
 
@@ -246,6 +288,8 @@ SPRKKR
     -   Brillouin Zone
     -   Total Energy Information
 
+    |
+
 -   Exchange Coupling Parameters
 
     -   Brillouin Zone
@@ -260,5 +304,10 @@ Quloud-Mag
 ------------------------------------------------------------------------
 
 -   Monte Carlo
+
+    -   Magnetization
+    -   Magnetic Susceptibility
+
+    |
 
 -   Micro-Magnetic Simulation
