@@ -115,6 +115,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#id9">11.3.2. 出力ファイル</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#scfconv-csv">11.3.2.1. scfconv.csv</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#optconv-csv">11.3.2.2. optconv.csv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#band-json">11.3.2.3. band.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dos-json">11.3.2.4. dos.json</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#info-dat">11.3.2.5. info.dat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trajectory-cif">11.3.2.6. TRAJECTORY.cif</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsdft-atom-out-cif">11.3.2.7. rsdft.atom.out.cif</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#id10">11.3.3. ログ</a></li>
@@ -2063,9 +2068,81 @@ ijpairs.cellid&gt;
 <div class="line"><br /></div>
 </div>
 </section>
+<section id="band-json">
+<h4><span class="section-number">11.3.2.3. </span>band.json<a class="headerlink" href="#band-json" title="Link to this heading"></a></h4>
+<p>Electron Band Structure での、電子バンド図描画用のデータが出力されます。エネルギーの値は、ファイル内の &quot;Band #1&quot; などにハートリー原子単位で記載されています。なお、電子バンド図では、これらのエネルギーの値を、ファイル３行目のフェルミエネルギー &quot;efermi&quot; で差し引いた値で表示されます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="dos-json">
+<h4><span class="section-number">11.3.2.4. </span>dos.json<a class="headerlink" href="#dos-json" title="Link to this heading"></a></h4>
+<p>Electron DOS での、電子状態密度計算結果のデータが出力されます。横軸のエネルギーの値は、ファイル内の &quot;x&quot; にハートリー原子単位で記載されています。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="info-dat">
+<h4><span class="section-number">11.3.2.5. </span>info.dat<a class="headerlink" href="#info-dat" title="Link to this heading"></a></h4>
+<p>First-Principles MD での、各ステップにおけるデータが出力されます。出力される項目は下記の通りです。</p>
+<ul>
+<li><p>Born-Oppenheimer MD</p>
+<ul class="simple">
+<li><p>経過時間</p></li>
+<li><p>全エネルギー</p></li>
+<li><p>全エネルギーの変化量</p></li>
+<li><p>全エネルギー（DFT）</p></li>
+<li><p>運動エネルギー</p></li>
+<li><p>熱浴のエネルギー</p></li>
+<li><p>温度</p></li>
+<li><p>Kohn-Sham 方程式の固有値の和</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Car-Parrinello MD</p>
+<ul class="simple">
+<li><p>経過時間</p></li>
+<li><p>全エネルギー</p></li>
+<li><p>全エネルギーの変化量</p></li>
+<li><p>全エネルギー（DFT）</p></li>
+<li><p>運動エネルギー</p></li>
+<li><p>仮想的な運動エネルギー</p></li>
+<li><p>熱浴のエネルギー</p></li>
+<li><p>温度</p></li>
+<li><p>Kohn-Sham 方程式の固有値の和</p></li>
+<li><p>電子の熱浴のエネルギー</p></li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="trajectory-cif">
+<h4><span class="section-number">11.3.2.6. </span>TRAJECTORY.cif<a class="headerlink" href="#trajectory-cif" title="Link to this heading"></a></h4>
+<p>First-Principles MD での、各ステップにおける Material の構造が出力されます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="rsdft-atom-out-cif">
+<h4><span class="section-number">11.3.2.7. </span>rsdft.atom.out.cif<a class="headerlink" href="#rsdft-atom-out-cif" title="Link to this heading"></a></h4>
+<p>構造最適化により得られた最終的な Material の構造が出力されます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
 </section>
 <section id="id10">
 <h3><span class="section-number">11.3.3. </span>ログ<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>SCF 計算、構造最適化、電子バンド計算、電子状態密度計算、MD の計算過程が出力されます。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
