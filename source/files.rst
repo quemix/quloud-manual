@@ -45,8 +45,8 @@ SCF 計算を行うためのファイルです。例えば Material を BaTiO3 �
     &system
      nat = 5
      ntyp = 3
-     ecutwfc = 88.2
-     ecutrho = 352.8
+     ecutwfc = 52.0
+     ecutrho = 575.0
      ibrav = 0
      tot_charge = 0
      occupations = 'smearing'
@@ -136,8 +136,8 @@ SCF 計算を行うためのファイルです。例えば Material を BaTiO3 �
     &system
      nat = 5
      ntyp = 3
-     ecutwfc = 88.2
-     ecutrho = 352.8
+     ecutwfc = 52.0
+     ecutrho = 575.0
      ibrav = 0
      tot_charge = 0
      occupations = 'smearing'
@@ -204,8 +204,8 @@ Atomic Structure Opt. では、以下のように設定が変更・追加され�
     &system
      nat = 5
      ntyp = 3
-     ecutwfc = 88.2
-     ecutrho = 352.8
+     ecutwfc = 52.0
+     ecutrho = 575.0
      ibrav = 0
      tot_charge = 0
      occupations = 'smearing'
@@ -288,8 +288,8 @@ SCF 計算により求められたポテンシャルを用いて、電子バン�
      nat = 5
      ntyp = 3
      nosym = .true.
-     ecutwfc = 88.2
-     ecutrho = 352.8
+     ecutwfc = 52.0
+     ecutrho = 575.0
      ibrav = 0
      tot_charge = 0
      occupations = 'smearing'
@@ -367,8 +367,8 @@ SCF 計算により求められたポテンシャルを用いて、電子バン�
     &system
      nat = 5
      ntyp = 3
-     ecutwfc = 88.2
-     ecutrho = 352.8
+     ecutwfc = 52.0
+     ecutrho = 575.0
      ibrav = 0
      tot_charge = 0
      occupations = 'tetrahedra'
