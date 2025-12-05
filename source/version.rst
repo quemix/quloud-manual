@@ -123,7 +123,7 @@ Material
 Quantum ESPRESSO に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
-Electron Band Structure と Electron DOS では、MPI Process 数を増やすとエラーが出てしまうため、デフォルト設定の 1 のまま実行してください。
+Electron Band Structure と Electron DOS では、MPI Process 数を増やし過ぎると、エラーが出てしまいますのでご注意ください。
 
 また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 
