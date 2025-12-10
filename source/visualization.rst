@@ -79,6 +79,7 @@ OpenMX
 -   Single-Point SCF
 
     -   Total Electron Density
+    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
@@ -87,6 +88,7 @@ OpenMX
 -   Atomic Structure Opt.
 
     -   Total Electron Density
+    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
@@ -95,6 +97,7 @@ OpenMX
 -   Lattice Opt.
 
     -   Total Electron Density
+    -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
 
@@ -132,12 +135,26 @@ OpenMX
 
 -   First-Principles MD
 
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   DFT Energy
+        -   Total Energy (DFT + Ions)
+
+        |
+
+    -   Atomic Structure Trajectory
     -   Brillouin Zone
-    -   Total Energy Information
 
     |
 
 -   Exchange Coupling Parameters
+
+    -   Exchange Coupling Parameters
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
 
 |
 |
@@ -148,55 +165,76 @@ RSDFT
 
 -   Single-Point SCF
 
-    -   Total Electron Density
+    -   Total Electron Density\ :sup:`※1`
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
 
     |
 
 -   Atomic Structure Opt.
 
-    -   Total Electron Density
+    -   Total Electron Density\ :sup:`※1`
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
 
     |
 
 -   Lattice Opt.
 
-    -   Total Electron Density
+    -   Total Electron Density\ :sup:`※1`
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
 
     |
 
 -   Electron Band Structure
 
     -   Electron Band
-    -   Total Electron Density
+    -   Total Electron Density\ :sup:`※1`
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
 
     |
 
 -   Electron DOS
 
     -   Electron Density Of States
-    -   Total Electron Density
+    -   Total Electron Density\ :sup:`※1`
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
 
     |
 
 -   First-Principles MD
 
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   DFT Energy
+        -   Kinetic Energy (Ions)
+        -   Fictitious Kinetic Energy (Electrons)（Car-Parrinello MD のみ）
+        -   Total Energy (DFT + Ions)
+
+        |
+
+    -   Atomic Structure Trajectory
     -   Brillouin Zone
-    -   Total Energy Information
+
+    |
+
+**※1 Total Electron Density は、I/O Control が -1, 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。**
+
+**※2 Kohn-Sham Orbitals は、I/O Control が -1, 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。**
 
 |
 |

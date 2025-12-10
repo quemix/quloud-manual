@@ -174,6 +174,7 @@
 <li><p>Single-Point SCF</p>
 <ul class="simple">
 <li><p>Total Electron Density</p></li>
+<li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
 </ul>
@@ -184,6 +185,7 @@
 <li><p>Atomic Structure Opt.</p>
 <ul class="simple">
 <li><p>Total Electron Density</p></li>
+<li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
 </ul>
@@ -194,6 +196,7 @@
 <li><p>Lattice Opt.</p>
 <ul class="simple">
 <li><p>Total Electron Density</p></li>
+<li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
 </ul>
@@ -238,15 +241,33 @@
 </div>
 </li>
 <li><p>First-Principles MD</p>
+<ul>
+<li><p>Time Evolution Data (MD)</p>
 <ul class="simple">
-<li><p>Brillouin Zone</p></li>
-<li><p>Total Energy Information</p></li>
+<li><p>Temperature</p></li>
+<li><p>DFT Energy</p></li>
+<li><p>Total Energy (DFT + Ions)</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </li>
+<li><p>Atomic Structure Trajectory</p></li>
+<li><p>Brillouin Zone</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Exchange Coupling Parameters</p>
+<ul class="simple">
 <li><p>Exchange Coupling Parameters</p></li>
+<li><p>Total Electron Density</p></li>
+<li><p>Kohn-Sham Levels</p></li>
+<li><p>Brillouin Zone</p></li>
+<li><p>Total Energy Information</p></li>
+</ul>
+</li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -258,10 +279,11 @@
 <ul>
 <li><p>Single-Point SCF</p>
 <ul class="simple">
-<li><p>Total Electron Density</p></li>
+<li><p>Total Electron Density<sup>※1</sup></p></li>
 <li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
+<li><p>Kohn-Sham Orbitals<sup>※2</sup></p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -269,10 +291,11 @@
 </li>
 <li><p>Atomic Structure Opt.</p>
 <ul class="simple">
-<li><p>Total Electron Density</p></li>
+<li><p>Total Electron Density<sup>※1</sup></p></li>
 <li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
+<li><p>Kohn-Sham Orbitals<sup>※2</sup></p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -280,10 +303,11 @@
 </li>
 <li><p>Lattice Opt.</p>
 <ul class="simple">
-<li><p>Total Electron Density</p></li>
+<li><p>Total Electron Density<sup>※1</sup></p></li>
 <li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
+<li><p>Kohn-Sham Orbitals<sup>※2</sup></p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -292,10 +316,11 @@
 <li><p>Electron Band Structure</p>
 <ul class="simple">
 <li><p>Electron Band</p></li>
-<li><p>Total Electron Density</p></li>
+<li><p>Total Electron Density<sup>※1</sup></p></li>
 <li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
+<li><p>Kohn-Sham Orbitals<sup>※2</sup></p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -304,22 +329,40 @@
 <li><p>Electron DOS</p>
 <ul class="simple">
 <li><p>Electron Density Of States</p></li>
-<li><p>Total Electron Density</p></li>
+<li><p>Total Electron Density<sup>※1</sup></p></li>
 <li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
+<li><p>Kohn-Sham Orbitals<sup>※2</sup></p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </li>
 <li><p>First-Principles MD</p>
+<ul>
+<li><p>Time Evolution Data (MD)</p>
 <ul class="simple">
-<li><p>Brillouin Zone</p></li>
-<li><p>Total Energy Information</p></li>
+<li><p>Temperature</p></li>
+<li><p>DFT Energy</p></li>
+<li><p>Kinetic Energy (Ions)</p></li>
+<li><p>Fictitious Kinetic Energy (Electrons)（Car-Parrinello MD のみ）</p></li>
+<li><p>Total Energy (DFT + Ions)</p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Atomic Structure Trajectory</p></li>
+<li><p>Brillouin Zone</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 </li>
 </ul>
+<p><strong>※1 Total Electron Density は、I/O Control が -1, 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。</strong></p>
+<p><strong>※2 Kohn-Sham Orbitals は、I/O Control が -1, 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -479,7 +522,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 5, 2025.</p>
+    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 10, 2025.</p>
   </div>
 
    
