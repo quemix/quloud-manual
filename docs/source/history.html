@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2. サインイン・サインアウト</title>
+  <title>14. 仕様変更履歴</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
 
@@ -21,8 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="3. 新規ユーザーの招待" href="invitation.html" />
-    <link rel="prev" title="1. サインアップ" href="signup.html" /> 
+    <link rel="prev" title="13. 本バージョンの仕様" href="version.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,13 +45,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="signup.html">1. サインアップ</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. サインイン・サインアウト</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. サインイン</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. パスワードを忘れたときは</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">2.3. お問い合わせ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">2.4. サインアウト</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="signin.html">2. サインイン・サインアウト</a></li>
 <li class="toctree-l1"><a class="reference internal" href="invitation.html">3. 新規ユーザーの招待</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashboard.html">4. ダッシュボード（トップ画面）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">5. Material の登録</a></li>
@@ -64,7 +57,10 @@
 <li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
 <li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">14. 仕様変更履歴</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. 仕様変更履歴</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ver-6-0-1-2025-12-10">14.1. Ver.6.0.1 (2025.12.10)</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -81,7 +77,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">2. </span>サインイン・サインアウト</li>
+      <li class="breadcrumb-item active"><span class="section-number">14. </span>仕様変更履歴</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -91,52 +87,118 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">2. </span>サインイン・サインアウト<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-<p>サインアップ（１章参照）したアカウントでサインインするには、まず以下の URL にアクセスしてください。</p>
-<p><a class="reference external" href="https://2g.quloud-platform.com/sign_in">https://2g.quloud-platform.com/sign_in</a></p>
-<p>すると、以下の画面に移ります。</p>
-<img alt="../_images/screenshot_0028.png" src="../_images/screenshot_0028.png" />
+<h1><span class="section-number">14. </span>仕様変更履歴<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
-<section id="id2">
-<h2><span class="section-number">2.1. </span>サインイン<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<p>上図の画面で、登録したメールアドレス、設定したパスワードを入力し、「Sign In」をクリックすると、トップ画面に移ります。</p>
-<img alt="../_images/screenshot_0001.png" src="../_images/screenshot_0001.png" />
+<section id="ver-6-0-1-2025-12-10">
+<h2><span class="section-number">14.1. </span>Ver.6.0.1 (2025.12.10)<a class="headerlink" href="#ver-6-0-1-2025-12-10" title="Link to this heading"></a></h2>
+<ul>
+<li><p>UI/UX</p>
+<ul class="simple">
+<li><p>「Edit Job」ボタン表示の不具合を修正</p></li>
+<li><p>「Delete Job」ボタン表示の不具合を修正</p></li>
+<li><p>スペルミスを修正</p></li>
+<li><p>Job 検索時の Software 表示の不具合を修正</p></li>
+<li><p>ダッシュボードの Job 一覧の Software 名、Job Type 名表示の不具合を修正</p></li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
-<div class="line"><br /></div>
 </div>
-</section>
-<section id="id3">
-<h2><span class="section-number">2.2. </span>パスワードを忘れたときは<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<p>サインイン画面下部にある「Forgot password?」をクリックすると、パスワード再設定申請画面に移ります。
-ここに、登録済みのメールアドレスを入力し、「送信」ボタンを押すと、メールアドレス宛に再設定フォームが送信されます。
-リンクをクリックして、パスワード再設定を行ってください。</p>
-<img alt="../_images/screenshot_0030.png" src="../_images/screenshot_0030.png" />
+</li>
+<li><p>データベース検索</p>
+<ul class="simple">
+<li><p>不要な文字列が表示されていた不具合を修正</p></li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
-<div class="line"><br /></div>
 </div>
-</section>
-<section id="id4">
-<h2><span class="section-number">2.3. </span>お問い合わせ<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
-<p>サインイン画面下部にある「Contact us」をクリックすると、お問い合わせフォームに移ります。
-名前、メールアドレス、電話番号などを入力し、お問い合わせ内容を記入して「送信」ボタンを押せば完了です。
-<strong>サインイン後のお問い合わせフォーム（１２章参照）とは異なり、確認画面はなく、いきなり送信されますのでご注意ください。</strong></p>
-<img alt="../_images/screenshot_0031.png" src="../_images/screenshot_0031.png" />
-<img alt="../_images/screenshot_0032.png" src="../_images/screenshot_0032.png" />
-<img alt="../_images/screenshot_0033.png" src="../_images/screenshot_0033.png" />
+</li>
+<li><p>モデリング</p>
+<ul class="simple">
+<li><p>原子サイズの不具合を修正</p></li>
+<li><p>分子モデリング時の原子移動の不具合を修正</p></li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+</li>
+<li><p>Quantum ESPRESSO</p>
+<ul class="simple">
+<li><p>擬ポテンシャルに応じたカットオフ推奨値設定の不具合を修正</p></li>
+<li><p>Job 設定編集・表示の不具合を修正</p></li>
+<li><p>収束性表示の不具合を修正</p></li>
+</ul>
+<div class="line-block">
 <div class="line"><br /></div>
 </div>
-</section>
-<section id="id5">
-<h2><span class="section-number">2.4. </span>サインアウト<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
-<p>トップ画面で、ヘッダー部のユーザーのアイコンをクリックし、「Sign Out」をクリックしてください。</p>
-<img alt="../_images/screenshot_0036.png" src="../_images/screenshot_0036.png" />
+</li>
+<li><p>OpenMX</p>
+<ul class="simple">
+<li><p>Job 設定情報表示の不具合を修正</p></li>
+<li><p>結果表示の不具合を修正</p></li>
+<li><p>収束性表示の不具合を修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>RSDFT</p>
+<ul class="simple">
+<li><p>Car-Parrinello MD の Job 設定時の k 点数の上限値を変更（Γ点のみ）</p></li>
+<li><p>結果表示の不具合を修正</p></li>
+<li><p>大きすぎる Threads 並列数指定時の Job 実行停止</p></li>
+<li><p>波動関数（Kohn-Sham Orbitals）プロットの条件変更</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>LAMMPS</p>
+<ul class="simple">
+<li><p>Job 設定情報表示の不具合を修正</p></li>
+<li><p>Job 設定編集機能の不具合を修正</p></li>
+<li><p>Atomic Structure Opt. 計算設定の不具合を修正</p></li>
+<li><p>Radial Distribution Function 計算設定の不具合を修正</p></li>
+<li><p>Radial Distribution Function および Mean-Squared Displacement 結果表示の不具合を修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>FLARE</p>
+<ul class="simple">
+<li><p>バージョンを FLARE-1.4.1 に変更</p></li>
+<li><p>FLARE → LAMMPS の Job 引継ぎの不具合を修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>ASE</p>
+<ul class="simple">
+<li><p>計算結果表示の不具合を修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Quloud-Mag</p>
+<ul class="simple">
+<li><p>パラメータ設定・表示の不具合を修正</p></li>
+<li><p>計算結果表示の不具合を修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>その他</p>
+<ul class="simple">
+<li><p>ジョブ収束性（conv）の表示を第一原理計算（Quantum ESPERSSO, OpenMX, RSDFT）のみに変更</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 
@@ -144,8 +206,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="signup.html" class="btn btn-neutral float-left" title="1. サインアップ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="invitation.html" class="btn btn-neutral float-right" title="3. 新規ユーザーの招待" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="version.html" class="btn btn-neutral float-left" title="13. 本バージョンの仕様" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
