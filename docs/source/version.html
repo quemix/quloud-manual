@@ -258,6 +258,10 @@
 </ul>
 <p>また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。</p>
 <p>さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<p>なお、Molecular Dynamics の Job 登録時に、compute 選択欄で Mean-Squared Displacement (msd) を選択する場合、
+<strong>特定の元素のみにチェックを入れると、指定した通りの元素の msd が計算されない場合がございます。</strong>
+例えば Ni<sub>2</sub>P を Material として、Job 登録時に P のみの msd を計算するように設定すると、実際には Ni の msd が計算されてしまいます。ですので、
+<strong>msd を計算する際には、必ずすべての元素にチェックを入れて Job を登録してください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -281,7 +285,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 12, 2025.</p>
+    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 22, 2025.</p>
   </div>
 
    
