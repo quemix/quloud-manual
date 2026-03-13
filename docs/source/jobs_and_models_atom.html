@@ -1,10 +1,9 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5. Material の登録</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -12,12 +11,16 @@
 
   
     <link rel="shortcut icon" href="../_static/Quloud_B.png"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c033477b"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/translations.js?v=4755f45a"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c033477b"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=91613774"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -34,8 +37,11 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Quloud Ver.6.0.1 Manual
+            Quloud Ver.6.1.0 Manual
           </a>
+              <div class="version">
+                2026.3.16
+              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -75,7 +81,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quloud Ver.6.0.1 Manual</a>
+          <a href="../index.html">Quloud Ver.6.1.0 Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -85,6 +91,7 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active"><span class="section-number">5. </span>Material の登録</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/jobs_and_models_atom.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -94,14 +101,18 @@
              
   <section id="material">
 <h1><span class="section-number">5. </span>Material の登録<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
-<p>Mateiral の登録では、外部データベースから登録する方法と、ファイルをアップロードして登録する方法の２種類があります。</p>
+<p>Mateiral の登録では、外部データベースから登録する方法と、ファイルをアップロードして登録する方法の２種類があります。
+まずはトップ画面で Project を選択し、Material 一覧の右上にある「＋」アイコンをクリックします。</p>
+<img alt="../_images/screenshot_0003.png" src="../_images/screenshot_0003.png" />
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 <section id="id1">
 <h2><span class="section-number">5.1. </span>外部データベースからの登録<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p>結晶構造（Crystal）と分子構造（Molecule）では、使用するデータベースが異なります。以下、それぞれの場合での Material 登録方法を説明します。</p>
+<p>結晶構造（下図 Search in Crystal DB）と分子構造（下図 Search in Molecule DB）では、使用するデータベースが異なります。
+以下、それぞれの場合での Material 登録方法を説明します。</p>
+<img alt="../_images/screenshot_0004.png" src="../_images/screenshot_0004.png" />
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -110,16 +121,17 @@
 <h3><span class="section-number">5.1.1. </span>結晶構造（データベース：Materials Project）<a class="headerlink" href="#materials-project" title="Link to this heading"></a></h3>
 <p>「Search in Crystal DB」のボタンをクリックすると、下図のようなデータベース検索のウィンドウが現れます。</p>
 <img alt="../_images/screenshot_0006.png" src="../_images/screenshot_0006.png" />
-<p>ここで元素名や組成、バンドギャップ等の物性値を入力し「Search」をクリックすると、
-条件に合致する物質の結晶構造が一覧で表示されます（下図）。</p>
+<p>ここでは、含まれる元素や化学式など、結晶構造を検索する方法を選択し（Search Type）、
+それらをさらに格子の型や対称性（Crystal System，Spacegroup Symbol）等で絞り込むといったことができます。
+Queryに検索文字列を入力すると「Search」ボタンがアクティブになり、これをクリックすると、条件に合致する物質の結晶構造が一覧で表示されます（下図）。</p>
 <img alt="../_images/screenshot_0007.png" src="../_images/screenshot_0007.png" />
-<p>登録したい結晶構造にチェックを入れ、
-ウィンドウの下部にある「Submit」をクリックします。</p>
-<img alt="../_images/screenshot_0008.png" src="../_images/screenshot_0008.png" />
-<p>すると、検索ウィンドウが閉じて、結晶構造（ここでは &quot;mp-149&quot; ）が表示された状態で登録画面に戻ります。</p>
+<p>登録したい結晶構造にチェックを入れると、ウィンドウの下部にある「Select」ボタンがアクティブになるので、これをクリックします。
+.. image:: images/screenshot_0008.png</p>
+<p>すると、検索ウィンドウが閉じて、結晶構造（ここでは &quot;mp-149&quot; ）が表示された状態で一つ前のウィンドウ（下図）に戻ります。</p>
 <img alt="../_images/screenshot_0051.png" src="../_images/screenshot_0051.png" />
-<p>Material の名前（ここでは &quot;Si&quot; ）を設定し、「Submit」をクリックすれば、結晶構造が登録された状態でトップ画面に戻ります。</p>
-<img alt="../_images/screenshot_0003.png" src="../_images/screenshot_0003.png" />
+<p>検索で見つけた構造に名前を付け（ここでは &quot;Si&quot; ）、「Create」をクリックすれば、Quloud 上に Material として登録されます。
+登録が完了するトップ画面に戻ります。</p>
+<img alt="../_images/screenshot_0003b.png" src="../_images/screenshot_0003b.png" />
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -131,14 +143,14 @@
 （現在、分子構造をそのまま計算できるソフトは搭載されておらず、
 結晶や表面といった周期系と組み合わせたモデルを作成する目的でのみ利用できます。）</p>
 <img alt="../_images/screenshot_0052.png" src="../_images/screenshot_0052.png" />
-<p>分子の名前や化学式を入力して「Search」をクリックすると、
-条件に合致する物質の分子構造が一覧で表示されます。</p>
+<p>検索方法（Search Type）を選択し、それに応じた分子の名前や化学式を Query 欄に入力すると、「Search」ボタンがアクティブになるので、これをクリックします。
+そうすると、条件に合致する物質の分子構造が表示されます。</p>
 <img alt="../_images/screenshot_0009.png" src="../_images/screenshot_0009.png" />
-<p>登録したい分子構造にチェックを入れ、
-ウィンドウの下部にある「Submit」をクリックすると、検索ウィンドウが閉じて、
-分子構造（ここでは &quot;6325&quot; ）が表示された状態で登録画面に戻ります。</p>
+<p>登録したい分子構造にチェックを入れ、ウィンドウの下部にある「Select」をクリックすると、検索ウィンドウが閉じて、
+分子構造（ここでは &quot;6325&quot; ）が表示された状態で一つ前のウィンドウ（下図）に戻ります。</p>
 <img alt="../_images/screenshot_0053.png" src="../_images/screenshot_0053.png" />
-<p>Material の名前（ここでは &quot;Ethylene Molecule&quot; ）を設定し、「Submit」をクリックすれば、分子構造が登録された状態でトップ画面に戻ります。</p>
+<p>検索で見つけた構造に名前を付け（ここでは &quot;Ethylene Molecule&quot; ）、「Create」をクリックすれば、Quloud 上に Material として登録されます。
+登録が完了するトップ画面に戻ります。</p>
 <img alt="../_images/screenshot_0005.png" src="../_images/screenshot_0005.png" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -158,14 +170,13 @@
 <li><p>OpenMX 入力ファイル</p></li>
 <li><p>Quantum ESPRESSO 入力ファイル</p></li>
 </ul>
-<p>となっています。ファイル選択後「Submit」ボタンをクリックすると、
-アップロードした結晶構造や分子構造が Quloud に登録されます。</p>
-<p>例として、OpenMX のウェブサイト（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/node20.html">https://www.openmx-square.org/openmx_man3.9jp/node20.html</a>）
-に載っているメタン分子の構造ファイル「Methane.dat」をアップロードしてみます。</p>
+<p>となっています。
+例として、OpenMX のウェブサイト（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/node20.html">https://www.openmx-square.org/openmx_man3.9jp/node20.html</a>）に載っているメタン分子の構造ファイル「Methane.dat」をアップロードしてみます。</p>
 <img alt="../_images/screenshot_0054.png" src="../_images/screenshot_0054.png" />
-<p>「Submit」をクリックすると、ウィンドウが閉じて、入力ファイル「Methane.dat」が表示された状態で登録画面に戻ります。</p>
+<p>「Upload」をクリックすると、ウィンドウが閉じ、入力ファイル「Methane.dat」が表示された状態で一つ前のウィンドウ（下図）に戻ります。</p>
 <img alt="../_images/screenshot_0055.png" src="../_images/screenshot_0055.png" />
-<p>Material の名前（ここでは &quot;Methane (OpenMX)&quot; ）を設定し、「Submit」をクリックすれば、メタン分子の構造が登録された状態でトップ画面に戻ります。</p>
+<p>アップロードした物質に名前（ここでは &quot;Methane (OpenMX)&quot; とする）を付け、「Create」をクリックすれば、メタン分子の構造が Quloud に登録されます。
+登録が完了すると、トップ画面に戻ります。</p>
 <img alt="../_images/screenshot_0056.png" src="../_images/screenshot_0056.png" />
 </section>
 </section>
@@ -181,7 +192,9 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 22, 2025.</p>
+    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 22, 2025.
+      <span class="lastupdated">最終更新: 11月 19, 2025
+      </span></p>
   </div>
 
    

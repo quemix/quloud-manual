@@ -1,0 +1,353 @@
+=============================================
+計算結果の可視化
+=============================================
+
+計算結果は Material 詳細画面から確認できます。
+
+.. image:: images/screenshot_0192.png
+
+画面左上の「Job」タブで当該 Job を選択します。
+
+.. image:: images/screenshot_0193.png
+
+次に、「Structure」タブで「final」が選択されていることを確認します。
+
+.. image:: images/screenshot_0194.png
+
+下にスクロールすると、計算結果が確認できます。
+
+.. image:: images/screenshot_0195.png
+
+以下に、各 Job で取得できる計算結果をソフトウェアごとにまとめます。
+
+|
+|
+
+------------------------------------------------------------------------
+Quantum ESPRESSO
+------------------------------------------------------------------------
+
+-   Single-Point SCF
+
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Atomic Structure Opt.
+
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Lattice Opt.
+
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Electron Band Structure
+
+    -   Electron Band
+    -   Effective Mass
+    -   Effective Mass (Table)
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Electron DOS
+
+    -   Electron Density Of States
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+|
+|
+
+------------------------------------------------------------------------
+OpenMX
+------------------------------------------------------------------------
+
+-   Single-Point SCF
+
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Atomic Structure Opt.
+
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Lattice Opt.
+
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Electron Band Structure
+
+    -   Electron Band
+    -   Effective Mass
+    -   Effective Mass (Table)
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Electron DOS
+
+    -   Electron Density Of States
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Energy Barrier (NEB)
+
+    -   Energy Barrier
+    -   Atomic Structure Trajectory
+    -   Brillouin Zone
+
+    |
+
+-   First-Principles MD
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   DFT Energy
+        -   Total Energy (DFT + Ions)
+
+        |
+
+    -   Atomic Structure Trajectory
+    -   Brillouin Zone
+
+    |
+
+-   Exchange Coupling Parameters
+
+    -   Exchange Coupling Parameters
+    -   Total Electron Density
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+
+|
+|
+
+------------------------------------------------------------------------
+RSDFT
+------------------------------------------------------------------------
+
+-   Single-Point SCF
+
+    -   Total Electron Density\ :sup:`※1`
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
+
+    |
+
+-   Atomic Structure Opt.
+
+    -   Total Electron Density\ :sup:`※1`
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
+
+    |
+
+-   Lattice Opt.
+
+    -   Total Electron Density\ :sup:`※1`
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
+
+    |
+
+-   Electron Band Structure
+
+    -   Electron Band
+    -   Total Electron Density\ :sup:`※1`
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
+
+    |
+
+-   Electron DOS
+
+    -   Electron Density Of States
+    -   Total Electron Density\ :sup:`※1`
+    -   Kohn-Sham Levels
+    -   Brillouin Zone
+    -   Total Energy Information
+    -   Kohn-Sham Orbitals\ :sup:`※2`
+
+    |
+
+-   First-Principles MD
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   DFT Energy
+        -   Kinetic Energy (Ions)
+        -   Fictitious Kinetic Energy (Electrons)（Car-Parrinello MD のみ）
+        -   Total Energy (DFT + Ions)
+
+        |
+
+    -   Atomic Structure Trajectory
+    -   Brillouin Zone
+
+    |
+
+**※1 Total Electron Density は、I/O Control が -1, 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。**
+
+**※2 Kohn-Sham Orbitals は、I/O Control が -1, 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。**
+
+|
+|
+
+------------------------------------------------------------------------
+LAMMPS
+------------------------------------------------------------------------
+
+-   Atomic Structure Opt.
+
+    -   Optimized Atomic Structure
+
+    |
+
+-   Molecular Dynamics
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   Total Energy
+        -   Pressure
+        -   Volume
+        -   Density
+        -   Uncertainty（FLARE ポテンシャル使用時のみ）
+        -   Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）
+        -   Radial Distribution Function（Job 登録時に compute 選択欄で選択した場合のみ）
+
+        |
+
+    -   Atomic Structure Trajectory
+
+|
+|
+
+------------------------------------------------------------------------
+FLARE
+------------------------------------------------------------------------
+
+-   On-the-Fly MD
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   Potential Energy
+        -   Pressure
+        -   Volume
+        -   Density
+        -   Standard Deviation
+
+        |
+
+    -   Atomic Structure Trajectory
+
+|
+|
+
+------------------------------------------------------------------------
+ASE-MD
+------------------------------------------------------------------------
+
+-   OPT
+
+    -   Optimized Atomic Structure
+
+    |
+
+-   MD
+
+    -   Time Evolution Data (MD)
+
+        -   Temperature
+        -   Total Energy
+        -   Potential Energy
+        -   Kinetic Energy
+
+        |
+
+    -   Atomic Structure Trajectory
+
+|
+|
+
+------------------------------------------------------------------------
+SPRKKR
+------------------------------------------------------------------------
+
+-   First-Principles SCF
+
+    -   Brillouin Zone
+    -   Total Energy Information
+
+    |
+
+-   Exchange Coupling Parameters
+
+    -   Brillouin Zone
+    -   Curie Temperature
+    -   Exchange Coupling Parameters
+
+|
+|
+
+------------------------------------------------------------------------
+Quloud-Mag
+------------------------------------------------------------------------
+
+-   Monte Carlo
+
+    -   Magnetization
+    -   Magnetic Susceptibility
+
+    |
+
+-   Micro-Magnetic Simulation
+
+    -   Magnetic Field & Magnetization
