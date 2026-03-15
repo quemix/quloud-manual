@@ -2,22 +2,26 @@
 計算結果の可視化
 =============================================
 
-計算結果は Material 詳細画面から確認できます。
+計算結果は\ :ref:`jobdetail-section`\ から確認できます。
 
 .. image:: images/screenshot_0192.png
 
-画面左上の「Job」タブで当該 Job を選択します。
+画面左上の Select Property タブから、この Material の :ref:`Property<property-section>` として\
+登録されているもを一つ選択します（ここでは rdf を選択）。
 
 .. image:: images/screenshot_0193.png
 
-次に、「Structure」タブで「final」が選択されていることを確認します。
+構造が変わる計算（原子構造最適化やMD計算など）による Property の場合は、\
+Structure パートに、その最終構造が表示されます。
 
 .. image:: images/screenshot_0194.png
 
-下にスクロールすると、計算結果が確認できます。
+下にスクロールしていくと Properties パートがあり、Property として登録された計算結果が確認できます。\
+複数の結果を持つ場合はタブで切り替えられるようになっています。
 
 .. image:: images/screenshot_0195.png
 
+Property がどのような計算から得られたものであるかによって、Properties に表示される内容が変わります。\
 以下に、各 Job で取得できる計算結果をソフトウェアごとにまとめます。
 
 |
@@ -68,6 +72,34 @@ Quantum ESPRESSO
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
+
+    |
+
+-   Energy Barrier (NEB)
+
+    -   Energy Barrier
+    -   Atomic Structure Trajectory
+    -   Brillouin Zone
+
+    |
+
+-   Phonon (DOS)
+
+    -   Phonon DOS
+
+    |
+
+-   Phonon (Band)
+
+    -   Phonon Band
+
+    |
+
+-   X-Spectra
+
+    -   Spectrum
+    -   Total Energy Information
+    -   Brillouin Zone
 
 |
 |
@@ -292,16 +324,29 @@ FLARE
 |
 
 ------------------------------------------------------------------------
-ASE-MD
+ASE
 ------------------------------------------------------------------------
 
--   OPT
+-   Atomic Structure Opt.
 
     -   Optimized Atomic Structure
 
     |
 
--   MD
+-   Lattice Opt.
+
+    -   Optimized Atomic Structure
+
+    |
+
+-   Energy Barrier (NEB)
+
+    -   Energy Barrier
+    -   Atomic Structure Trajectory
+
+    |
+
+-   Molecular Dynamics
 
     -   Time Evolution Data (MD)
 

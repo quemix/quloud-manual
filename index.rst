@@ -19,6 +19,7 @@ Index
   source/modeling
   source/calculation
   source/runjob
+  source/property
   source/visualization
   source/files
   source/header

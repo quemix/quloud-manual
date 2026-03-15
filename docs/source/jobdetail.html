@@ -66,11 +66,12 @@
 <li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
-<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">14. 仕様変更履歴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property.html">10. Property の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">11. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">12. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">13. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">14. 本バージョンの仕様</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">15. 仕様変更履歴</a></li>
 </ul>
 
         </div>
@@ -98,7 +99,7 @@
            <div itemprop="articleBody">
              
   <section id="material">
-<h1><span class="section-number">6. </span>Material 詳細画面<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
+<span id="jobdetail-section"></span><h1><span class="section-number">6. </span>Material 詳細画面<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
 <p>ダッシュボードの Material 一覧から項目名をクリックすることで、下図のような Material 詳細画面に遷移します。</p>
 <img alt="../_images/screenshot_0011.png" src="../_images/screenshot_0011.png" />
 <p>ここでは Material の詳細な情報や、その Material に対する計算結果（「Property」と呼ぶ）などを確認することができます。
@@ -181,15 +182,16 @@ Job 実行前（Status = Registered）であれば、上図のように「Edit J
 </section>
 <section id="delete">
 <h2><span class="section-number">6.4. </span>Delete<a class="headerlink" href="#delete" title="Link to this heading"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>Material を削除すると、所属する Job も全て削除されてしまいますのでご注意ください。</p>
+</div>
 <p>左サイドメニューの「Delete」を選択すると、Material の削除を行うことができます。</p>
 <img alt="../_images/screenshot_0075.png" src="../_images/screenshot_0075.png" />
 <p>関連する Job が存在する場合には、
 「配下の Job も一緒に削除されることを確認しました」にチェックを入れると、「Delete」ボタンがアクティブになります。</p>
 <img alt="../_images/screenshot_0076.png" src="../_images/screenshot_0076.png" />
-<p>「Submit」ボタンをクリックすると、Material が削除され、TOP 画面に移ります。</p>
-<img alt="../_images/screenshot_0077.png" src="../_images/screenshot_0077.png" />
-<p>また、関連する Job も削除されています。</p>
-<img alt="../_images/screenshot_0078.png" src="../_images/screenshot_0078.png" />
+<p>「Delete」ボタンをクリックすると、Material が削除され、TOP 画面に戻ります。</p>
 </section>
 </section>
 

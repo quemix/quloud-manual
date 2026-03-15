@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2025-11-19T18:36:39+09:00" />
+    <meta property="article:modified_time" content="2026-03-13T10:29:59+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5. Material の登録</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -68,11 +68,12 @@
 <li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
-<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">14. 仕様変更履歴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property.html">10. Property の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">11. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">12. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">13. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="version.html">14. 本バージョンの仕様</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">15. 仕様変更履歴</a></li>
 </ul>
 
         </div>
@@ -100,9 +101,9 @@
            <div itemprop="articleBody">
              
   <section id="material">
-<h1><span class="section-number">5. </span>Material の登録<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
-<p>Mateiral の登録では、外部データベースから登録する方法と、ファイルをアップロードして登録する方法の２種類があります。
-まずはトップ画面で Project を選択し、Material 一覧の右上にある「＋」アイコンをクリックします。</p>
+<span id="material-create"></span><h1><span class="section-number">5. </span>Material の登録<a class="headerlink" href="#material" title="Link to this heading"></a></h1>
+<p>Mateiral（原子座標の情報） を Quloud に登録する方法として、外部データベースから登録する方法と、ファイルをアップロードして登録する方法の２種類があります。さらに登録した Material をモデリングによって改変することで、新たな Material を作成・登録する事もできますが、こちらについては「<a class="reference internal" href="modeling.html#modeling-section"><span class="std std-ref">Material のモデリング</span></a>」の章で改めてご説明することにして、ここでは「データベースからの登録」と「ファイルアップロードによる登録」の2つの方法についてご説明します。</p>
+<p>まずはトップ画面で Project を選択し、Material 一覧の右上にある「＋」アイコンをクリックします。</p>
 <img alt="../_images/screenshot_0003.png" src="../_images/screenshot_0003.png" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -193,7 +194,7 @@ Queryに検索文字列を入力すると「Search」ボタンがアクティブ
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 22, 2025.
-      <span class="lastupdated">最終更新: 11月 19, 2025
+      <span class="lastupdated">最終更新: 3月 13, 2026
       </span></p>
   </div>
 
