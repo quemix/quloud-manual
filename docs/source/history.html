@@ -5,7 +5,7 @@
 
     <meta property="article:modified_time" content="2025-12-12T18:23:01+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>15. 仕様変更履歴</title>
+  <title>14. 仕様（変更履歴、注意事項）</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
 
@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="prev" title="14. 本バージョンの仕様" href="version.html" /> 
+    <link rel="prev" title="13. ヘッダーメニュー（各種管理）" href="header.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,8 +63,18 @@
 <li class="toctree-l1"><a class="reference internal" href="visualization.html">11. 計算結果の可視化</a></li>
 <li class="toctree-l1"><a class="reference internal" href="files.html">12. 入出力ファイルとログ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="header.html">13. ヘッダーメニュー（各種管理）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="version.html">14. 本バージョンの仕様</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">15. 仕様変更履歴</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">14. 仕様（変更履歴、注意事項）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">14.1. 仕様変更履歴</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">14.2. 注意事項</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quantum-espresso">14.2.1. Quantum ESPRESSO に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openmx">14.2.2. OpenMX に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rsdft">14.2.3. RSDFT に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lammps">14.2.4. LAMMPS に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ase-md">14.2.5. ASE-MD に関する注意事項</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -81,7 +91,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">15. </span>仕様変更履歴</li>
+      <li class="breadcrumb-item active"><span class="section-number">14. </span>仕様（変更履歴、注意事項）</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/source/history.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -92,7 +102,22 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">15. </span>仕様変更履歴<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<h1><span class="section-number">14. </span>仕様（変更履歴、注意事項）<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="id2">
+<h2><span class="section-number">14.1. </span>仕様変更履歴<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p><strong>Ver.6.1.0（2026.3.16）</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>aaaaaa</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -206,13 +231,216 @@
 </ul>
 </li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p><strong>Ver.6.0.0（2025.12.1）</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>本バージョンで利用できる機能の概要と、旧バージョン（Ver. 5.1.5）からの変更点を記載します。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<ul>
+<li><p>Project</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Project を Tenant のメンバーと共有する機能を新たに追加しました。</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Material</p>
+<blockquote>
+<div><ul>
+<li><p>使用データベース</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Crystal：Materials Project</p></li>
+<li><p>Molecule：PubChem</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>アップロード可能なファイル形式</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CIF</p></li>
+<li><p>XYZ</p></li>
+<li><p>POSCAR（VASP 形式）</p></li>
+<li><p>OpenMX 入力ファイル</p></li>
+<li><p>Quantum ESPRESSO 入力ファイル</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>モデリング機能</p>
+<blockquote>
+<div><ul>
+<li><p>モデリングのタイプ</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Basic（Crystal、Molecule 共通）</p></li>
+<li><p>Slab model（Crystal のみ）</p></li>
+<li><p>Interface（Crystal のみ）</p></li>
+<li><p>Add Molecule（Crystal のみ）</p></li>
+<li><p>Add Cell（Molecule のみ）</p></li>
+</ul>
+<p><strong>構造最適化時の原子移動の拘束条件 （動く方向を制限したり、完全に動かさないようにしたり）の設定（Constraint）と初期スピン差の設定（Spin difference）機能は、本バージョンでは廃止となりました。</strong></p>
+<p><strong>また、 Slab model モデリングで追加可能な、終端用の擬水素原子については、結合長や電荷の設定はできなくなりました。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>計算 Job</p></li>
+</ul>
+<p><strong>入力ファイルのアップロードにより計算 Job を登録する機能は、本バージョンでは廃止となりました。</strong></p>
+<blockquote>
+<div><ul>
+<li><p>計算 Job のタイプ</p>
+<blockquote>
+<div><ul>
+<li><p>First-Principles Calculation</p>
+<ul class="simple">
+<li><p>Single-Point SCF（Quantum ESPRESSO、OpenMX、RSDFT）</p></li>
+<li><p>Atomic Structure Opt.（Quantum ESPRESSO、OpenMX、RSDFT）</p></li>
+<li><p>Lattice Opt.（Quantum ESPRESSO、OpenMX、RSDFT）</p></li>
+<li><p>Electron Band Structure（Quantum ESPRESSO、OpenMX、RSDFT）</p></li>
+<li><p>Electron DOS（Quantum ESPRESSO、OpenMX、RSDFT）</p></li>
+<li><p>Energy Barrier (NEB)（OpenMX）</p></li>
+<li><p>First-Principles MD（OpenMX、RSDFT）</p></li>
+<li><p>Exchange Coupling Parameters（OpenMX）</p></li>
+</ul>
+<p><strong>Band Unfolding は、本バージョンでは廃止となりました。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Classical Molecular Dynamics Simulation</p>
+<ul class="simple">
+<li><p>Atomic Structure Opt.（LAMMPS）</p></li>
+<li><p>Molecular Dynamics（LAMMPS）
+<strong>※ dipole（双極子モーメント）の計算は、本バージョンではできなくなりました。</strong></p></li>
+</ul>
+<p><strong>Phonon Calculation は、本バージョンでは廃止となりました。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Advanced Classical MD</p>
+<ul class="simple">
+<li><p>On-the-Fly MD（FLARE）</p></li>
+<li><p>Machine-Learning MD (Pretraind Potential)（ASE-MD）</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Quloud-Mag</p>
+<ul class="simple">
+<li><p>First-Principles SCF（SPRKKR）</p></li>
+<li><p>Exchange Coupling Parameters（SPRKKR）</p></li>
+<li><p>Monte Carlo（Quloud-Mag）</p></li>
+<li><p>Micro-Magnetic Simulation（Quloud-Mag-LLG）
+<strong>※ Job 登録時の Option Magnetic 選択欄は、本バージョンでは廃止となりました。</strong></p></li>
+</ul>
+<p><strong>Gilbert Damping Parameter、Transport Property、Monte Carlo (Snapshot of magnetic moments)、UppASD は、本バージョンでは廃止となりました。</strong></p>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">14.2. </span>注意事項<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>以下に、計算 Job 実行時の注意事項をソフトウェアごとに記載します。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="quantum-espresso">
+<h3><span class="section-number">14.2.1. </span>Quantum ESPRESSO に関する注意事項<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h3>
+<p>Electron Band Structure と Electron DOS では、MPI Process 数を増やし過ぎると、エラーが出てしまいますのでご注意ください。</p>
+<p>また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="openmx">
+<h3><span class="section-number">14.2.2. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h3>
+<p>OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf">https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf</a>）の Table 1 と Table 2 をご参照ください。</p>
+<p><strong>また、Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="rsdft">
+<h3><span class="section-number">14.2.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h3>
+<p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
+<strong>また、Thread 数を増やし過ぎた結果、エラーが出てしまう場合もございますので、ユーザー自身で適切な Thread 数を設定してください。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="lammps">
+<h3><span class="section-number">14.2.4. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h3>
+<p>計算 Job 登録時に原子間ポテンシャルファイルをユーザー自身でアップロードする場合、アップロード可能なファイル形式（拡張子）が下記に限定されておりますのでご注意ください。</p>
+<ul class="simple">
+<li><p>'.eam'</p></li>
+<li><p>'.meam'</p></li>
+<li><p>'.tersoff'</p></li>
+<li><p>'.tersoff.mod'</p></li>
+<li><p>'.tersoff.modc'</p></li>
+<li><p>'.ann'</p></li>
+<li><p>'.flare'</p></li>
+</ul>
+<p>また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。</p>
+<p>さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<p>なお、Molecular Dynamics の Job 登録時に、compute 選択欄で Mean-Squared Displacement (msd) を選択する場合、
+<strong>特定の元素のみにチェックを入れると、指定した通りの元素の msd が計算されない場合がございます。</strong>
+例えば Ni<sub>2</sub>P を Material として、Job 登録時に P のみの msd を計算するように設定すると、実際には Ni の msd が計算されてしまいます。ですので、
+<strong>msd を計算する際には、必ずすべての元素にチェックを入れて Job を登録してください。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="ase-md">
+<h3><span class="section-number">14.2.5. </span>ASE-MD に関する注意事項<a class="headerlink" href="#ase-md" title="Link to this heading"></a></h3>
+<p><strong>機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="version.html" class="btn btn-neutral float-left" title="14. 本バージョンの仕様" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="header.html" class="btn btn-neutral float-left" title="13. ヘッダーメニュー（各種管理）" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

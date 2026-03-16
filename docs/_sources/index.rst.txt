@@ -23,7 +23,6 @@ Index
   source/visualization
   source/files
   source/header
-  source/version
   source/history
   
 
