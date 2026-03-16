@@ -457,6 +457,314 @@ QuloudJob.dos.in
     -	fildos：電子状態密度計算の結果を出力するファイルの名前を指定します。デフォルトでは 'QuloudJob.dos' となっています。
 
 |
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+neb.in
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NEB法によるエネルギー障壁計算の入力ファイルです。
+
+::
+
+    BEGIN
+    BEGIN_PATH_INPUT
+    Si+H1
+
+    &PATH
+    string_method = 'neb'
+    restart_mode = 'from_scratch'
+    nstep_path = 50
+    num_of_images = 5
+    opt_scheme = 'quick-min'
+    CI_scheme = 'no-CI'
+    first_last_opt = .false.
+    minimum_image = .false.
+    temp_req = 0
+    ds = 1
+    k_min = 0.1
+    k_max = 0.1
+    path_thr = 0.05
+    use_masses = .false.
+    use_freezing = .false.
+    lfcp = .false.
+    /
+    END_PATH_INPUT
+
+    BEGIN_ENGINE_INPUT
+    &control
+    calculation = 'scf'
+    prefix = 'QuloudJob'
+    tstress = .true.
+    tprnfor = .true.
+    pseudo_dir = './'
+    outdir = './work'
+    verbosity = 'high'
+    /
+    &system
+    nat = 9
+    ntyp = 2
+    ecutwfc = 46.0
+    ecutrho = 221.0
+    ibrav = 0
+    tot_charge = 0
+    occupations = 'smearing'
+    smearing = 'gauss'
+    degauss = 0.01
+    nspin = 1
+    /
+    &electrons
+    mixing_beta = 0.7
+    conv_thr = 1e-10
+    electron_maxstep = 100
+    /
+    ATOMIC_SPECIES
+    Si 28.086 Si.pbe-nl-rrkjus_psl.1.0.0.UPF
+    H 1.008 H.pbe-rrkjus_psl.1.0.0.UPF
+    CELL_PARAMETERS {angstrom}
+    5.44370222 0.0 3.33330624961717e-16
+    8.754140838076987e-16 5.44370222 3.33330624961717e-16
+    0.0 0.0 5.44370222
+    K_POINTS {automatic}
+    1 1 1 0 0 0
+    BEGIN_POSITIONS
+    FIRST_IMAGE
+    ATOMIC_POSITIONS {crystal}
+    Si 0.5000000000000000 0.5000000000000000 0.5000000000000000
+    Si 0.7500000000000000 0.2500000000000000 0.2500000000000000
+    Si 0.5000000000000000 0.0000000000000000 0.0000000000000000
+    Si 0.7500000000000000 0.7500000000000000 0.7500000000000000
+    Si 0.0000000000000000 0.5000000000000000 0.0000000000000000
+    Si 0.2500000000000000 0.2500000000000000 0.7500000000000000
+    Si 0.0000000000000000 0.0000000000000000 0.5000000000000000
+    Si 0.2500000000000000 0.7500000000000000 0.2500000000000000
+    H 0.7277860000000000 0.5000000000000000 0.5012250000000000
+    LAST_IMAGE
+    ATOMIC_POSITIONS {crystal}
+    Si 0.5000000000000000 0.5000000000000000 0.5000000000000000
+    Si 0.7500000000000000 0.2500000000000000 0.2500000000000000
+    Si 0.5000000000000000 0.0000000000000000 0.0000000000000000
+    Si 0.7500000000000000 0.7500000000000000 0.7500000000000000
+    Si 0.0000000000000000 0.5000000000000000 0.0000000000000000
+    Si 0.2500000000000000 0.2500000000000000 0.7500000000000000
+    Si 0.0000000000000000 0.0000000000000000 0.5000000000000000
+    Si 0.2500000000000000 0.7500000000000000 0.2500000000000000
+    H 0.2428220000000000 0.5000000000000000 0.5012250000000000
+    END_POSITIONS
+    END_ENGINE_INPUT
+    END
+
+    &dos
+     outdir = './work'
+     prefix='QuloudJob'
+     fildos='QuloudJob.dos'
+    /
+
+主要な入力パラメータは以下の通りです。
+
+-	BEGIN_PATH_INPUT :math:`\sim` END_PATH_INPUT
+
+    -	num_of_images：Initial と Final の構造間に何点構造を配置するか
+    -	nstep_path：反復計算回数の上限
+    -	path_thr：収束判定条件（Ry/bohr）
+
+-	BEGIN_ENGINE_INPUT :math:`\sim` END_ENGINE_INPUT
+
+    -   各構造に対するエネルギー＆力の自己無撞着計算設定（QuloudJob.scf.in とほぼ同じ内容）
+
+-	BEGIN_POSITIONS :math:`\sim` END_POSITIONS
+
+    -   FIRST_IMAGE：Initial に対応する ATOMIC_POSITIONS を記述
+    -   LAST_IMAGE：Final に対応する ATOMIC_POSITIONS を記述
+
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ph.in
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+フォノン計算のメインとなる ph.x 用の入力ファイルです。
+
+::
+
+    &inputph
+    prefix = 'QuloudJob'
+    outdir = './work'
+    niter_ph = 100
+    tr2_ph = 1e-12
+    alpha_mix(1) = 0.7
+    nmix_ph = 4
+    verbosity = 'default'
+    reduce_io = .false.
+    max_seconds = 10000000
+    dftd3_hess = 'prefix.hess'
+    fildyn = 'matdyn'
+    epsil = .false.
+    lrpa = .false.
+    lnoloc = .false.
+    trans = .true.
+    lraman = .false.
+    eth_rps = 1e-9
+    eth_ns = 1e-12
+    dek = 0.001
+    recover = .false.
+    low_directory_check = .false.
+    only_init = .false.
+    qplot = .false.
+    q2d = .false.
+    q_in_band_form = .false.
+    el_ph_nsigma = 10
+    el_ph_sigma = 0.02
+    lshift_q = .false.
+    zue = .false.
+    elop = .false.
+    fpol = .false.
+    ldisp = .true.
+    nogg = .false.
+    asr = .false.
+    ldiag = .false.
+    lqdir = .false.
+    search_sym = .true.
+    nq1 = 4
+    nq2 = 4
+    nq3 = 4
+    diagonalization = 'david'
+    read_dns_bare = .false.
+    ldvscf_interpolate = .false.
+    start_irr = 1
+    start_q = 1
+    /
+
+主要パラメータは以下になります。
+
+- nq1/nq2/nq3：フォノンを計算するBrillouin Zone 内の波数の点数
+
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+q2r.in
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+波数空間でのフォノンの情報を実空間の情報に変換する q2r.x 用の入力
+
+::
+
+    &input
+    fildyn = 'matdyn'
+    flfrc = 'matdyn.fc'
+    zasr = 'simple'
+    /
+
+入出力のファイル名と q = 0 点の処理方式（zasr）を指定します。
+
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+matdyn_dos.in
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+matdyn.x 用の入力で、フォノンDOSを描く場合の設定。
+
+::
+
+    &input
+    flfrc = 'matdyn.fc'
+    asr = 'no'
+    dos = .true.
+    flfrq = ''
+    nk1 = 8
+    nk2 = 8
+    nk3 = 8
+    fldos = 'matdyn.dos'
+    /
+
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+matdyn_disp.in
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+matdyn.x 用の入力で、フォノンバンドを描く場合の設定。
+
+::
+
+    &input
+    flfrc = 'matdyn.fc'
+    asr = 'no'
+    flfrq = 'matdyn.freq'
+    flvec = 'matdyn.modes'
+    q_in_band_form = .true.
+    /
+    2
+    0 0 0 20
+    0.5 0 0 20
+
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xspectra.in
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+X線吸収計算を行う xspectra.x 用の入力
+
+::
+
+    &input_xspectra
+    calculation = 'xanes_dipole'
+    edge = 'K'
+    lplus = .false.
+    lminus = .false.
+    prefix = 'QuloudJob'
+    outdir = './work'
+    verbosity = 'high'
+    xiabs = 1
+    xkvec(1) = 1
+    xkvec(2) = 0
+    xkvec(3) = 0
+    xepsilon(1) = 0
+    xepsilon(2) = 0
+    xepsilon(3) = 1
+    xcoordcrys = .true.
+    xonly_plot = .false.
+    x_save_file = 'xanes.sav'
+    xe0 = 10000
+    xniter = 50
+    xcheck_conv = 5
+    xerror = 0.01
+    show_status = .false.
+    time_limit = 100000000
+    restart_mode = 'from_scratch'
+    /
+
+    &plot
+    xnepoint = 100
+    xemax = 10
+    xemin = 0
+    cut_occ_states = .true.
+    terminator = .true.
+    gamma_mode = 'constant'
+    xgamma = 0.1
+    xanes_file = 'xanes.dat'
+    /
+
+    &pseudos
+    filecore = 'Core.wfc'
+    /
+
+    &cut_occ
+    cut_ierror = 1e-7
+    cut_stepu = 0.01
+    cut_stepl = 0.001
+    cut_startt = 1
+    cut_tinf = 0.000001
+    cut_tsup = 100
+    cut_desmooth = 0.01
+    cut_nmemu = 100000
+    cut_nmeml = 100000
+    /
+
+    6 6 6 0 0 0
+
+|
 |
 
 ++++++++++++++++++++++++++++
@@ -562,6 +870,51 @@ QuloudJob.dos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Electron DOS での、電子状態密度計算結果のデータが出力されます。
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+QuloudJob.dat
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NEB 計算のとき、エネルギープロファイルのデータが出力されます。
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+QuloudJob.axsf
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NEB 計算のとき、構造変化のトラジェクトリーデータが出力されます（XCrysden 形式）
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+matdyn.freq.gp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+フォノンバンド計算結果のプロット用のデータが出力されます。
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+matdyn.dos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+フォノンDOS計算結果のプロット用データが出力されます。
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+xanes.dat
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+X-Spectra の計算結果のデータが出力されます。
 
 |
 |
@@ -2349,7 +2702,7 @@ On-The-Fly 機械学習、MD 計算、第一原理計算の設定が、この一
 |
 
 --------------------------------------------------------------
-ASE-MD
+ASE
 --------------------------------------------------------------
 
 |
@@ -2411,6 +2764,24 @@ ase.in
 ++++++++++++++++++++++++++++
 出力ファイル
 ++++++++++++++++++++++++++++
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+neb_summary.json
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NEB 計算でのエネルギープロファイルのデータが出力されます。
+
+|
+|
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+QuloudJob.traj
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NEB 計算での構造変化のトラジェクトリーが出力されます。
 
 |
 |
