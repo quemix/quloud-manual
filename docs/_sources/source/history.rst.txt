@@ -228,6 +228,9 @@ Electron Band Structure と Electron DOS では、MPI Process 数を増やし過
 
 また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 
+Spin 有りの計算を行う際、入力ファイルの &system のブロックに starting_magnetization 行\
+がデフォルトでは入らなくなったため、入力ファイルの編集機能で、starting_magnetization の記述を行う必要があります。
+
 |
 |
 
