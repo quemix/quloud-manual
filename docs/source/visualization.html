@@ -1,28 +1,31 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <meta property="article:modified_time" content="2026-03-16T08:41:12+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>10. 計算結果の可視化</title>
+  <title>11. 計算結果の可視化</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
 
   
     <link rel="shortcut icon" href="../_static/Quloud_B.png"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c033477b"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/translations.js?v=4755f45a"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c033477b"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=91613774"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="11. 入出力ファイルとログ" href="files.html" />
-    <link rel="prev" title="9. 計算 Job の実行" href="runjob.html" /> 
+    <link rel="next" title="12. 入出力ファイルとログ" href="files.html" />
+    <link rel="prev" title="10. Property の登録" href="property.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,8 +37,11 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Quloud Ver.6.0.1 Manual
+            Quloud Ver.6.1.0 Manual
           </a>
+              <div class="version">
+                2026.3.16
+              </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -54,21 +60,21 @@
 <li class="toctree-l1"><a class="reference internal" href="modeling.html">7. Material のモデリング</a></li>
 <li class="toctree-l1"><a class="reference internal" href="calculation.html">8. 計算 Job の登録</a></li>
 <li class="toctree-l1"><a class="reference internal" href="runjob.html">9. 計算 Job の実行</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. 計算結果の可視化</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#quantum-espresso">10.1. Quantum ESPRESSO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#openmx">10.2. OpenMX</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rsdft">10.3. RSDFT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lammps">10.4. LAMMPS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#flare">10.5. FLARE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ase-md">10.6. ASE-MD</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#sprkkr">10.7. SPRKKR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quloud-mag">10.8. Quloud-Mag</a></li>
+<li class="toctree-l1"><a class="reference internal" href="property.html">10. Property の登録</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. 計算結果の可視化</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quantum-espresso">11.1. Quantum ESPRESSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#openmx">11.2. OpenMX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsdft">11.3. RSDFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lammps">11.4. LAMMPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flare">11.5. FLARE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ase">11.6. ASE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sprkkr">11.7. SPRKKR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quloud-mag">11.8. Quloud-Mag</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="files.html">11. 入出力ファイルとログ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="header.html">12. ヘッダーメニュー（各種管理）</a></li>
-<li class="toctree-l1"><a class="reference internal" href="version.html">13. 本バージョンの仕様</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">14. 仕様変更履歴</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">12. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">13. ヘッダーメニュー（各種管理）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history.html">14. 仕様（変更履歴、注意事項）</a></li>
 </ul>
 
         </div>
@@ -77,7 +83,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quloud Ver.6.0.1 Manual</a>
+          <a href="../index.html">Quloud Ver.6.1.0 Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -85,8 +91,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active"><span class="section-number">10. </span>計算結果の可視化</li>
+      <li class="breadcrumb-item active"><span class="section-number">11. </span>計算結果の可視化</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/visualization.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -95,22 +102,22 @@
            <div itemprop="articleBody">
              
   <section id="id1">
-<h1><span class="section-number">10. </span>計算結果の可視化<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-<p>計算結果は Material 詳細画面から確認できます。</p>
+<h1><span class="section-number">11. </span>計算結果の可視化<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<p>計算結果は<a class="reference internal" href="jobdetail.html#jobdetail-section"><span class="std std-ref">Material 詳細画面</span></a>から確認できます。</p>
 <img alt="../_images/screenshot_0192.png" src="../_images/screenshot_0192.png" />
-<p>画面左上の「Job」タブで当該 Job を選択します。</p>
+<p>画面左上の Select Property タブから、この Material の <a class="reference internal" href="property.html#property-section"><span class="std std-ref">Property</span></a> として登録されているもを一つ選択します（ここでは rdf を選択）。</p>
 <img alt="../_images/screenshot_0193.png" src="../_images/screenshot_0193.png" />
-<p>次に、「Structure」タブで「final」が選択されていることを確認します。</p>
+<p>構造が変わる計算（原子構造最適化やMD計算など）による Property の場合は、Structure パートに、その最終構造が表示されます。</p>
 <img alt="../_images/screenshot_0194.png" src="../_images/screenshot_0194.png" />
-<p>下にスクロールすると、計算結果が確認できます。</p>
+<p>下にスクロールしていくと Properties パートがあり、Property として登録された計算結果が確認できます。複数の結果を持つ場合はタブで切り替えられるようになっています。</p>
 <img alt="../_images/screenshot_0195.png" src="../_images/screenshot_0195.png" />
-<p>以下に、各 Job で取得できる計算結果をソフトウェアごとにまとめます。</p>
+<p>Property がどのような計算から得られたものであるかによって、Properties に表示される内容が変わります。以下に、各 Job で取得できる計算結果をソフトウェアごとにまとめます。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 <section id="quantum-espresso">
-<h2><span class="section-number">10.1. </span>Quantum ESPRESSO<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.1. </span>Quantum ESPRESSO<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Single-Point SCF</p>
 <ul class="simple">
@@ -162,6 +169,42 @@
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Energy Barrier (NEB)</p>
+<ul class="simple">
+<li><p>Energy Barrier</p></li>
+<li><p>Atomic Structure Trajectory</p></li>
+<li><p>Brillouin Zone</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Phonon (DOS)</p>
+<ul class="simple">
+<li><p>Phonon DOS</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Phonon (Band)</p>
+<ul class="simple">
+<li><p>Phonon Band</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>X-Spectra</p>
+<ul class="simple">
+<li><p>Spectrum</p></li>
+<li><p>Total Energy Information</p></li>
+<li><p>Brillouin Zone</p></li>
+</ul>
 </li>
 </ul>
 <div class="line-block">
@@ -170,7 +213,7 @@
 </div>
 </section>
 <section id="openmx">
-<h2><span class="section-number">10.2. </span>OpenMX<a class="headerlink" href="#openmx" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.2. </span>OpenMX<a class="headerlink" href="#openmx" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Single-Point SCF</p>
 <ul class="simple">
@@ -276,7 +319,7 @@
 </div>
 </section>
 <section id="rsdft">
-<h2><span class="section-number">10.3. </span>RSDFT<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.3. </span>RSDFT<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Single-Point SCF</p>
 <ul class="simple">
@@ -370,7 +413,7 @@
 </div>
 </section>
 <section id="lammps">
-<h2><span class="section-number">10.4. </span>LAMMPS<a class="headerlink" href="#lammps" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.4. </span>LAMMPS<a class="headerlink" href="#lammps" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Atomic Structure Opt.</p>
 <ul class="simple">
@@ -407,7 +450,7 @@
 </div>
 </section>
 <section id="flare">
-<h2><span class="section-number">10.5. </span>FLARE<a class="headerlink" href="#flare" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.5. </span>FLARE<a class="headerlink" href="#flare" title="Link to this heading"></a></h2>
 <ul>
 <li><p>On-the-Fly MD</p>
 <ul>
@@ -433,10 +476,10 @@
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="ase-md">
-<h2><span class="section-number">10.6. </span>ASE-MD<a class="headerlink" href="#ase-md" title="Link to this heading"></a></h2>
+<section id="ase">
+<h2><span class="section-number">11.6. </span>ASE<a class="headerlink" href="#ase" title="Link to this heading"></a></h2>
 <ul>
-<li><p>OPT</p>
+<li><p>Atomic Structure Opt.</p>
 <ul class="simple">
 <li><p>Optimized Atomic Structure</p></li>
 </ul>
@@ -444,7 +487,24 @@
 <div class="line"><br /></div>
 </div>
 </li>
-<li><p>MD</p>
+<li><p>Lattice Opt.</p>
+<ul class="simple">
+<li><p>Optimized Atomic Structure</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Energy Barrier (NEB)</p>
+<ul class="simple">
+<li><p>Energy Barrier</p></li>
+<li><p>Atomic Structure Trajectory</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Molecular Dynamics</p>
 <ul>
 <li><p>Time Evolution Data (MD)</p>
 <ul class="simple">
@@ -467,7 +527,7 @@
 </div>
 </section>
 <section id="sprkkr">
-<h2><span class="section-number">10.7. </span>SPRKKR<a class="headerlink" href="#sprkkr" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.7. </span>SPRKKR<a class="headerlink" href="#sprkkr" title="Link to this heading"></a></h2>
 <ul>
 <li><p>First-Principles SCF</p>
 <ul class="simple">
@@ -492,7 +552,7 @@
 </div>
 </section>
 <section id="quloud-mag">
-<h2><span class="section-number">10.8. </span>Quloud-Mag<a class="headerlink" href="#quloud-mag" title="Link to this heading"></a></h2>
+<h2><span class="section-number">11.8. </span>Quloud-Mag<a class="headerlink" href="#quloud-mag" title="Link to this heading"></a></h2>
 <ul>
 <li><p>Monte Carlo</p>
 <ul class="simple">
@@ -516,14 +576,16 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="runjob.html" class="btn btn-neutral float-left" title="9. 計算 Job の実行" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="files.html" class="btn btn-neutral float-right" title="11. 入出力ファイルとログ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="property.html" class="btn btn-neutral float-left" title="10. Property の登録" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="files.html" class="btn btn-neutral float-right" title="12. 入出力ファイルとログ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025, Quemix Inc.　Last updated on Dec 22, 2025.</p>
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 16, 2026.
+      <span class="lastupdated">最終更新: 3月 16, 2026
+      </span></p>
   </div>
 
    
