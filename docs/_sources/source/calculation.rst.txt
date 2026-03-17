@@ -536,3 +536,66 @@ Micro-Magnetic Simulation (Quloud-Mag-LLG)
 -	Simulation Time：（単位：秒）
 -	Time Step：（単位：秒）
 -	Thermalization Time：（単位：秒）
+
+|
+|
+
+------------------------------------------------------------------------
+入力ファイルの直接アップロードによる計算 Job の登録
+------------------------------------------------------------------------
+
+ユーザー自身で用意した入力ファイルを直接アップロードして Job を登録することも可能です。上述した方法とは異なり、操作はダッシュボード（トップ画面）で行います。
+
+.. image:: images/screenshot_0234.png
+
+まず、新規 Project（ここでは "File_Upload"）を作成し、Project を選択した状態で Materials タブに切り替え、右側にある「＋」アイコンをクリックします。
+
+.. image:: images/screenshot_0235.png
+
+すると次のようなダイアログが開きます。
+
+.. image:: images/screenshot_0236.png
+
+次に Software 選択欄で、使用する Software を選択します。ここで選択可能な Software は、
+
+-   FLARE **（現在アップロード不可）**
+-   LAMMPS
+-   LAMMPS+CHGNet
+-   OpenMX
+-   Quantum ESPRESSO (PW) **（入力ファイルの &CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可）**
+-   Quantum ESPRESSO (DOS)
+-   Quantum ESPRESSO (BAND)
+-   Quantum ESPRESSO (BAND with spin)
+-   RSDFT
+
+です。ここでは OpenMX を選択します。
+
+.. image:: images/screenshot_0237.png
+
+「File Upload」のボタンをクリックすると、下図のようなファイルを選択するウィンドウが現れます。
+
+.. image:: images/screenshot_0238.png
+
+例として、OpenMX のウェブサイト（https://www.openmx-square.org/openmx_man3.9jp/node20.html）に載っている入力ファイル「Methane.dat」をアップロードしてみます。
+
+.. image:: images/screenshot_0239.png
+
+「Upload」をクリックすると、ウィンドウが閉じ、入力ファイル「Methane.dat」が表示された状態で一つ前のウィンドウ（下図）に戻ります。
+
+.. image:: images/screenshot_0240.png
+
+Material の名前（ここでは "Methane.dat_OpenMX" とする）を入力し、「Create」をクリックします。
+
+.. image:: images/screenshot_0241.png
+
+すると、入力ファイルで指定された構造をもつ Material と、入力ファイルで指定された計算内容の Job が、同時に Quloud に登録されます。 登録が完了すると、トップ画面に戻ります。 
+
+.. image:: images/screenshot_0242.png
+
+上図のように、Materials タブに新規 Material が追加され、下図のように Jobs タブにも新規 Job が追加されます。Job の名前は、Material 名 と Software 名の組合せに、ID 番号 を追加して作成されます。
+
+.. image:: images/screenshot_0243.png
+
+Job 名をクリックすると、登録した Material の詳細画面に遷移します。\ :ref:`runjob-section`\ については章を改めて説明します。
+
+.. image:: images/screenshot_0244.png
