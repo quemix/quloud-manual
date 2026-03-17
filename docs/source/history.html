@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-03-16T13:36:04+09:00" />
+    <meta property="article:modified_time" content="2026-03-17T12:40:07+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>14. 仕様（変更履歴、注意事項）</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -39,7 +39,7 @@
             Quloud Ver.6.1.0 Manual
           </a>
               <div class="version">
-                2026.3.16
+                2026.3.17
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,11 +66,17 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">14. 仕様（変更履歴、注意事項）</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">14.1. 仕様変更履歴</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">14.2. 注意事項</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quantum-espresso">14.2.1. Quantum ESPRESSO に関する注意事項</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#openmx">14.2.2. OpenMX に関する注意事項</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rsdft">14.2.3. RSDFT に関する注意事項</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lammps">14.2.4. LAMMPS に関する注意事項</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ase-md">14.2.5. ASE-MD に関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job">14.2.1. 計算 Job 実行時の注意事項（全般）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">14.2.2. ソフトウェア別注意事項</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quantum-espresso">14.2.2.1. Quantum ESPRESSO に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openmx">14.2.2.2. OpenMX に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsdft">14.2.2.3. RSDFT に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lammps">14.2.2.4. LAMMPS に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ase">14.2.2.5. ASE に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flare">14.2.2.6. FLARE に関する注意事項</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">14.2.3. 入力ファイル直接アップロードによる Job 実行での注意事項</a></li>
 </ul>
 </li>
 </ul>
@@ -117,7 +123,164 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p>aaaaaa</p>
+<ul>
+<li><p>認証タイムアウト</p>
+<ul class="simple">
+<li><p>サインインしてから８時間経過後にサインアウトするよう修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>UI/UX</p>
+<ul>
+<li><p>ダッシュボード</p>
+<ul class="simple">
+<li><p>ダッシュボードのシステムバー（Points、Expiration Date、Storageが表示されていた箇所）を削除</p></li>
+<li><p>ヘッドメニューにボードアイコンを追加し、クリックすると Points、Expiration Date、Storage をダイアログで表示するよう変更</p></li>
+<li><p>Project ボタン位置変更（上部 → 下部）</p></li>
+<li><p>Material 一覧の Edit ボタンを変更（ボタン → アイコン）</p></li>
+<li><p>Job 一覧の Edit ボタンを変更（ボタン → アイコン）</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Material 詳細画面</p>
+<ul>
+<li><p>画面サイズによらずサイドメニューが表示されるよう修正</p></li>
+<li><p>Property ページ</p>
+<ul class="simple">
+<li><p>Job 選択を削除し、Property 選択を追加</p></li>
+<li><p>Property 選択には、完了しているかつ表示許可されている Job のみ表示</p></li>
+<li><p>Structure 選択を削除（Job が選択された場合は Final を自動選択）</p></li>
+<li><p>Job Detail ボタンを追加（クリックで Job 詳細ページに遷移）</p></li>
+<li><p>Files ボタンを追加（クリックで File ページに遷移）</p></li>
+<li><p>Modeling/Save As (Save As Matrial)/Create Job の位置とアイコンを調整</p></li>
+<li><p>ページ内リンク（TABLE OF CONTENT）を削除</p></li>
+<li><p>Lattice、Chemical、Description の位置を調整</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Job ページ</p>
+<ul>
+<li><p>Job 一覧ページを追加</p>
+<ul class="simple">
+<li><p>表示データはダッシュボードと同様</p></li>
+<li><p>View アイコンをクリックすると Property ページでの表示切替を行う</p></li>
+<li><p>Files アイコンをクリックすると File ページに遷移</p></li>
+<li><p>Edit ボタンをクリックすると Job の名称と説明を編集するダイアログを表示</p></li>
+<li><p>Job 名称をクリックすると Job 詳細ページに遷移</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Job 詳細ページ</p>
+<ul class="simple">
+<li><p>Job 選択、Structure 選択を削除</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>File ページ</p>
+<ul class="simple">
+<li><p>Structure 選択を削除（Job が選択された場合は Final を自動選択）</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>入力ファイル直接アップロードによる Job 実行</p>
+<ul class="simple">
+<li><p>Material 作成ダイアログに Software の項目を追加</p></li>
+<li><p>Software の項目が選択された場合に File Upload で同時に Job を作成</p></li>
+</ul>
+<p><strong>※ 現時点では、FLARE の入力ファイルがアップロード不可となっております。また、Quantum ESPRESSO (PW) では、入力ファイルの &amp;CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可となっております。ご了承ください。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Project、Material、Job の名前の重複制限</p>
+<ul class="simple">
+<li><p>Project 作成、更新に名前重複禁止の制御を追加（Tenant 毎）</p></li>
+<li><p>Material 作成、更新に名前重複禁止の制御を追加（Project 毎）</p></li>
+<li><p>Job 作成、更新に名前重複禁止の制御を追加（Material 毎）</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>計算機能</p>
+<ul>
+<li><p>下記の Job を新たに追加</p>
+<ul>
+<li><p>Quantum ESPRESSO</p>
+<ul class="simple">
+<li><p>X-Spectra   <strong>（試験的運用）</strong></p></li>
+<li><p>Phonon (ph.x)</p></li>
+<li><p>Energy Barrier (NEB)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>ASE</p>
+<ul class="simple">
+<li><p>Energy Barrier (NEB)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Create Job ダイアログ</p>
+<ul>
+<li><p>作成する Job を選択する際、Types、Software、Workflows のどこからでも絞り込みが行えるよう変更</p></li>
+<li><p>下記の Software で Site propery settings 項目を追加し、各原子の拘束条件や初期スピンを設定できるよう変更</p>
+<ul class="simple">
+<li><p>Quantum ESPRESSO</p></li>
+<li><p>OpenMX</p></li>
+<li><p>RSDFT</p></li>
+<li><p>FLARE</p></li>
+</ul>
+<p><strong>※ FLARE (On-the-Fly MD) では、constraint 項目での各原子の拘束条件の設定が無効となりますので、ご了承ください。</strong></p>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>モデリング</p>
+<ul class="simple">
+<li><p>モデリングタイプの分類（Basic、Slab model、Interface、Add Molecule、Add Cell）を廃止し、あらゆる機能を一つの画面に集約</p></li>
+<li><p>Atomic Coordinates 項目を追加し、各原子の相対座標を設定できるよう変更</p></li>
+<li><p>Relative atomic position 項目を追加し、各原子を各方向に一括で移動できるよう変更</p></li>
+<li><p>Interface 項目では、追加する Film を「Add Crystal」で選択するよう変更</p></li>
+<li><p>Packmol 項目を追加（セルの格子ベクトル間角度がすべて 90 度の Crystal でのみ使用可能）</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>ボタンの名称</p>
+<ul class="simple">
+<li><p>「Submit」ボタンの名称を、「Run」「Create」「Save」「Delete」「Copy」など、操作内容に即した名称に変更</p></li>
+</ul>
+</li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -227,7 +390,7 @@
 </li>
 <li><p>その他</p>
 <ul class="simple">
-<li><p>Job 収束性（conv）の表示を第一原理計算（Quantum ESPERSSO, OpenMX, RSDFT）のみに変更</p></li>
+<li><p>Job 収束性（conv）の表示を第一原理計算（Quantum ESPRESSO, OpenMX, RSDFT）のみに変更</p></li>
 </ul>
 </li>
 </ul>
@@ -374,23 +537,45 @@
 </section>
 <section id="id3">
 <h2><span class="section-number">14.2. </span>注意事項<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<p>以下に、計算 Job 実行時の注意事項をソフトウェアごとに記載します。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<section id="job">
+<h3><span class="section-number">14.2.1. </span>計算 Job 実行時の注意事項（全般）<a class="headerlink" href="#job" title="Link to this heading"></a></h3>
+<p>AWS の計算リソースの在庫切れにより、「Run」ボタンをクリックしても数時間 Status が「Preprared」のままになる場合がございます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">14.2.2. </span>ソフトウェア別注意事項<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>以下、注意事項をソフトウェア毎に記載します。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 <section id="quantum-espresso">
-<h3><span class="section-number">14.2.1. </span>Quantum ESPRESSO に関する注意事項<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h3>
+<h4><span class="section-number">14.2.2.1. </span>Quantum ESPRESSO に関する注意事項<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h4>
 <p>Electron Band Structure と Electron DOS では、MPI Process 数を増やし過ぎると、エラーが出てしまいますのでご注意ください。</p>
 <p>また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
 <p>Spin 有りの計算を行う際、入力ファイルの &amp;system のブロックに starting_magnetization 行がデフォルトでは入らなくなったため、入力ファイルの編集機能で、starting_magnetization の記述を行う必要があります。</p>
+<p>Electron Band Structure と Electron DOS では、Exchange Correlation Functional の HSE06 は未対応となっております。詳しくは Quantum ESPRESSO の公式ドキュメント（<a class="reference external" href="https://www.quantum-espresso.org/Doc/pw_user_guide/node10.html">https://www.quantum-espresso.org/Doc/pw_user_guide/node10.html</a>）をご参照ください。</p>
+<p>Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の HSE06 を使用する場合、Pseudopotential Set で Ultrasoft(rrkjus) や Projector Augmented Wave(kjpaw) を使用すると、力の計算が実行できずにエラーが出てしまいますので、Norm-conserving(oncvpsp04) を使用してください。</p>
+<p>下記の Job では、Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございますので、ご注意ください。</p>
+<ul class="simple">
+<li><p>Energy Barrier (NEB)</p></li>
+<li><p>X-Spectra</p></li>
+<li><p>Phonon (ph.x)</p></li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="openmx">
-<h3><span class="section-number">14.2.2. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h3>
+<h4><span class="section-number">14.2.2.2. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h4>
 <p>OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf">https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf</a>）の Table 1 と Table 2 をご参照ください。</p>
 <p><strong>また、Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
 <div class="line-block">
@@ -399,7 +584,7 @@
 </div>
 </section>
 <section id="rsdft">
-<h3><span class="section-number">14.2.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h3>
+<h4><span class="section-number">14.2.2.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h4>
 <p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 <strong>また、Thread 数を増やし過ぎた結果、エラーが出てしまう場合もございますので、ユーザー自身で適切な Thread 数を設定してください。</strong></p>
 <div class="line-block">
@@ -408,7 +593,7 @@
 </div>
 </section>
 <section id="lammps">
-<h3><span class="section-number">14.2.4. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h3>
+<h4><span class="section-number">14.2.2.4. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h4>
 <p>計算 Job 登録時に原子間ポテンシャルファイルをユーザー自身でアップロードする場合、アップロード可能なファイル形式（拡張子）が下記に限定されておりますのでご注意ください。</p>
 <ul class="simple">
 <li><p>'.eam'</p></li>
@@ -430,9 +615,27 @@
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="ase-md">
-<h3><span class="section-number">14.2.5. </span>ASE-MD に関する注意事項<a class="headerlink" href="#ase-md" title="Link to this heading"></a></h3>
+<section id="ase">
+<h4><span class="section-number">14.2.2.5. </span>ASE に関する注意事項<a class="headerlink" href="#ase" title="Link to this heading"></a></h4>
 <p><strong>機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
+<p><strong>Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますので、ご注意ください。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="flare">
+<h4><span class="section-number">14.2.2.6. </span>FLARE に関する注意事項<a class="headerlink" href="#flare" title="Link to this heading"></a></h4>
+<p><strong>On-the-Fly MD では、Create Job ダイアログの Site property settings の constraint 項目で、各原子の拘束条件を設定しても無効となってしまいますので、ご注意ください。</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h3><span class="section-number">14.2.3. </span>入力ファイル直接アップロードによる Job 実行での注意事項<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p><strong>現時点では、FLARE の入力ファイルがアップロード不可となっております。また、Quantum ESPRESSO (PW) では、入力ファイルの &amp;CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可となっておりますので、ご注意ください。</strong></p>
 </section>
 </section>
 </section>
@@ -447,8 +650,8 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 16, 2026.
-      <span class="lastupdated">最終更新: 3月 16, 2026
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 17, 2026.
+      <span class="lastupdated">最終更新: 3月 17, 2026
       </span></p>
   </div>
 

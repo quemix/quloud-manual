@@ -16,7 +16,126 @@
 
 |
 
-aaaaaa
+-   認証タイムアウト
+
+    -   サインインしてから８時間経過後にサインアウトするよう修正
+
+    |
+
+-   UI/UX
+
+    -   ダッシュボード
+
+        -   ダッシュボードのシステムバー（Points、Expiration Date、Storageが表示されていた箇所）を削除
+        -   ヘッドメニューにボードアイコンを追加し、クリックすると Points、Expiration Date、Storage をダイアログで表示するよう変更
+        -   Project ボタン位置変更（上部 → 下部）
+        -   Material 一覧の Edit ボタンを変更（ボタン → アイコン）
+        -   Job 一覧の Edit ボタンを変更（ボタン → アイコン）
+
+        |
+
+    -   Material 詳細画面
+
+        -   画面サイズによらずサイドメニューが表示されるよう修正
+        -   Property ページ
+
+            -   Job 選択を削除し、Property 選択を追加
+            -   Property 選択には、完了しているかつ表示許可されている Job のみ表示
+            -   Structure 選択を削除（Job が選択された場合は Final を自動選択）
+            -   Job Detail ボタンを追加（クリックで Job 詳細ページに遷移）
+            -   Files ボタンを追加（クリックで File ページに遷移）
+            -   Modeling/Save As (Save As Matrial)/Create Job の位置とアイコンを調整
+            -   ページ内リンク（TABLE OF CONTENT）を削除
+            -   Lattice、Chemical、Description の位置を調整
+
+            |
+
+        -   Job ページ
+
+            -   Job 一覧ページを追加
+
+                -   表示データはダッシュボードと同様
+                -   View アイコンをクリックすると Property ページでの表示切替を行う
+                -   Files アイコンをクリックすると File ページに遷移
+                -   Edit ボタンをクリックすると Job の名称と説明を編集するダイアログを表示
+                -   Job 名称をクリックすると Job 詳細ページに遷移
+
+                |
+
+            -   Job 詳細ページ
+
+                -   Job 選択、Structure 選択を削除
+
+                |
+
+            -   File ページ
+
+                -   Structure 選択を削除（Job が選択された場合は Final を自動選択）
+
+    |
+
+-   入力ファイル直接アップロードによる Job 実行
+
+    -   Material 作成ダイアログに Software の項目を追加
+    -   Software の項目が選択された場合に File Upload で同時に Job を作成
+
+    **※ 現時点では、FLARE の入力ファイルがアップロード不可となっております。また、Quantum ESPRESSO (PW) では、入力ファイルの &CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可となっております。ご了承ください。**
+
+    |
+
+-   Project、Material、Job の名前の重複制限
+
+    -   Project 作成、更新に名前重複禁止の制御を追加（Tenant 毎）
+    -   Material 作成、更新に名前重複禁止の制御を追加（Project 毎）
+    -   Job 作成、更新に名前重複禁止の制御を追加（Material 毎）
+
+    |
+
+-   計算機能
+
+    -   下記の Job を新たに追加
+
+        -   Quantum ESPRESSO
+
+            -   X-Spectra   **（試験的運用）**
+            -   Phonon (ph.x)
+            -   Energy Barrier (NEB)
+
+            |
+
+        -   ASE
+
+            -   Energy Barrier (NEB)
+
+    |
+
+-   Create Job ダイアログ
+
+    -   作成する Job を選択する際、Types、Software、Workflows のどこからでも絞り込みが行えるよう変更
+    -   下記の Software で Site propery settings 項目を追加し、各原子の拘束条件や初期スピンを設定できるよう変更
+
+        -   Quantum ESPRESSO
+        -   OpenMX
+        -   RSDFT
+        -   FLARE
+
+        **※ FLARE (On-the-Fly MD) では、constraint 項目での各原子の拘束条件の設定が無効となりますので、ご了承ください。**
+
+    |
+
+-   モデリング
+
+    -   モデリングタイプの分類（Basic、Slab model、Interface、Add Molecule、Add Cell）を廃止し、あらゆる機能を一つの画面に集約
+    -   Atomic Coordinates 項目を追加し、各原子の相対座標を設定できるよう変更
+    -   Relative atomic position 項目を追加し、各原子を各方向に一括で移動できるよう変更
+    -   Interface 項目では、追加する Film を「Add Crystal」で選択するよう変更
+    -   Packmol 項目を追加（セルの格子ベクトル間角度がすべて 90 度の Crystal でのみ使用可能）
+
+    |
+
+-   ボタンの名称
+
+    -   「Submit」ボタンの名称を、「Run」「Create」「Save」「Delete」「Copy」など、操作内容に即した名称に変更
 
 |
 |
@@ -105,7 +224,7 @@ aaaaaa
 
 -   その他
 
-    -   Job 収束性（conv）の表示を第一原理計算（Quantum ESPERSSO, OpenMX, RSDFT）のみに変更
+    -   Job 収束性（conv）の表示を第一原理計算（Quantum ESPRESSO, OpenMX, RSDFT）のみに変更
 
 |
 |
@@ -215,7 +334,23 @@ aaaaaa
 注意事項
 ----------------------------------------
 
-以下に、計算 Job 実行時の注意事項をソフトウェアごとに記載します。
+|
+|
+
+################################################
+計算 Job 実行時の注意事項（全般）
+################################################
+
+AWS の計算リソースの在庫切れにより、「Run」ボタンをクリックしても数時間 Status が「Preprared」のままになる場合がございます。
+
+|
+|
+
+################################################
+ソフトウェア別注意事項
+################################################
+
+以下、注意事項をソフトウェア毎に記載します。
 
 |
 |
@@ -230,6 +365,16 @@ Electron Band Structure と Electron DOS では、MPI Process 数を増やし過
 
 Spin 有りの計算を行う際、入力ファイルの &system のブロックに starting_magnetization 行\
 がデフォルトでは入らなくなったため、入力ファイルの編集機能で、starting_magnetization の記述を行う必要があります。
+
+Electron Band Structure と Electron DOS では、Exchange Correlation Functional の HSE06 は未対応となっております。詳しくは Quantum ESPRESSO の公式ドキュメント（https://www.quantum-espresso.org/Doc/pw_user_guide/node10.html）をご参照ください。
+
+Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の HSE06 を使用する場合、Pseudopotential Set で Ultrasoft(rrkjus) や Projector Augmented Wave(kjpaw) を使用すると、力の計算が実行できずにエラーが出てしまいますので、Norm-conserving(oncvpsp04) を使用してください。
+
+下記の Job では、Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございますので、ご注意ください。
+
+-   Energy Barrier (NEB)
+-   X-Spectra
+-   Phonon (ph.x)
 
 |
 |
@@ -282,7 +427,27 @@ LAMMPS に関する注意事項
 |
 
 ++++++++++++++++++++++++++++++++++++++++++++++++
-ASE-MD に関する注意事項
+ASE に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 **機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
+
+**Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますので、ご注意ください。**
+
+|
+|
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+FLARE に関する注意事項
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+**On-the-Fly MD では、Create Job ダイアログの Site property settings の constraint 項目で、各原子の拘束条件を設定しても無効となってしまいますので、ご注意ください。**
+
+|
+|
+
+############################################################################
+入力ファイル直接アップロードによる Job 実行での注意事項
+############################################################################
+
+**現時点では、FLARE の入力ファイルがアップロード不可となっております。また、Quantum ESPRESSO (PW) では、入力ファイルの &CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可となっておりますので、ご注意ください。**
