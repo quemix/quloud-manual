@@ -39,11 +39,22 @@ Mateiral（原子座標の情報） を Quloud に登録する方法として、
 
 ここでは、含まれる元素や化学式など、結晶構造を検索する方法を選択し（Search Type）、
 それらをさらに格子の型や対称性（Crystal System，Spacegroup Symbol）等で絞り込むといったことができます。
+
+Search Type では、
+
+-   Material IDs（Materials Project で、物質ごとに割り振られている文字列）
+-   Formula（組成式）
+-   Chemsys（指定した元素から成る物質がヒットする）
+-   Elements（指定した元素を含む物質がヒットする）
+
+の中から検索方法を選択できます。以下では、Search Type を Formula としています。
+
 Queryに検索文字列を入力すると「Search」ボタンがアクティブになり、これをクリックすると、条件に合致する物質の結晶構造が一覧で表示されます（下図）。
 
 .. image:: images/screenshot_0007.png
 
 登録したい結晶構造にチェックを入れると、ウィンドウの下部にある「Select」ボタンがアクティブになるので、これをクリックします。
+
 .. image:: images/screenshot_0008.png
 
 すると、検索ウィンドウが閉じて、結晶構造（ここでは "mp-149" ）が表示された状態で一つ前のウィンドウ（下図）に戻ります。
@@ -51,7 +62,7 @@ Queryに検索文字列を入力すると「Search」ボタンがアクティブ
 .. image:: images/screenshot_0051.png
 
 検索で見つけた構造に名前を付け（ここでは "Si" ）、「Create」をクリックすれば、Quloud 上に Material として登録されます。
-登録が完了するトップ画面に戻ります。
+登録が完了するとトップ画面に戻ります。
 
 .. image:: images/screenshot_0003b.png
 
@@ -79,7 +90,7 @@ Queryに検索文字列を入力すると「Search」ボタンがアクティブ
 .. image:: images/screenshot_0053.png
 
 検索で見つけた構造に名前を付け（ここでは "Ethylene Molecule" ）、「Create」をクリックすれば、Quloud 上に Material として登録されます。
-登録が完了するトップ画面に戻ります。
+登録が完了するとトップ画面に戻ります。
 
 .. image:: images/screenshot_0005.png
 

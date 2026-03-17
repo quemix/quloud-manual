@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-03-16T08:41:12+09:00" />
+    <meta property="article:modified_time" content="2026-03-17T13:34:35+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>5. Material の登録</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -122,15 +122,23 @@
 <p>「Search in Crystal DB」のボタンをクリックすると、下図のようなデータベース検索のウィンドウが現れます。</p>
 <img alt="../_images/screenshot_0006.png" src="../_images/screenshot_0006.png" />
 <p>ここでは、含まれる元素や化学式など、結晶構造を検索する方法を選択し（Search Type）、
-それらをさらに格子の型や対称性（Crystal System，Spacegroup Symbol）等で絞り込むといったことができます。
-Queryに検索文字列を入力すると「Search」ボタンがアクティブになり、これをクリックすると、条件に合致する物質の結晶構造が一覧で表示されます（下図）。</p>
+それらをさらに格子の型や対称性（Crystal System，Spacegroup Symbol）等で絞り込むといったことができます。</p>
+<p>Search Type では、</p>
+<ul class="simple">
+<li><p>Material IDs（Materials Project で、物質ごとに割り振られている文字列）</p></li>
+<li><p>Formula（組成式）</p></li>
+<li><p>Chemsys（指定した元素から成る物質がヒットする）</p></li>
+<li><p>Elements（指定した元素を含む物質がヒットする）</p></li>
+</ul>
+<p>の中から検索方法を選択できます。以下では、Search Type を Formula としています。</p>
+<p>Queryに検索文字列を入力すると「Search」ボタンがアクティブになり、これをクリックすると、条件に合致する物質の結晶構造が一覧で表示されます（下図）。</p>
 <img alt="../_images/screenshot_0007.png" src="../_images/screenshot_0007.png" />
-<p>登録したい結晶構造にチェックを入れると、ウィンドウの下部にある「Select」ボタンがアクティブになるので、これをクリックします。
-.. image:: images/screenshot_0008.png</p>
+<p>登録したい結晶構造にチェックを入れると、ウィンドウの下部にある「Select」ボタンがアクティブになるので、これをクリックします。</p>
+<img alt="../_images/screenshot_0008.png" src="../_images/screenshot_0008.png" />
 <p>すると、検索ウィンドウが閉じて、結晶構造（ここでは &quot;mp-149&quot; ）が表示された状態で一つ前のウィンドウ（下図）に戻ります。</p>
 <img alt="../_images/screenshot_0051.png" src="../_images/screenshot_0051.png" />
 <p>検索で見つけた構造に名前を付け（ここでは &quot;Si&quot; ）、「Create」をクリックすれば、Quloud 上に Material として登録されます。
-登録が完了するトップ画面に戻ります。</p>
+登録が完了するとトップ画面に戻ります。</p>
 <img alt="../_images/screenshot_0003b.png" src="../_images/screenshot_0003b.png" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -150,7 +158,7 @@ Queryに検索文字列を入力すると「Search」ボタンがアクティブ
 分子構造（ここでは &quot;6325&quot; ）が表示された状態で一つ前のウィンドウ（下図）に戻ります。</p>
 <img alt="../_images/screenshot_0053.png" src="../_images/screenshot_0053.png" />
 <p>検索で見つけた構造に名前を付け（ここでは &quot;Ethylene Molecule&quot; ）、「Create」をクリックすれば、Quloud 上に Material として登録されます。
-登録が完了するトップ画面に戻ります。</p>
+登録が完了するとトップ画面に戻ります。</p>
 <img alt="../_images/screenshot_0005.png" src="../_images/screenshot_0005.png" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -193,7 +201,7 @@ Queryに検索文字列を入力すると「Search」ボタンがアクティブ
 
   <div role="contentinfo">
     <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 17, 2026.
-      <span class="lastupdated">最終更新: 3月 16, 2026
+      <span class="lastupdated">最終更新: 3月 17, 2026
       </span></p>
   </div>
 
