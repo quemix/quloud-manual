@@ -107,6 +107,12 @@
 
             -   Energy Barrier (NEB)
 
+        |
+
+    -   OpenMX の Lattice Opt. の Optimization Method に以下の選択肢を追加
+
+        -   Lattice Constants Optimization (\|a1\| = \|a2\| ≠ \|a3\|) by Steepest Descent (OptC4)
+
     |
 
 -   Create Job ダイアログ
@@ -376,6 +382,11 @@ Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の H
 -   X-Spectra
 -   Phonon (ph.x)
 
+現在、Electron Band Structure では、有効質量の情報が取得できなくなっています。そのため、Material 詳細画面での計算結果表示には、次のような影響が出ています。
+
+-   Effective Mass：有効質量の情報が取得できず、電子バンド図のみが表示されます。
+-   Effective Mass (Table)：非表示となっています。
+
 |
 |
 
@@ -414,14 +425,15 @@ LAMMPS に関する注意事項
 -    '.ann'
 -    '.flare'
 
-また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。
+**現在、Molecular Dynamics で Atomic Structure Trajectory のアニメーションが表示されなくなっています。**
 
 さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 
 なお、Molecular Dynamics の Job 登録時に、compute 選択欄で Mean-Squared Displacement (msd) を選択する場合、
-**特定の元素のみにチェックを入れると、指定した通りの元素の msd が計算されない場合がございます。**
-例えば Ni\ :sub:`2`\P を Material として、Job 登録時に P のみの msd を計算するように設定すると、実際には Ni の msd が計算されてしまいます。ですので、
-**msd を計算する際には、必ずすべての元素にチェックを入れて Job を登録してください。**
+**特定の元素のみにチェックを入れると、「Create」ボタンがクリックできない状態となっておりますので、msd を計算する際には、すべての元素にチェックを入れて Job を登録してください。**
+
+同様に、compute 選択欄で Radial Distribution Function (rdf) を選択する場合、
+**特定の元素ペアのみにチェックを入れると、「Create」ボタンがクリックできない状態となっておりますので、rdf を計算する際には、すべての元素ペアにチェックを入れて Job を登録してください。**
 
 |
 |

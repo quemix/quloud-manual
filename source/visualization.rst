@@ -58,8 +58,8 @@ Quantum ESPRESSO
 -   Electron Band Structure
 
     -   Electron Band
-    -   Effective Mass
-    -   Effective Mass (Table)
+    -   Effective Mass  **（現在、有効質量の情報は取得できず、電子バンド図のみ表示されます）**
+    -   Effective Mass (Table)  **（現在取得できません）**
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -165,7 +165,7 @@ OpenMX
 
     |
 
--   First-Principles MD
+-   Molecular Dynamics
 
     -   Time Evolution Data (MD)
 
@@ -247,7 +247,7 @@ RSDFT
 
     |
 
--   First-Principles MD
+-   Molecular Dynamics
 
     -   Time Evolution Data (MD)
 
@@ -264,9 +264,9 @@ RSDFT
 
     |
 
-**※1 Total Electron Density は、I/O Control が -1, 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。**
+**※1 Total Electron Density は、I/O Control が 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。**
 
-**※2 Kohn-Sham Orbitals は、I/O Control が -1, 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。**
+**※2 Kohn-Sham Orbitals は、I/O Control が 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。**
 
 |
 |
@@ -296,7 +296,7 @@ LAMMPS
 
         |
 
-    -   Atomic Structure Trajectory
+    -   Atomic Structure Trajectory  **（現在取得できません）**
 
 |
 |

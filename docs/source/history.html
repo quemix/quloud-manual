@@ -233,6 +233,14 @@
 </ul>
 </li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>OpenMX の Lattice Opt. の Optimization Method に以下の選択肢を追加</p>
+<ul class="simple">
+<li><p>Lattice Constants Optimization (|a1| = |a2| ≠ |a3|) by Steepest Descent (OptC4)</p></li>
+</ul>
 </li>
 </ul>
 <div class="line-block">
@@ -562,6 +570,11 @@
 <li><p>X-Spectra</p></li>
 <li><p>Phonon (ph.x)</p></li>
 </ul>
+<p>現在、Electron Band Structure では、有効質量の情報が取得できなくなっています。そのため、Material 詳細画面での計算結果表示には、次のような影響が出ています。</p>
+<ul class="simple">
+<li><p>Effective Mass：有効質量の情報が取得できず、電子バンド図のみが表示されます。</p></li>
+<li><p>Effective Mass (Table)：非表示となっています。</p></li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -597,12 +610,12 @@
 <li><p>'.ann'</p></li>
 <li><p>'.flare'</p></li>
 </ul>
-<p>また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。</p>
+<p><strong>現在、Molecular Dynamics で Atomic Structure Trajectory のアニメーションが表示されなくなっています。</strong></p>
 <p>さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
 <p>なお、Molecular Dynamics の Job 登録時に、compute 選択欄で Mean-Squared Displacement (msd) を選択する場合、
-<strong>特定の元素のみにチェックを入れると、指定した通りの元素の msd が計算されない場合がございます。</strong>
-例えば Ni<sub>2</sub>P を Material として、Job 登録時に P のみの msd を計算するように設定すると、実際には Ni の msd が計算されてしまいます。ですので、
-<strong>msd を計算する際には、必ずすべての元素にチェックを入れて Job を登録してください。</strong></p>
+<strong>特定の元素のみにチェックを入れると、「Create」ボタンがクリックできない状態となっておりますので、msd を計算する際には、すべての元素にチェックを入れて Job を登録してください。</strong></p>
+<p>同様に、compute 選択欄で Radial Distribution Function (rdf) を選択する場合、
+<strong>特定の元素ペアのみにチェックを入れると、「Create」ボタンがクリックできない状態となっておりますので、rdf を計算する際には、すべての元素ペアにチェックを入れて Job を登録してください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -643,7 +656,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 17, 2026.</p>
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 18, 2026.</p>
   </div>
 
    
