@@ -41,7 +41,7 @@
             Quloud Ver.6.1.0 Manual
           </a>
               <div class="version">
-                2026.3.17
+                2026.3.23
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -1504,6 +1504,7 @@ K_POINTS {crystal_b}
 <blockquote>
 <div><ul class="simple">
 <li><p>OptC1：原子座標を固定したまま、格子ベクトルに拘束をかけずに最適化を行います。最適化は、最急降下法によって行われます。</p></li>
+<li><p>OptC4：原子座標を固定したまま、格子ベクトル間の角度を初期値に固定し、格子ベクトルの長さを以下の拘束条件のもとで最適化します：|a1| = |a2| ≠ |a3|。最適化は、最急降下法によって行われます。</p></li>
 <li><p>OptC5：原子座標、格子ベクトルともに拘束をかけずに同時に最適化を行います。最適化は、最急降下法によって行われます。</p></li>
 <li><p>RFC5：原子座標、格子ベクトルともに拘束をかけずに同時に最適化を行います。最適化は、RF 法、DIIS 法、BFGS 法によって行われます。</p></li>
 </ul>
@@ -3874,7 +3875,7 @@ TYPE               4
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 17, 2026.
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 23, 2026.
       <span class="lastupdated">最終更新: 3月 17, 2026
       </span></p>
   </div>
