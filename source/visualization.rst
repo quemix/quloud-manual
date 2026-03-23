@@ -291,12 +291,14 @@ LAMMPS
         -   Volume
         -   Density
         -   Uncertainty（FLARE ポテンシャル使用時のみ）
-        -   Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）
+        -   Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）\ :sup:`※1`
         -   Radial Distribution Function（Job 登録時に compute 選択欄で選択した場合のみ）
 
         |
 
     -   Atomic Structure Trajectory  **（現在取得できません）**
+
+**※1 Mean-Squared Displacement については、Ver.6.0 以前でのデータはグラフ表示されませんのでご注意ください。**
 
 |
 |
