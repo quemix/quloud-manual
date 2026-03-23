@@ -40,7 +40,7 @@
             Quloud Ver.6.1.0 Manual
           </a>
               <div class="version">
-                2026.3.17
+                2026.3.23
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -152,8 +152,8 @@
 <li><p>Electron Band Structure</p>
 <ul class="simple">
 <li><p>Electron Band</p></li>
-<li><p>Effective Mass</p></li>
-<li><p>Effective Mass (Table)</p></li>
+<li><p>Effective Mass  <strong>（現在、有効質量の情報は取得できず、電子バンド図のみ表示されます）</strong></p></li>
+<li><p>Effective Mass (Table)  <strong>（現在取得できません）</strong></p></li>
 <li><p>Kohn-Sham Levels</p></li>
 <li><p>Brillouin Zone</p></li>
 <li><p>Total Energy Information</p></li>
@@ -284,7 +284,7 @@
 <div class="line"><br /></div>
 </div>
 </li>
-<li><p>First-Principles MD</p>
+<li><p>Molecular Dynamics</p>
 <ul>
 <li><p>Time Evolution Data (MD)</p>
 <ul class="simple">
@@ -383,7 +383,7 @@
 <div class="line"><br /></div>
 </div>
 </li>
-<li><p>First-Principles MD</p>
+<li><p>Molecular Dynamics</p>
 <ul>
 <li><p>Time Evolution Data (MD)</p>
 <ul class="simple">
@@ -405,8 +405,8 @@
 </div>
 </li>
 </ul>
-<p><strong>※1 Total Electron Density は、I/O Control が -1, 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。</strong></p>
-<p><strong>※2 Kohn-Sham Orbitals は、I/O Control が -1, 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。</strong></p>
+<p><strong>※1 Total Electron Density は、I/O Control が 2, 3 の場合にのみ表示されます。I/O Control が 0, 1 の場合には表示されませんのでご注意ください。</strong></p>
+<p><strong>※2 Kohn-Sham Orbitals は、I/O Control が 1, 3 の場合にのみ表示されます。I/O Control が 0, 2 の場合には表示されませんのでご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -433,17 +433,18 @@
 <li><p>Volume</p></li>
 <li><p>Density</p></li>
 <li><p>Uncertainty（FLARE ポテンシャル使用時のみ）</p></li>
-<li><p>Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）</p></li>
+<li><p>Mean-Squared Displacement（Job 登録時に compute 選択欄で選択した場合のみ）<sup>※1</sup></p></li>
 <li><p>Radial Distribution Function（Job 登録時に compute 選択欄で選択した場合のみ）</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 </li>
-<li><p>Atomic Structure Trajectory</p></li>
+<li><p>Atomic Structure Trajectory  <strong>（現在取得できません）</strong></p></li>
 </ul>
 </li>
 </ul>
+<p><strong>※1 Mean-Squared Displacement については、Ver.6.0 以前でのデータはグラフ表示されませんのでご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -583,7 +584,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 17, 2026.
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 23, 2026.
       <span class="lastupdated">最終更新: 3月 16, 2026
       </span></p>
   </div>
