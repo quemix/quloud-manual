@@ -91,11 +91,6 @@ Site property settings
 設定後、右サイドパネル上部左側のアイコンをクリックすると、設定を完了し、\
 元の計算ジョブ設定メニューに戻ります。
 
-.. warning::
-  charge の設定は今後の拡張用で、現状では無視されます（入力ファイル等には反映されません）。
-
-**※ OpenMX では、spin & charge 項目での各原子の初期電荷の設定を行うと、無効な入力ファイルが生成されてしまいますので、行わないようご注意ください。**
-
 **※ RSDFT では、spin & charge 項目での各原子の初期スピンの設定が無効となりますので、Initial Spin Difference での設定をお願いいたします。**
 
 **※ FLARE (On-the-Fly MD) では、constraint 項目での各原子の拘束条件の設定が無効となりますので、ご了承ください。**
@@ -567,11 +562,11 @@ Micro-Magnetic Simulation (Quloud-Mag-LLG)
 
 次に Software 選択欄で、使用する Software を選択します。ここで選択可能な Software は、
 
--   FLARE **（現在アップロード不可）**
+-   FLARE
 -   LAMMPS
 -   LAMMPS+CHGNet
 -   OpenMX
--   Quantum ESPRESSO (PW) **（入力ファイルの &CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可）**
+-   Quantum ESPRESSO (PW)
 -   Quantum ESPRESSO (DOS)
 -   Quantum ESPRESSO (BAND)
 -   Quantum ESPRESSO (BAND with spin)
