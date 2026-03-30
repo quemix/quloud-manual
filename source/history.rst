@@ -394,6 +394,8 @@
 
 AWS の計算リソースの在庫切れにより、「Run」ボタンをクリックしても数時間 Status が「Preprared」のままになる場合がございます。
 
+一度「Run Job」ボタンから Job を実行した後に、再度「Run Job」ボタンから Job を実行すると、Status が「Failed」になってしまう場合がございますのでご注意ください。
+
 |
 |
 
@@ -425,6 +427,11 @@ Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の H
 -   Phonon (ph.x)
 
 **現在、Electron Band Structure の計算結果のうち、Effective Mass (Table) の表が、Job 作成者のみしか閲覧できなくなっていますので、ご注意ください。**
+
+X-Spectra では、Create Job ダイアログでの入力パラメータの設定に関して下記の不具合がありますので、ご注意ください。
+
+-   XSPECTRA.IN の input_xspectra 項目内の X-ray k vector と X-ray epsilon というパラメータでは、各成分を -1 から 1 までの範囲で、0.1 刻みで調節できますが、Create Job ダイアログでは表示上 -1, 0, 1 の整数値しかとらないように見えます。
+-   XSPECTRA.IN の plot 項目内の Gamma mode で variable を選択すると Gamma value というパラメータが現れます。このパラメータの各成分の下限値は 1E-4 ですが、Create Job ダイアログでは表示上 0 になっているように見えます。
 
 |
 |
@@ -472,6 +479,9 @@ LAMMPS に関する注意事項
 
 Ver.6.1 より、Molecular Dynamics の Mean-Squared Displacement (msd) のデータを出力するファイル名が変更となり、その影響で、Ver.6.0 以前での msd のデータがグラフ表示されなくなっております。ご了承ください。
 
+Molecular Dynamics では、Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございます。
+具体的には、actions で npt を選択し、Anisotropy で Triclinic を選択すると、Params3（Pressure1 (bars)、Pressure2 (bars)、Anisotropy）が正しく表示されません。ご注意ください。
+
 |
 |
 
@@ -483,6 +493,8 @@ ASE に関する注意事項
 
 **Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますので、ご注意ください。**
 
+Energy Barrier (NEB) では、一度作成した Job を、Job 詳細ページの「Edit Job」ボタンから編集する機能が無効になっておりますので、ご注意ください。
+
 |
 |
 
@@ -491,3 +503,16 @@ FLARE に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 **On-the-Fly MD では、Create Job ダイアログの Site property settings の constraint 項目で、各原子の拘束条件を設定しても無効となってしまいますので、ご注意ください。**
+
+|
+|
+
+################################################
+その他の注意事項
+################################################
+
+Job 詳細ページの「Delete Job」ボタンから Job を削除しても、Job 名の重複禁止の制御は無効化されません。そのため、同一 Material 内では削除した Job と同じ名前の Job も作成できませんのでご注意ください。
+
+作成した Job を、Job 詳細ページの「Copy Job」ボタンでコピーする際には、Job 名の重複禁止の制御が無効となり、同じ名前の Job が作成できてしまうのでご注意ください。
+
+招待画面（トップ画面で「Invitation」をクリックすると移動する画面）で、一度追加した新規ユーザーのメールアドレスを「Deny」ボタンで却下する機能は、そのアドレスを追加した人物のみ使用可能となっています。
