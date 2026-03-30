@@ -58,8 +58,8 @@ Quantum ESPRESSO
 -   Electron Band Structure
 
     -   Electron Band
-    -   Effective Mass  **（現在、有効質量の情報は取得できず、電子バンド図のみ表示されます）**
-    -   Effective Mass (Table)  **（現在取得できません）**
+    -   Effective Mass
+    -   Effective Mass (Table)  **（Job 作成者のみしか閲覧できません）**
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -296,7 +296,7 @@ LAMMPS
 
         |
 
-    -   Atomic Structure Trajectory  **（現在取得できません）**
+    -   Atomic Structure Trajectory
 
 **※1 Mean-Squared Displacement については、Ver.6.0 以前でのデータはグラフ表示されませんのでご注意ください。**
 

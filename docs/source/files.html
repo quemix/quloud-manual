@@ -35,7 +35,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Quloud Ver.6.1.0 Manual
+            Quloud Ver.6.1.1 Manual
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -207,7 +207,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quloud Ver.6.1.0 Manual</a>
+          <a href="../index.html">Quloud Ver.6.1.1 Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -3059,10 +3059,16 @@ ijpairs.cellid&gt;
 </section>
 <section id="quloudjob-pot">
 <h4><span class="section-number">12.7.1.2. </span>QuloudJob.pot<a class="headerlink" href="#quloudjob-pot" title="Link to this heading"></a></h4>
+<p>直前の SCF 計算で出力されたポテンシャルデータを保存し、次の計算の入力として使用するためのファイルです。使用手順は下記の通りです。</p>
+<blockquote>
+<div><p>１．ダミーのポテンシャルファイル「QuloudJob.pot」を用意して First-Principles SCF の計算を実行する</p>
+<p>２．First-Principles SCF で出力されたポテンシャルファイル「QuloudJob.pot_new」を、次の Exchange Coupling Parameters の入力ファイル「QuloudJob.pot」として計算を実行する</p>
+</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <p><strong>First-Principles SCF の場合</strong></p>
+<p>下記のようなダミーのポテンシャルファイルを用意して SCF 計算を実行します。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*******************************************************************************</span>
 <span class="n">HEADER</span>              <span class="n">SPR</span><span class="o">-</span><span class="n">KKR</span> <span class="n">potential</span> <span class="n">file</span><span class="p">,</span> <span class="n">created</span> <span class="n">at</span> <span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">24</span> <span class="mi">13</span><span class="p">:</span><span class="mi">18</span><span class="p">:</span><span class="mf">50.728285</span>
 <span class="o">*******************************************************************************</span>
@@ -3160,55 +3166,53 @@ ijpairs.cellid&gt;
 </div>
 <p>入力パラメータの詳細は以下の通りです。</p>
 <ul>
-<li><p>HEADER：</p></li>
-<li><p>TITLE：</p></li>
-<li><p>SYSTEM：</p></li>
-<li><p>PACKAGE：</p></li>
-<li><p>FORMAT：</p></li>
+<li><p>HEADER：ファイル種別と生成日時を表します。</p></li>
+<li><p>TITLE：ファイルの生成元についての記載です。</p></li>
+<li><p>SYSTEM：系の名前を表します。</p></li>
+<li><p>PACKAGE：ファイルの形式・所属パッケージを表します。</p></li>
+<li><p>FORMAT：ファイルのフォーマット版を表します。</p></li>
 <li><p>GLOBAL SYSTEM PARAMETER</p>
-<ul class="simple">
+<ul>
 <li><p>NQ：格子サイトの総数を指定します。</p></li>
-<li><p>NT：原子のタイプの総数を指定します。</p></li>
-<li><p>NM：</p></li>
-<li><p>IREL：</p></li>
-<li><p>NSPIN：</p></li>
+<li><p>NT：原子タイプの総数を指定します。</p></li>
+<li><p>NM：半径メッシュの総数を指定します。</p></li>
+<li><p>IREL：このファイルをつくった SCF ポテンシャルが、どのような相対論的枠組みで得られたものかを表します。具体的には、</p>
+<ul class="simple">
+<li><p>スカラー相対論（SP-SREL）で得られたポテンシャルの場合：2</p></li>
+<li><p>完全相対論（FREL）で得られたポテンシャルの場合：3</p></li>
+</ul>
+<p>となります。初期状態では 3 となります。</p>
+</li>
 </ul>
 </li>
 <li><p>SCF-INFO</p>
 <ul>
-<li><p>INFO：</p></li>
+<li><p>INFO：補足情報があればここに記載されます。</p></li>
 <li><p>SCFSTATUS：SCF 計算のステータスを表します。これから計算を行うので START となっています。</p></li>
-<li><p>FULLPOT：</p></li>
-<li><p>BREITINT：</p></li>
-<li><p>NONMAG：</p></li>
-<li><p>ORBPOL：</p></li>
-<li><p>EXTFIELD：</p></li>
-<li><p>BLCOUPL：</p></li>
-<li><p>BEXT：</p></li>
-<li><p>SEMICORE：</p></li>
-<li><p>LLOYD：</p></li>
-<li><p>NE：</p></li>
-<li><p>IBZINT：</p></li>
-<li><p>NKTAB：</p></li>
-<li><p>TETDEPPOT：</p></li>
-<li><p>XC-POT：</p></li>
-<li><p>SCF-ALG：</p></li>
-<li><p>SCF-ITER：SCF 計算の反復回数を表します。まだ計算が始まっていないので 0 となっています。</p></li>
-<li><p>SCF-MIX：</p></li>
-<li><p>SCF-TOL：</p></li>
-<li><p>RMSAVV：ポテンシャル関数 V の誤差をどこまで許容するか指定します。誤差評価は常用対数 log<sub>10</sub>V で行います。</p></li>
-<li><p>RMSAVB：ポテンシャル関数 B の誤差をどこまで許容するか指定します。誤差評価は常用対数 log<sub>10</sub>B で行います。</p>
-<p>ポテンシャル関数 V、B については、SPRKKR ユーザーマニュアル（<a class="reference external" href="https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/SPRKKR-8.6-Manual/lang,en-gb/">https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/SPRKKR-8.6-Manual/lang,en-gb/</a>）の 1.2 をご参照ください。</p>
+<li><p>FULLPOT：full-potential 計算を使ったかどうかを表します。デフォルトでは F（使用せず）となっています。</p></li>
+<li><p>BREITINT：Breit 相互作用を考慮したかどうかを表します。デフォルトでは F（考慮せず）となっています。</p></li>
+<li><p>NONMAG：非磁性計算を行ったかどうかを表します。デフォルトでは F（磁性あり）となっています。</p></li>
+<li><p>ORBPOL：軌道分極補正を入れたかどうかを表します。デフォルトでは NONE（補正なし）となっています。</p></li>
+<li><p>EXTFIELD：外部磁場を入れたかどうかを表します。デフォルトでは F（なし）となっています。</p></li>
+<li><p>BEXT：外部磁場の大きさを表します。デフォルトでは 0.0 となっています。</p></li>
+<li><p>SEMICORE：semicore 状態を特別扱いしたかどうかを表します。デフォルトでは F（特別扱いせず）となっています。</p></li>
+<li><p>LLOYD：Lloyd formula を使ったかどうかを表します。デフォルトでは F（使用せず）となっています。</p></li>
+<li><p>SCF-ITER：現在までの SCF 計算の反復回数を表します。まだ計算が始まっていないので 0 となっています。</p></li>
+<li><p>SCF-MIX：SCF 計算での電荷/ポテンシャルの混合率を表します。デフォルトでは 0.2 となっています。</p></li>
+<li><p>SCF-TOL：SCF 計算での収束判定のしきい値を表します。デフォルトでは 1e-05 となっています。</p></li>
+<li><p>RMSAVV：直前の SCF 計算の最終反復での、ポテンシャル関数 V の RMS 誤差を表します。RMS 誤差がまだ評価されていないので、「未定」を表す目印として、極端に大きな数がダミー値として入っています。</p></li>
+<li><p>RMSAVB：直前の SCF 計算の最終反復での、スピン依存有効磁場 B の RMS 誤差を表します。RMS 誤差がまだ評価されていないので、「未定」を表す目印として、極端に大きな数がダミー値として入っています。</p>
+<p>ポテンシャル関数 V、スピン依存有効磁場 B については、SPRKKR ユーザーマニュアル（<a class="reference external" href="https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/SPRKKR-8.6-Manual/lang,en-gb/">https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/SPRKKR-8.6-Manual/lang,en-gb/</a>）の 1.2 をご参照ください。</p>
 </li>
-<li><p>EF：</p></li>
-<li><p>VMTZ：</p></li>
+<li><p>EF：フェルミ準位を表します。フェルミ準位がまだ計算されていないので、「未定」を表す目印として、極端に大きな数がダミー値として入っています。</p></li>
+<li><p>VMTZ：新しく採用した muffin-tin zero というポテンシャルエネルギーの原点が、もとのポテンシャルの基準からみてどこにあるかを表します。デフォルトでは 0.7 となっています。</p></li>
 </ul>
 </li>
 <li><p>LATTICE</p>
 <ul>
 <li><p>SYSDIM：モデルの次元数を指定します。立体モデルなので 3D とします。</p></li>
 <li><p>SYSTYPE：モデルのタイプを指定します。バルク系なので BULK とします。</p></li>
-<li><p>BRAVAIS：ブラべ格子を番号で指定します。対応する番号は、xband ユーザーマニュアル（<a class="reference external" href="https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/xband-manual/lang,en-gb/">https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/xband-manual/lang,en-gb/</a>）の Table II をご参照ください。</p></li>
+<li><p>BRAVAIS：ブラべ格子を番号と名称で指定します。対応する番号は、xband ユーザーマニュアル（<a class="reference external" href="https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/xband-manual/lang,en-gb/">https://www.ebert.cup.uni-muenchen.de/index.php/en/repository/SPRKKR/xband-manual/lang,en-gb/</a>）の Table II をご参照ください。</p></li>
 <li><p>ALAT：格子ベクトル長さを Bohr 単位で指定します。</p>
 <p>まず、ALAT 項目で基準となる長さ（ここでは 7.540723845133523 Bohr）を記入します。次の A(1)、A(2)、A(3) 項目では、３つの格子ベクトルの各方向成分を、ALAT で定めた長さを基準とした相対値で記入します。例えば、A(1) ベクトルの第１成分は 7.540723845133523 Bohr × 1 = 7.540723845133523 Bohr ≃ 3.99 Å となり、A(3) ベクトルの第３成分は 7.540723845133523 Bohr × 1.02813671936708 = 7.75289507579 Bohr ≃ 4.10 Å となります。</p>
 </li>
@@ -3216,33 +3220,67 @@ ijpairs.cellid&gt;
 </li>
 <li><p>SITES</p>
 <ul class="simple">
-<li><p>CARTESIAN：</p></li>
-<li><p>BASSCALE：</p></li>
+<li><p>CARTESIAN：座標が Cartesian の場合は T、格子ベクトルを基準とした分率座標の場合は F とします。デフォルトでは T（Cartesian）となっています。</p></li>
+<li><p>BASSCALE：座標のスケール因子です。ここでの設定に応じて、QBAS(X)、QBAS(Y)、QBAS(Z) の各成分に追加の倍率がかかります。例えば 2.0 3.0 4.0 と設定すると、QBAS(X) を２倍、QBAS(Y) を３倍、QBAS(Z) を４倍した値が使用されます。デフォルトでは 1.0 1.0 1.0 となっています。</p></li>
+<li><p>IQ：格子サイトの番号を表します。</p></li>
+<li><p>QBAS(X)：各格子サイト位置の x 成分を表します。</p></li>
+<li><p>QBAS(Y)：各格子サイト位置の y 成分を表します。</p></li>
+<li><p>QBAS(Z)：各格子サイト位置の z 成分を表します。</p></li>
 </ul>
 </li>
-<li><p>OCCUPATION</p></li>
+<li><p>OCCUPATION</p>
+<ul class="simple">
+<li><p>IQ：格子サイトの番号を表します。</p></li>
+<li><p>IREFQ：その格子サイトが参照する reference system の番号を表します。</p></li>
+<li><p>IMQ：その格子サイトが参照する半径メッシュの番号を表します。</p></li>
+<li><p>NOQ：その格子サイト上の成分数を表します。単一占有の場合は 1 とします。</p></li>
+<li><p>ITOQ：その成分の原子タイプの番号を表します。</p></li>
+<li><p>CONC：その成分の濃度を表します。100% の場合は 1.0 とします。</p></li>
+</ul>
+</li>
 <li><p>REFERENCE SYSTEM</p>
 <ul class="simple">
-<li><p>NREF：</p></li>
+<li><p>NREF：reference system の総数を表します。</p></li>
+<li><p>IREF：reference system の番号を表します。</p></li>
 </ul>
 </li>
 <li><p>MAGNETISATION DIRECTION</p>
 <ul class="simple">
-<li><p>KMROT：</p></li>
-<li><p>QMVEC：</p></li>
+<li><p>KMROT：磁化方向の回転設定に関するフラグです。</p></li>
+<li><p>QMVEC：結晶中で磁化が空間的にねじれていくパターンの周期と方向を決める波数ベクトルです。</p></li>
+<li><p>IQ：格子サイトの番号を表します。</p></li>
+<li><p>MTET_Q：QMVEC = <strong>0</strong> のもとでの、磁化方向の極角 <em>θ</em> を表します。</p></li>
+<li><p>MPHI_Q：QMVEC = <strong>0</strong> のもとでの、磁化方向の方位角 <em>φ</em> を表します。</p></li>
 </ul>
 </li>
 <li><p>MESH INFORMATION</p>
 <ul class="simple">
-<li><p>MESH-TYPE：</p></li>
+<li><p>MESH-TYPE：半径メッシュの型を表します。デフォルトでは EXPONENTIAL（指数メッシュ）となっています。</p></li>
+<li><p>IM：半径メッシュの番号を表します。</p></li>
+<li><p>R(1)：半径メッシュの一番内側にある、原点に非常に近い最初の半径点を表します。</p></li>
+<li><p>DX：対数刻みを表します。</p></li>
+<li><p>JRMT：muffin-tin 半径に対応するメッシュ点番号を表します。</p></li>
+<li><p>RMT：muffin-tin 半径を表します。</p></li>
+<li><p>JRWS：Wigner-Seitz 半径に対応するメッシュ点番号を表します。</p></li>
+<li><p>RWS：Wigner-Seitz 半径を表します。</p></li>
 </ul>
 </li>
-<li><p>TYPES</p></li>
+<li><p>TYPES</p>
+<ul class="simple">
+<li><p>IT：原子タイプの番号を表します。</p></li>
+<li><p>TXT：元素記号を表します。</p></li>
+<li><p>ZT：原子番号を表します。</p></li>
+<li><p>NCORT：コア電子数を表します。</p></li>
+<li><p>NVALT：価電子数を表します。</p></li>
+<li><p>NSEMCORSHLT：semicore として扱う殻の数を表します。</p></li>
+</ul>
+</li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
 <p><strong>Exchange Coupling Parameters の場合</strong></p>
+<p>直前の SCF 計算で出力された「QuloudJob.pot_new」ファイルの中身をそのまま使用します。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>*******************************************************************************
 HEADER    &#39;SPR-KKR dataset created by KKRSCF    &#39;
 *******************************************************************************
@@ -3504,6 +3542,110 @@ TYPE               4
 ===============================================================================
 </pre></div>
 </div>
+<p>SCF 計算実行後は、以下のように設定が変更・追加されています。</p>
+<ul>
+<li><p>GLOBAL SYSTEM PARAMETER</p>
+<ul class="simple">
+<li><p>NSPIN：スピン表現に関する内部情報です。</p></li>
+</ul>
+</li>
+<li><p>SCF-INFO</p>
+<ul class="simple">
+<li><p>INFO：ASA 近似で得られたポテンシャルなので SPR-KKR-ASA となっています。</p></li>
+<li><p>SCFSTATUS：SCF 計算が収束済みなので CONVERGED となっています。</p></li>
+<li><p>NE：SCF 計算で使われたエネルギーメッシュ点の数を表します。</p></li>
+<li><p>IBZINT：既約ブリルアンゾーンでどの積分法を使ったかを表す内部コードです。</p></li>
+<li><p>NKTAB：special points method によるブリルアンゾーン積分で、実際に使われた k 点の数を表します。</p></li>
+<li><p>TETDEPPOT：tetrahedron 法に関する内部フラグです。ここでは F（無効）となっています。</p></li>
+<li><p>XC-POT：SCF 計算で実際に使われた交換相関ポテンシャルの種類を表します。ここでは VWN（Vosko-Wilk-Nusair 型の LSDA 交換相関ポテンシャル）となっています。</p></li>
+<li><p>SCF-ALG：SCF 計算で実際に使われた混合・収束アルゴリズムを表します。ここでは BROYDEN2（Broyden の第２法）となっています。</p></li>
+<li><p>SCF-ITER：SCF 計算が収束済みなので、実際の反復回数に更新されています。</p></li>
+<li><p>RMSAVV：ダミー値から実際の収束誤差に更新されています。</p></li>
+<li><p>RMSAVB：ダミー値から実際の収束誤差に更新されています。</p></li>
+<li><p>EF：ダミー値から実際のフェルミ準位に更新されています。</p></li>
+<li><p>VMTZ：デフォルト値から収束後の値に更新されています。</p></li>
+</ul>
+</li>
+<li><p>HOST MADELUNG POTENTIAL</p>
+<ul class="simple">
+<li><p>IQ：格子サイトの番号を表します。</p></li>
+<li><p>VLMMAD：その格子サイトでの Madelung potential の多極展開係数を表します。</p></li>
+<li><p>NLMTOP-POT：Madelung potential をどこまでの多極成分で展開しているかを表す上限数です。ここでは、各格子サイトについて４個の成分が保存されています。</p></li>
+</ul>
+<p>各データ行の</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IQ</span>   <span class="n">n</span>   <span class="n">value</span>
+</pre></div>
+</div>
+<p>は、</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>１列目　IQ：格子サイトの番号</p></li>
+<li><p>２列目　n：多極成分の通し番号</p></li>
+<li><p>３列目　value：その多極成分の係数</p></li>
+</ul>
+</div></blockquote>
+<p>です。</p>
+</li>
+<li><p>CHARGE MOMENTS</p>
+<ul class="simple">
+<li><p>IQ：格子サイトの番号を表します。</p></li>
+<li><p>CMNTQ：その格子サイトの電荷分布の多極展開係数を表します。</p></li>
+<li><p>NLMTOP-CHR：電荷分布をどこまでの多極成分で展開しているかを表す上限数です。ここでは、各格子サイトについて４個の成分が保存されています。</p></li>
+</ul>
+<p>各データ行の</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IQ</span>   <span class="n">n</span>   <span class="n">value</span>
+</pre></div>
+</div>
+<p>は、</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>１列目　IQ：格子サイトの番号</p></li>
+<li><p>２列目　n：多極成分の通し番号</p></li>
+<li><p>３列目　value：その多極成分の係数</p></li>
+</ul>
+</div></blockquote>
+<p>です。</p>
+</li>
+<li><p>MAGNETISATION DIRECTION</p>
+<ul class="simple">
+<li><p>IT：原子タイプの番号を表します。</p></li>
+<li><p>MTET_T：（原子タイプごとの）QMVEC = <strong>0</strong> のもとでの、磁化方向の極角 <em>θ</em> を表します。</p></li>
+<li><p>MPHI_T：（原子タイプごとの）QMVEC = <strong>0</strong> のもとでの、磁化方向の方位角 <em>φ</em> を表します。</p></li>
+<li><p>MGAM_T：（原子タイプごとの）局所座標系に対する第３の回転角 <em>γ</em> を表します。</p></li>
+</ul>
+</li>
+<li><p>MESH INFORMATION</p>
+<ul class="simple">
+<li><p>DX：実際の対数刻みの値に更新されています。</p></li>
+<li><p>JRMT：実際の muffin-tin 半径に対応するメッシュ点番号が入ります。</p></li>
+<li><p>RMT：実際の muffin-tin 半径の値に更新されています。</p></li>
+<li><p>JRWS：実際の Wigner-Seitz 半径に対応するメッシュ点番号が入ります。</p></li>
+<li><p>RWS：実際の Wigner-Seitz 半径の値に更新されています。</p></li>
+</ul>
+</li>
+<li><p>TYPES</p>
+<ul class="simple">
+<li><p>NCORT：Ba のコア電子数が、初期の推定値 &quot;54&quot; から、実際の計算での分類結果 &quot;48&quot; に更新されています。</p></li>
+<li><p>NVALT：Ba の価電子数が、初期の推定値 &quot;2&quot; から、実際の計算での分類結果 &quot;8&quot; に更新されています。</p></li>
+</ul>
+</li>
+<li><p>POTENTIAL</p>
+<p>各原子タイプごとの半径方向ポテンシャル <em>V</em> (r) の実データが、メッシュ点ごとの値で保存されています。</p>
+</li>
+<li><p>CHARGE</p>
+<p>各原子タイプごとの半径方向電荷密度の実データが、メッシュ点ごとの値で保存されています。</p>
+</li>
+<li><p>MOMENTS</p>
+<p>SCF 計算後の電子状態を積分して得られた実数値が保存されています。内容は下記の通りです。</p>
+<ul class="simple">
+<li><p>QEL：各原子タイプに属する総電子数</p></li>
+<li><p>NOS：各原子タイプの価電子側の占有</p></li>
+<li><p>SPN：各原子タイプのスピン磁気モーメント</p></li>
+<li><p>ORB：各原子タイプの軌道磁気モーメント</p></li>
+<li><p>HFI：各原子タイプの hyperfine field に関係する量</p></li>
+</ul>
+</li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -3511,6 +3653,7 @@ TYPE               4
 </section>
 <section id="quloudjob-scf-inp">
 <h4><span class="section-number">12.7.1.3. </span>QuloudJob_SCF.inp<a class="headerlink" href="#quloudjob-scf-inp" title="Link to this heading"></a></h4>
+<p>First-Principles SCF 用の入力ファイルです。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONTROL</span>
     <span class="n">DATASET</span><span class="o">=</span><span class="n">QuloudJob</span>
     <span class="n">ADSI</span><span class="o">=</span><span class="n">SCF</span>
@@ -3550,50 +3693,52 @@ TYPE               4
 </pre></div>
 </div>
 <p>入力パラメータの詳細は以下の通りです。</p>
-<ul class="simple">
-<li><p>CONTROL</p>
 <ul>
-<li><p>DATASET：データセットの名前を指定します。ここの文字列がファイル名となります。</p></li>
-<li><p>ADSI：ここの文字列が DATASET で指定したファイル名の末尾に追加されます。このデータセットは SCF 計算に使われるため、SCF となっています。</p></li>
-<li><p>POTFIL：ポテンシャルファイルの名前を指定します。</p></li>
-<li><p>KRWS：</p></li>
+<li><p>CONTROL</p>
+<ul class="simple">
+<li><p>DATASET：データセットの名前を指定します。ここの文字列が出力ファイル名のベースとなります。</p></li>
+<li><p>ADSI：ここの文字列が DATASET で指定した出力ファイル名の末尾に追加されます。このデータセットは SCF 計算に使われるため、SCF となっています。</p></li>
+<li><p>POTFIL：使用するポテンシャルファイルの名前を指定します。</p></li>
 <li><p>PRINT：アウトプットの出力レベルを指定します。</p></li>
 </ul>
 </li>
-<li><p>MODE：計算のモードを指定します。</p></li>
+<li><p>MODE</p>
+<p>計算のモードを指定します。デフォルトでは FREL（完全相対論）となっています。</p>
+</li>
 <li><p>TAU</p>
-<ul>
-<li><p>BZINT：ブリルアンゾーン積分のモードを指定します。</p></li>
-<li><p>NKTAB：Special Points Method の k 点数を指定します。</p></li>
+<ul class="simple">
+<li><p>BZINT：ブリルアンゾーン積分のモードを指定します。デフォルトでは POINTS（special points method）となっています。</p></li>
+<li><p>NKTAB：special points method の k 点数を指定します。</p></li>
 </ul>
 </li>
 <li><p>ENERGY</p>
-<ul>
-<li><p>GRID：</p></li>
+<ul class="simple">
 <li><p>NE：エネルギーのメッシュ点の数を指定します。</p></li>
 <li><p>ImE：エネルギー値の虚数部分を指定します。</p></li>
 <li><p>EMIN：最小エネルギー値の実数部分を指定します。</p></li>
 </ul>
 </li>
 <li><p>STRCONST</p>
-<ul>
+<ul class="simple">
 <li><p>ETA：Ewald パラメータを指定します。</p></li>
 <li><p>RMAX：実空間での収束半径を指定します。</p></li>
 <li><p>GMAX：逆空間での収束半径を指定します。</p></li>
 </ul>
 </li>
 <li><p>SCF</p>
-<ul>
-<li><p>NITER：SCF 計算の反復回数を指定します。</p></li>
+<ul class="simple">
+<li><p>NITER：SCF 計算の最大反復回数を指定します。</p></li>
 <li><p>MIX：SCF 計算の混合パラメータを指定します。</p></li>
-<li><p>VXC：交換相関ポテンシャルを指定します。</p></li>
-<li><p>ALG：SCF 計算のアルゴリズムを指定します。</p></li>
+<li><p>VXC：交換相関ポテンシャルを指定します。デフォルトでは VWN（Vosko-Wilk-Nusair）となっています。</p></li>
+<li><p>ALG：SCF 計算のアルゴリズムを指定します。デフォルトでは BROYDEN2（Broyden の第２法）となっています。</p></li>
 <li><p>TOL：SCF 計算の収束判定条件を指定します。</p></li>
 <li><p>ISTBRY：ここで指定した回数だけ SCF 計算を行った後に、Broyden 法が適用されます。</p></li>
-<li><p>ITDEPT：Broyden 法の Iteration Depth を指定します。</p></li>
+<li><p>ITDEPT：Broyden 法の iteration depth（最大で過去何回分の SCF 反復履歴を参照して次の混合更新を組み立てるか）を指定します。デフォルトでは 40 となっています。</p></li>
 </ul>
 </li>
-<li><p>TASK：SCF 計算を行う場合、SCF と設定します。</p></li>
+<li><p>TASK</p>
+<p>SCF 計算を行う場合、SCF と設定します。</p>
+</li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -3602,6 +3747,7 @@ TYPE               4
 </section>
 <section id="quloudjob-jxc-inp">
 <h4><span class="section-number">12.7.1.4. </span>QuloudJob_JXC.inp<a class="headerlink" href="#quloudjob-jxc-inp" title="Link to this heading"></a></h4>
+<p>Exchange Coupling Parameters 用の入力ファイルです。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONTROL</span>
     <span class="n">DATASET</span><span class="o">=</span><span class="n">QuloudJob</span>
     <span class="n">ADSI</span><span class="o">=</span><span class="n">JXC</span>
@@ -3625,6 +3771,38 @@ TYPE               4
     <span class="n">CLURAD</span><span class="o">=</span><span class="mi">2</span>
 </pre></div>
 </div>
+<p>入力パラメータの詳細は以下の通りです。</p>
+<ul>
+<li><p>CONTROL</p>
+<ul class="simple">
+<li><p>DATASET：データセットの名前を指定します。ここの文字列が出力ファイル名のベースとなります。</p></li>
+<li><p>ADSI：ここの文字列が DATASET で指定した出力ファイル名の末尾に追加されます。このデータセットは交換結合パラメータ計算に使われるため、JXC となっています。</p></li>
+<li><p>POTFIL：使用するポテンシャルファイルの名前を指定します。</p></li>
+<li><p>PRINT：アウトプットの出力レベルを指定します。</p></li>
+</ul>
+</li>
+<li><p>MODE</p>
+<p>計算のモードを指定します。デフォルトでは SP-SREL（スカラー相対論）となっています。</p>
+</li>
+<li><p>TAU</p>
+<ul class="simple">
+<li><p>BZINT：ブリルアンゾーン積分のモードを指定します。デフォルトでは POINTS（special points method）となっています。</p></li>
+<li><p>NKTAB：special points method の k 点数を指定します。</p></li>
+</ul>
+</li>
+<li><p>ENERGY</p>
+<ul class="simple">
+<li><p>NE：エネルギーのメッシュ点の数を指定します。</p></li>
+<li><p>EMIN：最小エネルギー値の実数部分を指定します。</p></li>
+</ul>
+</li>
+<li><p>TASK</p>
+<p>交換結合パラメータ計算を行う場合、JXC と設定します。</p>
+<ul class="simple">
+<li><p>CLURAD：交換結合パラメータ計算で使うクラスター半径です。どこまでの近接サイト間相互作用を評価するかの範囲指定を行います。ポテンシャルファイルの ALAT を基準とした相対値で指定します。デフォルトでは 2 となっているので、クラスター半径は 2 × ALAT となります。</p></li>
+</ul>
+</li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -3868,7 +4046,7 @@ TYPE               4
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 23, 2026.</p>
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Mar 30, 2026.</p>
   </div>
 
    

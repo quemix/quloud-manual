@@ -12,6 +12,47 @@
 |
 |
 
+**Ver.6.1.1（2026.3.30）**
+
+|
+
+-   入力ファイル直接アップロードによる Job 実行
+
+    -   FLARE の入力ファイルがアップロード不可となっていた問題を修正
+    -   Quantum ESPRESSO (PW) で、入力ファイルの &CONTROL フィールドの calculation が 'scf' でない場合にアップロード不可となっていた問題を修正
+
+    |
+
+-   Quantum ESPRESSO
+
+    -   Spin 有りの計算を行う際、入力ファイルの &system のブロックに starting_magnetization 行がデフォルトで入らなくなっていた問題を修正
+    -   Electron Band Structure で、計算結果に有効質量の情報が表示されない問題を修正
+    
+        **※ Effective Mass (Table) につきましては、Job 作成者のみしか閲覧できなくなっています。**
+
+    -   X-Spectra の Job を実行するとエラーが出てしまう場合がある問題を一部解消
+        
+        **※ 計算が走らない場合もございますので、引き続き、試験的運用とさせていただきます。**
+
+    |
+
+-   OpenMX
+
+    -   Create Job ダイアログの Site property settings の spin & charge 項目で各原子の初期電荷の設定を行うと、無効な入力ファイルが生成されてしまう問題を修正
+    -   Energy Barrier (NEB) で、初期スピン設定が初期／終期構造で違ってしまう問題を修正
+
+    |
+
+-   LAMMPS
+
+    -   ２つの入力ファイル「QuloudJob.lmp」と「in.QuloudJob」での元素ナンバリングが必ず一致するよう修正
+    -   Molecular Dynamics で、Mean-Squared Displacement を計算する元素や、Radial Distribution Function を計算する元素ペアを限定すると「Create」ボタンがクリックできなくなる問題を修正
+    -   Molecular Dynamics で、計算結果のAtomic Structure Trajectory が表示されない問題を修正
+    -   Molecular Dynamics で、計算結果の Radial Distribution Function のグラフのデータ ラベルに誤りが生じる場合がある問題を修正
+
+|
+|
+
 **Ver.6.1.0（2026.3.16）**
 
 |
@@ -373,9 +414,6 @@ Electron Band Structure と Electron DOS では、MPI Process 数を増やし過
 
 また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 
-Spin 有りの計算を行う際、入力ファイルの &system のブロックに starting_magnetization 行\
-がデフォルトでは入らなくなったため、入力ファイルの編集機能で、starting_magnetization の記述を行う必要があります。
-
 Electron Band Structure と Electron DOS では、Exchange Correlation Functional の HSE06 は未対応となっております。詳しくは Quantum ESPRESSO の公式ドキュメント（https://www.quantum-espresso.org/Doc/pw_user_guide/node10.html）をご参照ください。
 
 Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の HSE06 を使用する場合、Pseudopotential Set で Ultrasoft(rrkjus) や Projector Augmented Wave(kjpaw) を使用すると、力の計算が実行できずにエラーが出てしまいますので、Norm-conserving(oncvpsp04) を使用してください。
@@ -386,10 +424,7 @@ Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の H
 -   X-Spectra
 -   Phonon (ph.x)
 
-現在、Electron Band Structure では、有効質量の情報が取得できなくなっています。そのため、Material 詳細画面での計算結果表示には、次のような影響が出ています。
-
--   Effective Mass：有効質量の情報が取得できず、電子バンド図のみが表示されます。
--   Effective Mass (Table)：非表示となっています。
+**現在、Electron Band Structure の計算結果のうち、Effective Mass (Table) の表が、Job 作成者のみしか閲覧できなくなっていますので、ご注意ください。**
 
 |
 |
@@ -401,8 +436,6 @@ OpenMX に関する注意事項
 OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf）の Table 1 と Table 2 をご参照ください。
 
 **また、Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
-
-**Create Job ダイアログの Site property settings の spin & charge 項目での各原子の初期電荷の設定を行うと、無効な入力ファイルが生成されてしまいますので、行わないようご注意ください。**
 
 |
 |
@@ -433,15 +466,9 @@ LAMMPS に関する注意事項
 -    '.ann'
 -    '.flare'
 
-**現在、Molecular Dynamics で Atomic Structure Trajectory のアニメーションが表示されなくなっています。**
+また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。
 
 さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
-
-なお、Molecular Dynamics の Job 登録時に、compute 選択欄で Mean-Squared Displacement (msd) を選択する場合、
-**特定の元素のみにチェックを入れると、「Create」ボタンがクリックできない状態となっておりますので、msd を計算する際には、すべての元素にチェックを入れて Job を登録してください。**
-
-同様に、compute 選択欄で Radial Distribution Function (rdf) を選択する場合、
-**特定の元素ペアのみにチェックを入れると、「Create」ボタンがクリックできない状態となっておりますので、rdf を計算する際には、すべての元素ペアにチェックを入れて Job を登録してください。**
 
 Ver.6.1 より、Molecular Dynamics の Mean-Squared Displacement (msd) のデータを出力するファイル名が変更となり、その影響で、Ver.6.0 以前での msd のデータがグラフ表示されなくなっております。ご了承ください。
 
@@ -464,12 +491,3 @@ FLARE に関する注意事項
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 **On-the-Fly MD では、Create Job ダイアログの Site property settings の constraint 項目で、各原子の拘束条件を設定しても無効となってしまいますので、ご注意ください。**
-
-|
-|
-
-############################################################################
-入力ファイル直接アップロードによる Job 実行での注意事項
-############################################################################
-
-**現時点では、FLARE の入力ファイルがアップロード不可となっております。また、Quantum ESPRESSO (PW) では、入力ファイルの &CONTROL フィールドの calculation が 'scf' でない場合にはアップロード不可となっておりますので、ご注意ください。**
