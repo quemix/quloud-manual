@@ -28,7 +28,7 @@
     -   Spin 有りの計算を行う際、入力ファイルの &system のブロックに starting_magnetization 行がデフォルトで入らなくなっていた問題を修正
     -   Electron Band Structure で、計算結果に有効質量の情報が表示されない問題を修正
     
-        **※ Effective Mass (Table) につきましては、Job 作成者のみしか閲覧できなくなっています。**
+        **※ Effective Mass (Table) につきましては、Job 作成者のみしか閲覧できなくなっています。（OpenMX でも同様です。）**
 
     -   X-Spectra の Job を実行するとエラーが出てしまう場合がある問題を一部解消
         
@@ -420,11 +420,19 @@ Electron Band Structure と Electron DOS では、Exchange Correlation Functiona
 
 Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の HSE06 を使用する場合、Pseudopotential Set で Ultrasoft(rrkjus) や Projector Augmented Wave(kjpaw) を使用すると、力の計算が実行できずにエラーが出てしまいますので、Norm-conserving(oncvpsp04) を使用してください。
 
-下記の Job では、Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございますので、ご注意ください。
+下記の Job では、Create Job ダイアログや Edit Job ダイアログで 設定・編集した通りの情報が、Job 詳細ページの「Settings」項目、および Edit Job ダイアログに正しく表示されない場合がございますので、ご注意ください。
 
 -   Energy Barrier (NEB)
 -   X-Spectra
 -   Phonon (ph.x)
+
+**Energy Barrier (NEB) では、下記の不具合がありますのでご注意ください。**
+
+- Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されませんので、少し時間をおいてから「Create」ボタンを押してください。
+
+- Edit Job ダイアログで終期構造の情報を変更して保存しても、その変更が入力ファイルに反映されませんので、終期構造を変更する場合には Create Job ダイアログから新規の Job を作成してください。
+
+- 入力ファイル「neb.in」は現在、File ページの「Edit」アイコンから中身を編集することができない状態となっています。
 
 **現在、Electron Band Structure の計算結果のうち、Effective Mass (Table) の表が、Job 作成者のみしか閲覧できなくなっていますので、ご注意ください。**
 
@@ -442,7 +450,17 @@ OpenMX に関する注意事項
 
 OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf）の Table 1 と Table 2 をご参照ください。
 
-**また、Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
+**Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
+
+**現在、Electron Band Structure の計算結果のうち、Effective Mass (Table) の表が、Job 作成者のみしか閲覧できなくなっていますので、ご注意ください。**
+
+**Energy Barrier (NEB) では、下記の不具合がありますのでご注意ください。**
+
+- Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されませんので、少し時間をおいてから「Create」ボタンを押してください。
+
+- Create Job ダイアログや Edit Job ダイアログで 設定・編集した終期構造の情報が、Edit Job ダイアログに正しく表示されない状態となっています。
+
+- Edit Job ダイアログを開いて「Save」ボタンで保存すると、終期構造の情報が、強制的に初期構造と同じものに置き換わってしまいます。
 
 |
 |
@@ -473,14 +491,15 @@ LAMMPS に関する注意事項
 -    '.ann'
 -    '.flare'
 
-また、Molecular Dynamics で MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなりますのでご注意ください。
+モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 
-さらに、モデルのサイズが大きい場合、CHGNet のポテンシャルを利用するとメモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
+Molecular Dynamics では、下記の点にご注意ください。
 
-Ver.6.1 より、Molecular Dynamics の Mean-Squared Displacement (msd) のデータを出力するファイル名が変更となり、その影響で、Ver.6.0 以前での msd のデータがグラフ表示されなくなっております。ご了承ください。
+- MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなります。
 
-Molecular Dynamics では、Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございます。
-具体的には、actions で npt を選択し、Anisotropy で Triclinic を選択すると、Params3（Pressure1 (bars)、Pressure2 (bars)、Anisotropy）が正しく表示されません。ご注意ください。
+- Ver.6.1 より、Mean-Squared Displacement (msd) のデータを出力するファイル名が変更となり、その影響で、Ver.6.0 以前での msd のデータがグラフ表示されなくなっております。
+
+- Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございます。具体的には、actions で npt を選択し、Anisotropy で Triclinic を選択すると、Params3（Pressure1 (bars)、Pressure2 (bars)、Anisotropy）が正しく表示されません。
 
 |
 |
@@ -491,9 +510,15 @@ ASE に関する注意事項
 
 **機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
 
-**Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますので、ご注意ください。**
+**Energy Barrier (NEB) では、下記の不具合がありますのでご注意ください。**
 
-Energy Barrier (NEB) では、一度作成した Job を、Job 詳細ページの「Edit Job」ボタンから編集する機能が無効になっておりますので、ご注意ください。
+- セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいます。
+
+- Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されませんので、少し時間をおいてから「Create」ボタンを押してください。
+
+- Create Job ダイアログで 設定した終期構造の情報が、Job 詳細ページに正しく表示されない状態となっています。
+
+- 一度作成した Job を、Job 詳細ページの「Edit Job」ボタンから編集する機能が無効となっております。
 
 |
 |

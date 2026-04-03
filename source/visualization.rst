@@ -139,7 +139,7 @@ OpenMX
 
     -   Electron Band
     -   Effective Mass
-    -   Effective Mass (Table)
+    -   Effective Mass (Table)  **（Job 作成者のみしか閲覧できません）**
     -   Total Electron Density
     -   Kohn-Sham Levels
     -   Brillouin Zone
