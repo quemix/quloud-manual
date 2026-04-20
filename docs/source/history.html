@@ -33,7 +33,7 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Quloud Ver.6.1.1 Manual
+            Quloud Ver.6.1.2 Manual
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -70,7 +70,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#flare">14.2.2.6. FLARE に関する注意事項</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">14.2.3. その他の注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">14.2.3. モデリングに関する注意事項</a></li>
 </ul>
 </li>
 </ul>
@@ -83,7 +83,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Quloud Ver.6.1.1 Manual</a>
+          <a href="../index.html">Quloud Ver.6.1.2 Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -108,6 +108,199 @@
 </div>
 <section id="id2">
 <h2><span class="section-number">14.1. </span>仕様変更履歴<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p><strong>Ver.6.1.2（2026.4.20）</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<ul>
+<li><p>招待画面</p>
+<ul class="simple">
+<li><p>一度追加した新規ユーザーのメールアドレスを「Deny」ボタンで却下する機能を、Tenant 内のすべての Owner 権限ユーザーが使用できるよう変更</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>画面の自動更新</p>
+<ul class="simple">
+<li><p>画面の自動更新を停止</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Project、Material、Job の名前の重複制限</p>
+<ul class="simple">
+<li><p>Project、Material、Job の作成時、名前の重複制限によるエラーが発生した場合でも、作成ダイアログ自体が消えないように修正</p></li>
+<li><p>作成した Job を、Job 詳細ページの「Copy Job」ボタンでコピーする際にも、Job 名の重複禁止の制御が有効となるよう修正</p></li>
+<li><p>Job 詳細ページの「Delete Job」ボタンから削除した Job については、名前の重複制限の対象外とし、同一 Material 内で削除した Job と同じ名前の Job が作成できるよう修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Material 作成ダイアログ、Job 作成 / 編集ダイアログでの loading 表示</p>
+<ul class="simple">
+<li><p>「Create」もしくは「Save」ボタンをクリックしてから実際に作成 / 編集が完了するまでの間、loading 表示が出て、ユーザーが他の操作を行えないように変更</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Material 詳細画面</p>
+<ul>
+<li><p>ブラウザリロード時の画面遷移を下記のように変更</p>
+<ul class="simple">
+<li><p>Property ページでリロード → Property ページに遷移</p></li>
+<li><p>File ページでリロード → File ページに遷移</p></li>
+<li><p>Job 一覧ページでリロード → Job 一覧ページに遷移</p></li>
+<li><p>Job 詳細ページでリロード → Job 詳細ページに遷移</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Material / Job のファイル編集</p>
+<ul class="simple">
+<li><p>Job が存在する Material では、File ページでファイルが編集できないよう変更</p></li>
+<li><p>ファイル編集時に全角文字を入力し「Save」ボタンで保存すると、その後「Edit」ボタンをクリックしても中身が表示されなくなる問題を解消</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>モデリング画面</p>
+<ul class="simple">
+<li><p>Surface 項目にある「Reorient lattice」チェックボックスを削除</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>入力ファイル直接アップロードによる Job 実行</p>
+<ul class="simple">
+<li><p>RSDFT の Job 詳細ページの「Site property settings」表示欄を削除</p></li>
+<li><p>LAMMPS の入力ファイルでの設定内容が Job 詳細ページに反映されるよう修正</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>「Run Job」ボタンからの Job 実行</p>
+<ul class="simple">
+<li><p>一度「Run Job」ボタンから Job を実行した直後に、再度「Run Job」ボタンから Job を実行できてしまう問題を解消</p></li>
+<li><p>一度「Run Job」ボタンから Job を実行した直後に、「Delete Job」ボタンがクリックできてしまう問題を解消</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Site property settings</p>
+<ul class="simple">
+<li><p>Quantum ESPRESSO・OpenMX・RSDFT・FLARE の Edit Job ダイアログに Site property settings 項目を追加</p></li>
+<li><p>Quantum ESPRESSO・OpenMX・RSDFT・FLARE で、Site property settings 項目の Charge 設定欄を削除</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Quantum ESPRESSO</p>
+<ul>
+<li><p>Electron Band Structure で、計算結果の Effective Mass (Table) の表が、Job 作成者のみしか閲覧できない問題を解消</p></li>
+<li><p>X-Spectra の一部の入力パラメータの表示桁数を変更</p></li>
+<li><p>X-Spectra の一部の入力パラメータを指数表記に変更</p></li>
+<li><p>X-Spectra の Job 作成時、吸収原子用の GIPAW 擬ポテンシャルファイルがない場合にエラーメッセージが表示されるよう修正</p></li>
+<li><p>X-Spectra の Job 作成時、吸収サイト以外にも吸収原子用の GIPAW 擬ポテンシャルファイルが設定されてしまう問題を解消</p></li>
+<li><p>X-Spectra の Job 作成時、入力ファイル「xspectra.in」の末尾に、吸収サイトに関する情報「QULOUD_ABS_SITE_INDEX」が追加されるよう修正</p></li>
+<li><p>下記の Job で、Create Job ダイアログや Edit Job ダイアログで 設定・編集した通りの情報が、Job 詳細ページの「Settings」項目、および Edit Job ダイアログに正しく表示されない場合がある問題を解消</p>
+<ul class="simple">
+<li><p>Energy Barrier (NEB)</p></li>
+<li><p>X-Spectra</p></li>
+<li><p>Phonon (ph.x)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Energy Barrier (NEB) の計算結果の Atomic Structure Trajectory で、モデル図がマウスで回転できるように修正</p></li>
+<li><p>Energy Barrier (NEB) で、Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されない問題を解消</p></li>
+<li><p>Energy Barrier (NEB) で、Edit Job ダイアログで終期構造の情報を変更して保存しても、その変更が入力ファイルに反映されない問題を解消</p></li>
+<li><p>Energy Barrier (NEB) の入力ファイル「neb.in」が、File ページの「Edit」アイコンから編集できない問題を解消</p></li>
+<li><p>Phonon (ph.x) の Job 作成後、Edit Job ダイアログで Calculation（Phonon Band Dispersion / Phonon DOS）を変更して「Save」ボタンで保存すると、どちらの Calculation の入力ファイルも生成されてしまう問題を解消</p></li>
+<li><p>Phonon (ph.x) の ph.in 項目の入力パラメータ「epsil」を削除</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>OpenMX</p>
+<ul>
+<li><p>Electron Band Structure で、計算結果の Effective Mass (Table) の表が、Job 作成者のみしか閲覧できない問題を解消</p></li>
+<li><p>Energy Barrier (NEB) で、Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されない問題を解消</p></li>
+<li><p>Energy Barrier (NEB) で、Create Job ダイアログや Edit Job ダイアログで 設定・編集した終期構造の情報が、Edit Job ダイアログに正しく表示されない問題を解消</p></li>
+<li><p>Energy Barrier (NEB) で、Edit Job ダイアログを開いて「Save」ボタンで保存すると、終期構造の情報が、強制的に初期構造と同じものに置き換わってしまう問題を解消</p></li>
+<li><p>下記の Job の計算結果の Atomic Structure Trajectory で、モデル図がマウスで回転できるように修正</p>
+<ul class="simple">
+<li><p>Energy Barrier (NEB)</p></li>
+<li><p>Molecular Dynamics</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>RSDFT</p>
+<ul class="simple">
+<li><p>Electron Band Structure の Job 作成時、入力ファイル「rsdft.in」の KPTDIVNUM の行の末尾にスラッシュが追加されるよう修正</p></li>
+<li><p>Molecular Dynamics の計算結果の Atomic Structure Trajectory で、モデル図がマウスで回転できるように修正</p></li>
+<li><p>Site property settings 項目での初期スピンの設定が無視されてしまう問題を解消</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>LAMMPS</p>
+<ul class="simple">
+<li><p>Molecular Dynamics の計算結果のグラフの縦軸・横軸に単位を追加</p></li>
+<li><p>Molecular Dynamics で、Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がある問題を解消</p></li>
+<li><p>Molecular Dynamics で、msd を計算する元素や rdf を計算する元素ペアを限定して Job を作成しても、Edit Job ダイアログではすべての元素や元素ペアにチェックがついてしまう問題を解消</p></li>
+<li><p>Molecular Dynamics の計算結果の Atomic Structure Trajectory で、モデル図がマウスで回転できるように修正</p></li>
+<li><p>Molecular Dynamics の計算結果の Atomic Structure Trajectory で、モデル図が強制的に直方体になってしまう問題を解消</p></li>
+<li><p>Molecular Dynamics の計算結果の Atomic Structure Trajectory で、格子ベクトル a2 と a3 が逆に表示されてしまう問題を解消</p></li>
+<li><p>Molecular Dynamics の計算結果の Atomic Structure Trajectory で、元素と原子球のカラー / サイズの対応が違ってしまう場合がある問題を解消</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>ASE</p>
+<ul>
+<li><p>Energy Barrier (NEB) で、Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されない問題を解消</p></li>
+<li><p>Energy Barrier (NEB) で、一度作成した Job を、Job 詳細ページの「Edit Job」ボタンから編集する機能が無効となっていた問題を解消</p></li>
+<li><p>下記の Job の計算結果の Atomic Structure Trajectory で、モデル図がマウスで回転できるように修正</p>
+<ul class="simple">
+<li><p>Energy Barrier (NEB)</p></li>
+<li><p>Molecular Dynamics</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>FLARE</p>
+<ul class="simple">
+<li><p>On-the-Fly MD の計算結果の Atomic Structure Trajectory で、モデル図がマウスで回転できるように修正</p></li>
+</ul>
+</li>
+</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -597,7 +790,7 @@
 <section id="job">
 <h3><span class="section-number">14.2.1. </span>計算 Job 実行時の注意事項（全般）<a class="headerlink" href="#job" title="Link to this heading"></a></h3>
 <p>AWS の計算リソースの在庫切れにより、「Run」ボタンをクリックしても数時間 Status が「Preprared」のままになる場合がございます。</p>
-<p>一度「Run Job」ボタンから Job を実行した後に、再度「Run Job」ボタンから Job を実行すると、Status が「Failed」になってしまう場合がございますのでご注意ください。</p>
+<p>Job が失敗しているにもかかわらず、Status が Succeeded になってしまう場合がありますのでご注意ください。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -614,26 +807,13 @@
 <h4><span class="section-number">14.2.2.1. </span>Quantum ESPRESSO に関する注意事項<a class="headerlink" href="#quantum-espresso" title="Link to this heading"></a></h4>
 <p>Electron Band Structure と Electron DOS では、MPI Process 数を増やし過ぎると、エラーが出てしまいますのでご注意ください。</p>
 <p>また、すべての Job につきまして、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。</p>
+<p>Electron Band Structure と Electron DOS では、計算結果の Total Energy Information の表で、Elapsed Time (s) と CPU Time (s) の表示が不正確になっておりますので、ご注意ください。</p>
 <p>Electron Band Structure と Electron DOS では、Exchange Correlation Functional の HSE06 は未対応となっております。詳しくは Quantum ESPRESSO の公式ドキュメント（<a class="reference external" href="https://www.quantum-espresso.org/Doc/pw_user_guide/node10.html">https://www.quantum-espresso.org/Doc/pw_user_guide/node10.html</a>）をご参照ください。</p>
 <p>Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の HSE06 を使用する場合、Pseudopotential Set で Ultrasoft(rrkjus) や Projector Augmented Wave(kjpaw) を使用すると、力の計算が実行できずにエラーが出てしまいますので、Norm-conserving(oncvpsp04) を使用してください。</p>
-<p>下記の Job では、Create Job ダイアログや Edit Job ダイアログで 設定・編集した通りの情報が、Job 詳細ページの「Settings」項目、および Edit Job ダイアログに正しく表示されない場合がございますので、ご注意ください。</p>
-<ul class="simple">
-<li><p>Energy Barrier (NEB)</p></li>
-<li><p>X-Spectra</p></li>
-<li><p>Phonon (ph.x)</p></li>
-</ul>
-<p><strong>Energy Barrier (NEB) では、下記の不具合がありますのでご注意ください。</strong></p>
-<ul class="simple">
-<li><p>Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されませんので、少し時間をおいてから「Create」ボタンを押してください。</p></li>
-<li><p>Edit Job ダイアログで終期構造の情報を変更して保存しても、その変更が入力ファイルに反映されませんので、終期構造を変更する場合には Create Job ダイアログから新規の Job を作成してください。</p></li>
-<li><p>入力ファイル「neb.in」は現在、File ページの「Edit」アイコンから中身を編集することができない状態となっています。</p></li>
-</ul>
-<p><strong>現在、Electron Band Structure の計算結果のうち、Effective Mass (Table) の表が、Job 作成者のみしか閲覧できなくなっていますので、ご注意ください。</strong></p>
-<p>X-Spectra では、Create Job ダイアログでの入力パラメータの設定に関して下記の不具合がありますので、ご注意ください。</p>
-<ul class="simple">
-<li><p>XSPECTRA.IN の input_xspectra 項目内の X-ray k vector と X-ray epsilon というパラメータでは、各成分を -1 から 1 までの範囲で、0.1 刻みで調節できますが、Create Job ダイアログでは表示上 -1, 0, 1 の整数値しかとらないように見えます。</p></li>
-<li><p>XSPECTRA.IN の plot 項目内の Gamma mode で variable を選択すると Gamma value というパラメータが現れます。このパラメータの各成分の下限値は 1E-4 ですが、Create Job ダイアログでは表示上 0 になっているように見えます。</p></li>
-</ul>
+<p><strong>Site property settings の spin 項目では、初期スピンは原則として元素ごとにしか設定できません。もし同じ元素で、原子ごとに異なる値を設定した場合には、その平均値が採用されるため、意図しない設定になってしまうおそれがありますのでご注意ください。</strong></p>
+<p><strong>X-Spectra では、Ver.6.1.1 以前の入力ファイルを読み込むと、吸収サイトの情報が正しく反映されませんので、計算を実行する場合には Ver.6.1.2 で新しく Job を作成してください。</strong></p>
+<p>X-Spectra では、Core.wfc ファイルが読み込まれず、エラーが出てしまう場合がありますのでご注意ください。</p>
+<p>Energy Barrier (NEB) では、Site property settings の constraints 項目で拘束条件を設定しても、その設定が「neb.in」ファイルには反映されませんので、NEB 計算で拘束条件を設定する場合には、「neb.in」ファイルの ATOMIC_POSITIONS セクションで、「QuloudJob.scf.in」ファイルと同様の拘束条件を設定してください。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -643,13 +823,6 @@
 <h4><span class="section-number">14.2.2.2. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h4>
 <p>OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf">https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf</a>）の Table 1 と Table 2 をご参照ください。</p>
 <p><strong>Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
-<p><strong>現在、Electron Band Structure の計算結果のうち、Effective Mass (Table) の表が、Job 作成者のみしか閲覧できなくなっていますので、ご注意ください。</strong></p>
-<p><strong>Energy Barrier (NEB) では、下記の不具合がありますのでご注意ください。</strong></p>
-<ul class="simple">
-<li><p>Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されませんので、少し時間をおいてから「Create」ボタンを押してください。</p></li>
-<li><p>Create Job ダイアログや Edit Job ダイアログで 設定・編集した終期構造の情報が、Edit Job ダイアログに正しく表示されない状態となっています。</p></li>
-<li><p>Edit Job ダイアログを開いて「Save」ボタンで保存すると、終期構造の情報が、強制的に初期構造と同じものに置き換わってしまいます。</p></li>
-</ul>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -659,7 +832,7 @@
 <h4><span class="section-number">14.2.2.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h4>
 <p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 <strong>また、Thread 数を増やし過ぎた結果、エラーが出てしまう場合もございますので、ユーザー自身で適切な Thread 数を設定してください。</strong></p>
-<p><strong>各原子の初期スピンの設定につきまして、Create Job ダイアログの Site property settings の spin &amp; charge 項目での設定は無効となってしまいますので、Initial Spin Difference での設定をお願いいたします。</strong></p>
+<p><strong>入力ファイルの直接アップロードによる Job 実行に関しまして、初期スピン設定ファイル「fort.980」がアップロードできない状態となっておりますのでご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -682,7 +855,6 @@
 <ul class="simple">
 <li><p>MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなります。</p></li>
 <li><p>Ver.6.1 より、Mean-Squared Displacement (msd) のデータを出力するファイル名が変更となり、その影響で、Ver.6.0 以前での msd のデータがグラフ表示されなくなっております。</p></li>
-<li><p>Create Job ダイアログで 設定した通りの情報が、Job 詳細ページの「Settings」項目に表示されない場合がございます。具体的には、actions で npt を選択し、Anisotropy で Triclinic を選択すると、Params3（Pressure1 (bars)、Pressure2 (bars)、Anisotropy）が正しく表示されません。</p></li>
 </ul>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -692,13 +864,7 @@
 <section id="ase">
 <h4><span class="section-number">14.2.2.5. </span>ASE に関する注意事項<a class="headerlink" href="#ase" title="Link to this heading"></a></h4>
 <p><strong>機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
-<p><strong>Energy Barrier (NEB) では、下記の不具合がありますのでご注意ください。</strong></p>
-<ul class="simple">
-<li><p>セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいます。</p></li>
-<li><p>Create Job ダイアログで終期構造を選択してからすぐに「Create」ボタンをクリックすると、選択した終期構造が入力ファイルに正しく設定されませんので、少し時間をおいてから「Create」ボタンを押してください。</p></li>
-<li><p>Create Job ダイアログで 設定した終期構造の情報が、Job 詳細ページに正しく表示されない状態となっています。</p></li>
-<li><p>一度作成した Job を、Job 詳細ページの「Edit Job」ボタンから編集する機能が無効となっております。</p></li>
-</ul>
+<p><strong>Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますのでご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -706,7 +872,7 @@
 </section>
 <section id="flare">
 <h4><span class="section-number">14.2.2.6. </span>FLARE に関する注意事項<a class="headerlink" href="#flare" title="Link to this heading"></a></h4>
-<p><strong>On-the-Fly MD では、Create Job ダイアログの Site property settings の constraint 項目で、各原子の拘束条件を設定しても無効となってしまいますので、ご注意ください。</strong></p>
+<p><strong>On-the-Fly MD では、Site property settings の spin 項目での各原子の初期スピンの設定、および constraint 項目での各原子の拘束条件の設定が無効となりますので、ご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -714,10 +880,33 @@
 </section>
 </section>
 <section id="id5">
-<h3><span class="section-number">14.2.3. </span>その他の注意事項<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<p>Job 詳細ページの「Delete Job」ボタンから Job を削除しても、Job 名の重複禁止の制御は無効化されません。そのため、同一 Material 内では削除した Job と同じ名前の Job も作成できませんのでご注意ください。</p>
-<p>作成した Job を、Job 詳細ページの「Copy Job」ボタンでコピーする際には、Job 名の重複禁止の制御が無効となり、同じ名前の Job が作成できてしまうのでご注意ください。</p>
-<p>招待画面（トップ画面で「Invitation」をクリックすると移動する画面）で、一度追加した新規ユーザーのメールアドレスを「Deny」ボタンで却下する機能は、そのアドレスを追加した人物のみ使用可能となっています。</p>
+<h3><span class="section-number">14.2.3. </span>モデリングに関する注意事項<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>モデリング機能に関して、下記の不具合がありますのでご注意ください。</p>
+<ul>
+<li><p>Supercell 項目</p>
+<ul class="simple">
+<li><p>Supercell の値を増やしてから 1×1×1 に戻しても、モデルのサイズが元に戻りません。</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Sueface 項目</p>
+<ul class="simple">
+<li><p>原子を追加 / 削除してからスラブモデルを生成すると、原子の個数がおかしくなります。</p></li>
+<li><p>原子を追加 / 削除してからスラブモデルを生成後、Undo ボタンで原子追加 / 削除前の状態に戻り、原子を追加 / 削除せずにスラブモデルを生成すると、以前追加 / 削除した原子が再度追加 / 削除されてしまいます。</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</li>
+<li><p>Packmol 項目</p>
+<ul class="simple">
+<li><p>バルク構造の原子数を増やしてから、Packmol でモデルを生成すると、バルク構造の原子数が元に戻ってしまいます。</p></li>
+<li><p>Packmol でモデルを生成後、Undo ボタンが効かなくなります。</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 </section>
@@ -732,7 +921,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Apr. 3, 2026.</p>
+    <p>&#169; Copyright 2026, Quemix Inc.　Last updated on Apr. 20, 2026.</p>
   </div>
 
    

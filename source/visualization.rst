@@ -59,7 +59,7 @@ Quantum ESPRESSO
 
     -   Electron Band
     -   Effective Mass
-    -   Effective Mass (Table)  **（Job 作成者のみしか閲覧できません）**
+    -   Effective Mass (Table)
     -   Kohn-Sham Levels
     -   Brillouin Zone
     -   Total Energy Information
@@ -139,7 +139,7 @@ OpenMX
 
     -   Electron Band
     -   Effective Mass
-    -   Effective Mass (Table)  **（Job 作成者のみしか閲覧できません）**
+    -   Effective Mass (Table)
     -   Total Electron Density
     -   Kohn-Sham Levels
     -   Brillouin Zone
