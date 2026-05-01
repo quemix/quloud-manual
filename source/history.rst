@@ -579,6 +579,8 @@ Atomic Structure Opt. と Lattice Opt. で Exchange Correlation Functional の H
 
 X-Spectra では、Core.wfc ファイルが読み込まれず、エラーが出てしまう場合がありますのでご注意ください。
 
+**Energy Barrier (NEB) では、初期 / 終期構造の Property 選択欄で initial 以外の構造を指定しても、その設定が正しく反映されず、initial の構造が入力されてしまう場合がありますのでご注意ください。**
+
 Energy Barrier (NEB) では、Site property settings の constraints 項目で拘束条件を設定しても、その設定が「neb.in」ファイルには反映されませんので、NEB 計算で拘束条件を設定する場合には、「neb.in」ファイルの ATOMIC_POSITIONS セクションで、「QuloudJob.scf.in」ファイルと同様の拘束条件を設定してください。
 
 |
@@ -591,6 +593,8 @@ OpenMX に関する注意事項
 OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf）の Table 1 と Table 2 をご参照ください。
 
 **Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
+
+**Energy Barrier (NEB) では、初期 / 終期構造の Property 選択欄で initial 以外の構造を指定しても、その設定が正しく反映されず、initial の構造が入力されてしまう場合がありますのでご注意ください。**
 
 |
 |
@@ -639,6 +643,8 @@ ASE に関する注意事項
 **機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。**
 
 **Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますのでご注意ください。**
+
+**Energy Barrier (NEB) では、初期 / 終期構造の Property 選択欄で initial 以外の構造を指定しても、その設定が正しく反映されず、initial の構造が入力されてしまう場合がありますのでご注意ください。**
 
 |
 |
