@@ -31,7 +31,7 @@ GROUP_ORDER = [
     "計算 Job の登録", "計算 Job の実行", "Property", "計算結果の可視化",
     "ファイル", "ヘッダーメニュー", "全般",
     "Quantum ESPRESSO", "OpenMX", "RSDFT", "LAMMPS", "GROMACS",
-    "ASE", "FLARE", "SPRKKR", "Quloud-Mag", "RadonPy", "Psi4", "hybmd", "DFT-1/2",
+    "ASE", "FLARE", "SPRKKR", "Quloud-Mag", "RadonPy", "Psi4", "hybmd",
 ]
 
 # 見出しの中での並び順。
