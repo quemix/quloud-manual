@@ -10,6 +10,7 @@ Index
   :maxdepth: 2
   :numbered:
 
+  source/introduction
   source/signup
   source/signin
   source/invitation
@@ -23,7 +24,8 @@ Index
   source/visualization
   source/files
   source/header
-  source/history
-  
+  source/specifications
+  source/release_notes
+
 
 
