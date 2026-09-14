@@ -1,7 +1,7 @@
 .. これは tools/gen_master_tables.py が生成したファイルです。手で編集しないでください。
-.. 生成元コミット: 1921e3ff124454d0c40f97e602857af9ceb09fe6 (dev_v700_ji)
-.. マスタ取得日時（dump 実行）: 2026-09-08T01:28:28Z
-.. マスタ同期日時: 2026-09-07T16:54:23Z
+.. 生成元コミット: f83096f2a25c5ea29d3d12606c571002ec1aa3b1 (dev_v700_ji)
+.. マスタ取得日時（dump 実行）: 2026-09-14T02:30:46Z
+.. マスタ同期日時: 2026-09-13T21:30:52Z
 .. 再生成: make dump && make generate
 
 ~~~~~~~~~~
@@ -26,7 +26,7 @@
      - -
      - ``chgnet``
      - 必須
-     - CHGNet（機械学習ポテンシャル）（``chgnet``） / SevenNet（機械学習ポテンシャル、GPU専用）（``sevennet``） / FairChem UMA（機械学習ポテンシャル、GPU専用）（``fairchem``） / ファイルアップロード（``file``）
+     - CHGNet（機械学習ポテンシャル）（``chgnet``） / SevenNet（機械学習ポテンシャル）（``sevennet``） / FairChem UMA（機械学習ポテンシャル）（``fairchem``） / ファイルアップロード（``file``）
      - -
    * - SevenNetモデル名
      - ``lammps_sevennet_model``
@@ -35,7 +35,7 @@
      - ``7net-mf-ompa``
      - 必須
      - -
-     - 「原子間ポテンシャル」が「SevenNet（機械学習ポテンシャル、GPU専用）」のとき
+     - 「原子間ポテンシャル」が「SevenNet（機械学習ポテンシャル）」のとき
    * - 原子間ポテンシャルファイル
      - ``lammps_iap_file``
      - ファイル
@@ -112,9 +112,9 @@
    * - タイムステップ
      - ``timestep``
      - 数値
-     - fs
+     - ps
      - ``0.001``
-     - 0.0 以上 1000.0 以下、必須
+     - 0.0001 以上 1000.0 以下、必須
      - -
      - -
    * - ステップ数
@@ -124,7 +124,7 @@
      - ``10000``
      - 1 以上、必須
      - -
-     - -
+     - 「アンサンブル」が「NVE（ミクロカノニカル）」のとき
    * - 温度
      - ``temperature``
      - 数値
@@ -132,7 +132,7 @@
      - ``300.0``
      - 0.0 以上、必須
      - -
-     - -
+     - 「アンサンブル」が「NVE（ミクロカノニカル）」のとき
    * - アンサンブル
      - ``lammps_ensemble``
      - 選択
@@ -141,14 +141,14 @@
      - 必須
      - NVE（ミクロカノニカル）（``nve``） / NVT（カノニカル）（``nvt``） / NPT（等温等圧）（``npt``）
      - -
-   * - 圧力
-     - ``lammps_pressure``
-     - 数値
-     - bars
-     - ``0.0``
-     - 0.0 以上、必須
+   * - 温度スケジュール
+     - ``lammps_temperature_schedule``
+     - lammps\_temperature\_schedule
      - -
-     - 「アンサンブル」が「NPT（等温等圧）」のとき
+     - ``[{"temp": 300.0, "pres": 0.0, "steps": 10000}]``
+     - 必須
+     - -
+     - ``params.lammps_ensemble === 'nvt' || params.lammps_ensemble === 'npt'``
    * - 圧力異方性
      - ``lammps_aniso``
      - 選択

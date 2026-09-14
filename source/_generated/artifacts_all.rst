@@ -1,7 +1,7 @@
 .. これは tools/gen_master_tables.py が生成したファイルです。手で編集しないでください。
-.. 生成元コミット: 1921e3ff124454d0c40f97e602857af9ceb09fe6 (dev_v700_ji)
-.. マスタ取得日時（dump 実行）: 2026-09-08T01:28:28Z
-.. マスタ同期日時: 2026-09-07T16:54:23Z
+.. 生成元コミット: f83096f2a25c5ea29d3d12606c571002ec1aa3b1 (dev_v700_ji)
+.. マスタ取得日時（dump 実行）: 2026-09-14T02:30:46Z
+.. マスタ同期日時: 2026-09-13T21:30:52Z
 .. 再生成: make dump && make generate
 
 
@@ -100,6 +100,10 @@ NEB（Nudged Elastic Band）
      - ``ase.in``
      - -
      - text
+   * - 主な出力
+     - ``neb_summary.json``
+     - -
+     - json
 
 
 #######
@@ -180,7 +184,70 @@ FLARE
 機械学習ポテンシャル MD
 +++++++++++++++++++++++
 
-この計算には、Quloud が登録する入出力ファイルはありません。
+.. list-table::
+   :header-rows: 1
+   :widths: 14 34 38 14
+
+   * - 役割
+     - ファイル
+     - 内容
+     - 形式
+   * - 入力
+     - ``QuloudJob.yaml``
+     - FLARE OTF設定ファイル（flare-otf の唯一の引数）
+     - yaml
+   * - 主な出力
+     - ``*lmp.flare``
+     - LAMMPS用ポテンシャル係数（lmp.flare / L\_inv\_lmp.flare / sparse\_desc\_lmp.flare）
+     - text
+   * - 主な出力
+     - ``myotf.out``
+     - OTF実行ログ（エネルギー・温度・不確実性の時系列。CreateJobMdServiceが mdeneflare / md\_flaretrj の両方のソースにする）
+     - text
+   * - 主な出力
+     - ``myotf_flare.json``
+     - 学習済みFLAREモデル（スパースGP）
+     - json
+   * - 補助出力
+     - ``QuloudJob.mdene``
+     - MDエネルギー系列（parse\_output\_flare.py が myotf.out から生成する派生ファイル）
+     - text
+   * - 補助出力
+     - ``espresso.pwi``
+     - FLAREが内部で呼ぶQEの入力（最後のDFT呼び出し）
+     - text
+   * - 補助出力
+     - ``espresso.pwo``
+     - FLAREが内部で呼ぶQEの出力（最後のDFT呼び出し）
+     - text
+   * - 補助出力
+     - ``myotf-hyps.dat``
+     - ガウス過程ハイパーパラメータの学習履歴
+     - text
+   * - 補助出力
+     - ``myotf_atoms.json``
+     - 最終ステップの原子配置（ASE Atoms のJSON表現）
+     - json
+   * - 補助出力
+     - ``myotf_checkpt.json``
+     - OTF再開用チェックポイント（otf.mode が restart のとき読む）
+     - json
+   * - 補助出力
+     - ``myotf_dft.pickle``
+     - DFT calculator の内部状態（Python pickle。ダウンロード不可）
+     - binary
+   * - トラジェクトリ
+     - ``QuloudJob.md``
+     - トラジェクトリ（parse\_traj\_flare.py が myotf.out から生成する派生ファイル）
+     - ext\_xyz
+   * - トラジェクトリ
+     - ``myotf.xyz``
+     - OTF全ステップの構造（拡張XYZ）
+     - xyz
+   * - 構造
+     - ``myotf_dft.xyz``
+     - DFT（QE）を実際に呼んだフレームの構造
+     - xyz
 
 
 #######
@@ -404,13 +471,91 @@ Quloud-Mag
 モンテカルロ磁性計算
 ++++++++++++++++++++
 
-この計算には、Quloud が登録する入出力ファイルはありません。
+.. list-table::
+   :header-rows: 1
+   :widths: 14 34 38 14
+
+   * - 役割
+     - ファイル
+     - 内容
+     - 形式
+   * - 入力
+     - ``boundary.in``
+     - 境界条件
+     - text
+   * - 入力
+     - ``control.in``
+     - 制御パラメータ
+     - text
+   * - 入力
+     - ``heis.in``
+     - Heisenbergモデル入力ファイル
+     - text
+   * - 入力
+     - ``omp.in``
+     - OpenMPスレッド数設定
+     - text
+   * - 主な出力
+     - ``entropy_max*.txt``
+     - エントロピーの温度依存性（総和/x/y/z成分/印加磁場方向成分）
+     - text
+   * - 主な出力
+     - ``magnetic_susceptibility*.txt``
+     - 帯磁率の温度依存性（総和/x/y/z成分/印加磁場方向成分）
+     - text
+   * - 主な出力
+     - ``magnetization_T*.txt``
+     - 磁化の温度依存性（総和/x/y/z成分/印加磁場方向成分）
+     - text
+   * - 主な出力
+     - ``total_energy_T_1_max.txt``
+     - 全エネルギーの温度依存性
+     - text
+   * - 補助出力
+     - ``magnetization_loop*.txt``
+     - 磁化ループ生データ（大容量、ダウンロード専用）
+     - text
+   * - 補助出力
+     - ``total_energy_loop*.txt``
+     - 全エネルギーループ生データ（大容量、ダウンロード専用）
+     - text
 
 ++++++++++++++++
 LLG ダイナミクス
 ++++++++++++++++
 
-この計算には、Quloud が登録する入出力ファイルはありません。
+.. list-table::
+   :header-rows: 1
+   :widths: 14 34 38 14
+
+   * - 役割
+     - ファイル
+     - 内容
+     - 形式
+   * - 入力
+     - ``control.in``
+     - 制御パラメータ
+     - text
+   * - 入力
+     - ``omp.in``
+     - OpenMPスレッド数設定
+     - text
+   * - 入力
+     - ``structure.in``
+     - マイクロマグネティクス構造入力ファイル
+     - text
+   * - 主な出力
+     - ``*_energy_micro_loop.txt``
+     - エネルギー内訳の時間発展（交換/異方性/反磁場/外部磁場/全エネルギー）
+     - text
+   * - 主な出力
+     - ``magnetization_micro_loop_*.txt``
+     - 磁化の時間発展（総和/x/y/z成分）
+     - text
+   * - 補助出力
+     - ``*configuration_micro_loop.txt``
+     - 空間分布スナップショット（大容量、ダウンロード専用）
+     - text
 
 
 ######
@@ -546,19 +691,120 @@ OpenMX
 分子動力学
 ++++++++++
 
-この計算には、Quloud が登録する入出力ファイルはありません。
+.. list-table::
+   :header-rows: 1
+   :widths: 14 34 38 14
+
+   * - 役割
+     - ファイル
+     - 内容
+     - 形式
+   * - 入力
+     - ``openmx.in``
+     - OpenMX入力ファイル
+     - text
+   * - 主な出力
+     - ``QuloudJob.ene``
+     - MDステップごとのエネルギー・温度・セル情報の表（CreateJobMdService が mdeneomx のソースにする）
+     - text
+   * - 主な出力
+     - ``QuloudJob.out``
+     - OpenMX標準出力（SCF収束履歴・全エネルギー・固有値等）
+     - text
+   * - 補助出力
+     - ``QuloudJob.md2``
+     - 最終ステップの構造（Mulliken電荷・スピン付き）
+     - text
+   * - 補助出力
+     - ``openmx.in#``
+     - OpenMXが解釈後に書き戻す入力（既定値が補われた状態）
+     - text
+   * - トラジェクトリ
+     - ``QuloudJob.md``
+     - MDトラジェクトリ（ステップごとに time= / Energy= / Cell\_Vectors= 付きのXYZフレーム。CreateJobMdService が md\_mdtrj のソースにする）
+     - text
+   * - 構造
+     - ``QuloudJob.bulk.xyz``
+     - 周期境界を展開したバルク構造（XYZ）
+     - xyz
+   * - 構造
+     - ``QuloudJob.cif``
+     - 最終構造（CIF）
+     - cif
+   * - 構造
+     - ``QuloudJob.xyz``
+     - 最終構造（XYZ）
+     - xyz
+   * - ログ
+     - ``QuloudJob.err``
+     - OpenMX標準エラー出力
+     - text
 
 ++++++++++++++++++++++++++
 NEB（Nudged Elastic Band）
 ++++++++++++++++++++++++++
 
-この計算には、Quloud が登録する入出力ファイルはありません。
+.. list-table::
+   :header-rows: 1
+   :widths: 14 34 38 14
+
+   * - 役割
+     - ファイル
+     - 内容
+     - 形式
+   * - 入力
+     - ``openmx.in``
+     - OpenMX入力ファイル
+     - text
+   * - 主な出力
+     - ``QuloudJob.neb.ene``
+     - 反応経路のエネルギープロファイル（イメージ別エネルギー）
+     - text
+   * - 主な出力
+     - ``QuloudJob.out``
+     - OpenMX標準出力（SCF収束履歴・全エネルギー・固有値等）
+     - text
+   * - 補助出力
+     - ``QuloudJob.neb.opt``
+     - NEB経路最適化のログ（イメージ別最大力等）
+     - text
+   * - トラジェクトリ
+     - ``QuloudJob.neb.md``
+     - 全イメージのアニメーション構造（Image index形式、CreateJobNebTrajectoryServiceが読む）
+     - text
+   * - 構造
+     - ``QuloudJob.neb.xyz``
+     - 全イメージの構造（neb.mdからCell\_Vectors列を除いた形式）
+     - text
+   * - ログ
+     - ``QuloudJob.err``
+     - OpenMX標準エラー出力
+     - text
 
 ++++++++++++++++++
 交換結合パラメータ
 ++++++++++++++++++
 
-この計算には、Quloud が登録する入出力ファイルはありません。
+.. list-table::
+   :header-rows: 1
+   :widths: 14 34 38 14
+
+   * - 役割
+     - ファイル
+     - 内容
+     - 形式
+   * - 入力
+     - ``jx.config``
+     - OpenMX jx（交換結合定数計算）設定ファイル
+     - text
+   * - 主な出力
+     - ``jx.log``
+     - OpenMX jx（交換結合定数計算）実行ログ（J\_ijデータを含む）
+     - text
+   * - 補助出力
+     - ``QuloudJob.scfout``
+     - OpenMX SCF波動関数・ハミルトニアン（jxの入力、バイナリ）
+     - binary
 
 
 ####
@@ -1225,10 +1471,6 @@ QM構造最適化 / RESP電荷
      - ファイル
      - 内容
      - 形式
-   * - 入力
-     - 拡張子が ``.mol2`` / ``.xyz`` / ``.sdf`` / ``.pdb`` のいずれか
-     - 3次元構造ファイル（mol2/xyz/sdf/pdb。SMILES入力時は不要）
-     - text
    * - 主な出力
      - ``monomer.pickle``
      - RESP電荷付きモノマーオブジェクト（次ステップへの引き継ぎファイル）

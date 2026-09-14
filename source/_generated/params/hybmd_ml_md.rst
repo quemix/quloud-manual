@@ -1,7 +1,7 @@
 .. これは tools/gen_master_tables.py が生成したファイルです。手で編集しないでください。
-.. 生成元コミット: 1921e3ff124454d0c40f97e602857af9ceb09fe6 (dev_v700_ji)
-.. マスタ取得日時（dump 実行）: 2026-09-08T01:28:28Z
-.. マスタ同期日時: 2026-09-07T16:54:23Z
+.. 生成元コミット: f83096f2a25c5ea29d3d12606c571002ec1aa3b1 (dev_v700_ji)
+.. マスタ取得日時（dump 実行）: 2026-09-14T02:30:46Z
+.. マスタ同期日時: 2026-09-13T21:30:52Z
 .. 再生成: make dump && make generate
 
 ~~~~~~~~~~~~~~
@@ -98,7 +98,7 @@
      - -
      - ``cpu``
      - 必須
-     - CPU（``cpu``） / CUDA GPU（``cuda``）
+     - CPU（``cpu``）
      - -
    * - 初期化モード
      - ``hybmd_init_mode``
@@ -108,14 +108,6 @@
      - 必須
      - 新規開始（``scratch``） / 継続計算（``continue``）
      - -
-   * - 初期構造ファイル
-     - ``hybmd_structure_file``
-     - ファイル
-     - -
-     - ``rsdft.atom``
-     - -
-     - -
-     - 「初期化モード」が「新規開始」のとき
    * - 初期構造フォーマット
      - ``hybmd_structure_format``
      - 選択
@@ -132,14 +124,6 @@
      - -
      - -
      - 「初期化モード」が「継続計算」のとき
-   * - OFDFT入力ファイル
-     - ``hybmd_dftinput_file``
-     - ファイル
-     - -
-     - ``scf.ini``
-     - 必須
-     - -
-     - -
    * - Langevin摩擦係数
      - ``hybmd_friction``
      - 数値
@@ -170,15 +154,7 @@
      - -
      - ``pybader``
      - 必須
-     - pybader（``pybader``） / Henkelman bader（``henkelman``）
-     - -
-   * - Henkelman Baderを併用
-     - ``hybmd_bader_henkelman``
-     - 有効・無効
-     - -
-     - 無効
-     - -
-     - -
+     - pybader（``pybader``）
      - -
    * - 乱数シード
      - ``hybmd_seed``
