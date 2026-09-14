@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-09-08T11:09:55+09:00" />
+    <meta property="article:modified_time" content="2026-09-14T11:34:31+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>8. モデリング</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -115,7 +115,7 @@
 <span id="id1"></span><h1><span class="section-number">8. </span>モデリング<a class="headerlink" href="#modeling-section" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 8 日です。</p>
+<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 14 日です。</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -187,7 +187,8 @@
 絶対座標を保ちます。</p></td>
 </tr>
 <tr class="row-odd"><td><p>スーパーセル</p></td>
-<td><p>a・b・c 方向の繰り返し数を指定してセルを拡張します。</p></td>
+<td><p>単位セルに対する a・b・c 方向の倍率を指定してセルを拡張します。原子の追加・
+削除やセルの変更を行うと、その時点の構造が新しい単位セルになります。</p></td>
 </tr>
 <tr class="row-even"><td><p>原子座標</p></td>
 <td><p>原子ごとの座標を数値で編集します。</p></td>
@@ -218,15 +219,19 @@
 <section id="id7">
 <h4><span class="section-number">8.3.2.1. </span>スーパーセルを作る<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <figure class="align-default" id="id15">
-<img alt="モデラーの「スーパーセル」を開いた状態。a・b・c の 3 つの数値入力欄にいずれも 1 が入り、「現在のセルをそのまま複製する（手動編集を含む）」のチェックボックスと「スーパーセルを適用」ボタンが並んでいる。" src="../_images/modeling_supercell_panel.png" />
+<img alt="モデラーの「スーパーセル」を開いた状態。a・b・c の 3 つの数値入力欄にいずれも 1 が入り、「現在の単位セルを a×b×c 倍に複製します。原子やセルを編集すると、その構造が新しい単位セルになります。」という説明文と「スーパーセルを適用」ボタンが並んでいる。" src="../_images/modeling_supercell_panel.png" />
 <figcaption>
 <p><span class="caption-number">図 8.2 </span><span class="caption-text">スーパーセル</span><a class="headerlink" href="#id15" title="Link to this image"></a></p>
 </figcaption>
 </figure>
-<p>a・b・c に繰り返し数を入れて「スーパーセルを適用」を押します。</p>
-<p>「現在のセルをそのまま複製する（手動編集を含む）」を選ぶと、この画面で行った
-原子の追加・削除・置換を含めた**いまのセル**をそのまま繰り返します。
-選ばない場合は、もとの Material のセルを繰り返します。</p>
+<p>a・b・c に**単位セルに対する倍率**を入れて「スーパーセルを適用」を押します。
+最初は読み込んだ構造そのものが単位セルで、a・b・c にはいずれも 1 が入っています。</p>
+<p>原子の追加・削除・置換や格子パラメータの変更など、構造に手を加えると、<strong>その時点の
+構造が新しい単位セル</strong>になり、a・b・c の表示は 1 に戻ります。そこから改めて倍率を
+指定すると、手を加えたあとの構造を単位として複製されます。</p>
+<p>すでに適用済みの倍率と同じ数字を指定した場合、「スーパーセルを適用」は押せません。
+より小さい倍率を指定すれば単位セル側へ縮小することもできます（たとえば 3×3×3 の
+状態から 1×1×1 を指定すると、単位セルそのものに戻ります）。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -357,7 +362,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2026, Quemix Inc.
-      <span class="lastupdated">最終更新: 9月 08, 2026
+      <span class="lastupdated">最終更新: 9月 14, 2026
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-09-08T10:37:37+09:00" />
+    <meta property="article:modified_time" content="2026-09-14T11:34:31+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>15. 仕様</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -73,15 +73,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#ver-7-0">15.3.2. Ver.7.0 での変更点</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5">15.3.3. ソフトウェア別注意事項</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#quantum-espresso">15.3.3.1. Quantum ESPRESSO に関する注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#openmx">15.3.3.2. OpenMX に関する注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rsdft">15.3.3.3. RSDFT に関する注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#lammps">15.3.3.4. LAMMPS に関する注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ase">15.3.3.5. ASE に関する注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#flare">15.3.3.6. FLARE に関する注意事項</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sprkkr">15.3.3.7. SPRKKR に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dft-1-2">15.3.3.2. DFT-1/2 に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#openmx">15.3.3.3. OpenMX に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rsdft">15.3.3.4. RSDFT に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lammps">15.3.3.5. LAMMPS に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gromacs">15.3.3.6. GROMACS に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#radonpy">15.3.3.7. RadonPy に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ase">15.3.3.8. ASE に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flare">15.3.3.9. FLARE に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hybmd">15.3.3.10. HybMD に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#psi4">15.3.3.11. Psi4 に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sprkkr">15.3.3.12. SPRKKR に関する注意事項</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quloud-mag">15.3.3.13. Quloud-Mag に関する注意事項</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">15.3.4. モデリングに関する注意事項</a></li>
 </ul>
 </li>
 </ul>
@@ -117,7 +122,7 @@
 <h1><span class="section-number">15. </span>仕様<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>本章は Quloud Ver.7.0 を対象としています。</p>
+<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 14 日です。</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -423,7 +428,9 @@
 <div class="line"><br /></div>
 </div>
 <ul class="simple">
-<li><p>Job の実行中は、出力ファイルの途中経過が表示されません。計算の完了時にまとめて表示されます。</p></li>
+<li><p>Job の実行中も、出力ファイルの一覧やログ、Status は Job 詳細画面を開いている間
+自動で更新されます（<a class="reference internal" href="files.html"><span class="doc">入出力ファイルとログ</span></a> ・ <a class="reference internal" href="runjob.html"><span class="doc">計算 Job の実行</span></a> の章）。ただし転送前のファイルは
+名前・サイズ・更新日時のみで、中身の表示・ダウンロードは計算の完了後になります。</p></li>
 <li><p>Quantum ESPRESSO の Job で計算が収束しなかった場合、Job の Status が Failed になります。</p></li>
 <li><p>出力されるべきファイルが揃っていない Job には、Status とは別に結果コードが付きます。Job の Status 自体は変わりません。</p></li>
 <li><p>Ver.6.1.2 以前に作成した Job と、Ver.7.0 で作成した Job とでは、Job 詳細ページおよび Edit Job ダイアログの表示内容が異なります。</p></li>
@@ -452,13 +459,24 @@
 <p><strong>X-Spectra では、Ver.6.1.1 以前の入力ファイルを読み込むと、吸収サイトの情報が正しく反映されませんので、計算を実行する場合には Ver.6.1.2 で新しく Job を作成してください。</strong></p>
 <p>X-Spectra では、Core.wfc ファイルが読み込まれず、エラーが出てしまう場合がありますのでご注意ください。</p>
 <p>Energy Barrier (NEB) では、Site property settings の constraints 項目で拘束条件を設定しても、その設定が「neb.in」ファイルには反映されませんので、NEB 計算で拘束条件を設定する場合には、「neb.in」ファイルの ATOMIC_POSITIONS セクションで、「QuloudJob.scf.in」ファイルと同様の拘束条件を設定してください。</p>
+<p>金属的な物質を計算した場合、価電子帯上端・伝導帯下端・バンドギャップの表示が適切でない場合があります。Quloud は対象の物質が金属的かどうかを判定していないため、半導体・絶縁体と同じ形式でこれらの値を表示します。価電子帯上端の値が伝導帯下端の値より大きく表示される等、不自然な表示になることがありますので、あわせてバンド構造の図もご確認ください。</p>
+<p>擬ポテンシャルファイルなど、ファイルをご自身でアップロードする際にファイル名として使用できるのは、英数字・日本語（漢字・かな等）・<code class="docutils literal notranslate"><span class="pre">.``（ピリオド）・</span></code>-<code class="docutils literal notranslate"><span class="pre">（ハイフン）・``+``（プラス）・``_``（アンダースコア）です。これら以外の記号（空白や括弧など）が含まれる場合は自動的に</span> <span class="pre">``_</span></code> に置き換えられますので、意図した名前になっているか、アップロード後にご確認ください。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="dft-1-2">
+<h4><span class="section-number">15.3.3.2. </span>DFT-1/2 に関する注意事項<a class="headerlink" href="#dft-1-2" title="Link to this heading"></a></h4>
+<p>交換相関汎関数に LDA-PZ（Perdew-Zunger 81）または GGA-PBEsol を選ぶ場合、標準の擬ポテンシャルセットには含まれていないため、擬ポテンシャルファイルをご自身でアップロードする必要があります。</p>
+<p>本手法（shell DFT-1/2 によるバンドギャップ補正）の検証は Si（PAW、LDA）のみで行われており、それ以外の元素や、GGA・ノルム保存型／ウルトラソフト擬ポテンシャルでの精度は確認されていませんので、ご注意ください。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="openmx">
-<h4><span class="section-number">15.3.3.2. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h4>
+<h4><span class="section-number">15.3.3.3. </span>OpenMX に関する注意事項<a class="headerlink" href="#openmx" title="Link to this heading"></a></h4>
 <p>OpenMX では計算の際に擬原子基底関数を用いますが、対応している原子の種類が限定されているため、Job 登録・実行の際には  OpenMX Ver.3.9 ユーザーマニュアル（<a class="reference external" href="https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf">https://www.openmx-square.org/openmx_man3.9jp/openmx3.9_jp.pdf</a>）の Table 1 と Table 2 をご参照ください。</p>
 <p><strong>Exchange Coupling Parameters では、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
 <div class="line-block">
@@ -467,7 +485,7 @@
 </div>
 </section>
 <section id="rsdft">
-<h4><span class="section-number">15.3.3.3. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h4>
+<h4><span class="section-number">15.3.3.4. </span>RSDFT に関する注意事項<a class="headerlink" href="#rsdft" title="Link to this heading"></a></h4>
 <p>モデルのサイズが大きい場合や、重い元素を含む場合には、メモリ不足によりエラーが出てしまいますので、Thread 数を増やして計算を実行してください。ただし、Thread 数を増やすと計算時間が長くなる場合がございますのでご注意ください。
 <strong>また、Thread 数を増やし過ぎた結果、エラーが出てしまう場合もございますので、ユーザー自身で適切な Thread 数を設定してください。</strong></p>
 <p><strong>入力ファイルの直接アップロードによる Job 実行に関しまして、初期スピン設定ファイル「fort.980」がアップロードできない状態となっておりますのでご注意ください。</strong></p>
@@ -477,7 +495,7 @@
 </div>
 </section>
 <section id="lammps">
-<h4><span class="section-number">15.3.3.4. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h4>
+<h4><span class="section-number">15.3.3.5. </span>LAMMPS に関する注意事項<a class="headerlink" href="#lammps" title="Link to this heading"></a></h4>
 <p>計算 Job 登録時に原子間ポテンシャルファイルをユーザー自身でアップロードする場合、アップロード可能なファイル形式（拡張子）が下記に限定されておりますのでご注意ください。</p>
 <ul class="simple">
 <li><p>'.eam'</p></li>
@@ -494,13 +512,35 @@
 <li><p>MD Steps を多くとり過ぎると、メモリ不足により Atomic Structure Trajectory のアニメーションが表示されなくなります。</p></li>
 <li><p>Ver.6.1 より、Mean-Squared Displacement (msd) のデータを出力するファイル名が変更となり、その影響で、Ver.6.0 以前での msd のデータがグラフ表示されなくなっております。</p></li>
 </ul>
+<p>Molecular Dynamics の温度・圧力の設定は「温度スケジュール」欄に一本化されています。この機能が追加される前に作成された Job を Edit Job ダイアログで開くと「温度スケジュール」欄が空欄で表示されますが、Job の実行内容自体は作成時のまま変わりません。</p>
+<p>機械学習ポテンシャルに FairChem UMA を指定し、アンサンブルを NVT にした場合、温度スケジュールに複数の区間を指定するとエラーになります。単一区間であれば実行できます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="gromacs">
+<h4><span class="section-number">15.3.3.6. </span>GROMACS に関する注意事項<a class="headerlink" href="#gromacs" title="Link to this heading"></a></h4>
+<p>GROMACS には、トポロジーファイル（力場・原子間結合の定義）をアップロードする欄はありません。入力した結晶構造から、AmberTools（GAFF2 力場・AM1-BCC 電荷）を用いて自動的に生成され、力場や電荷計算手法をユーザーが選択・変更することはできません。</p>
+<p>対象は有機分子の単一物質・混合系です。水も GAFF2・AM1-BCC でパラメータ化されるため、TIP3P・SPC 等の標準的な水モデルとは結果が異なります。生体分子力場や、金属・周期的な共有結合ネットワークを持つ構造には対応していません。水素原子を含まない構造は入力できません。</p>
+<p>対応していない元素を含む構造は、Job の作成時ではなく実行時にエラーとなります。</p>
+<p>トポロジーの自動生成には、分子種 1 つあたり最大で 10 分程度かかることがあります。その間は進捗が表示されませんが、そのままお待ちください。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="radonpy">
+<h4><span class="section-number">15.3.3.7. </span>RadonPy に関する注意事項<a class="headerlink" href="#radonpy" title="Link to this heading"></a></h4>
+<p>RadonPy の Job は、SMILES 情報を持つ Material でのみ作成できます。PubChem 検索や、あらかじめ用意されたポリマープリセットから登録した Material が対象で、それ以外の方法（結晶構造ファイルのアップロード等）で登録した Material では選択できません。</p>
+<p>スレッド数・MPI プロセス数・GPU 使用の有無を指定する項目はありません。これらはソフトウェア側の既定値で自動的に決まります。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
 <section id="ase">
-<h4><span class="section-number">15.3.3.5. </span>ASE に関する注意事項<a class="headerlink" href="#ase" title="Link to this heading"></a></h4>
+<h4><span class="section-number">15.3.3.8. </span>ASE に関する注意事項<a class="headerlink" href="#ase" title="Link to this heading"></a></h4>
 <p><strong>機械学習ポテンシャルのプロバイダーで fairchem を指定した場合、MPI Process 数がデフォルトの 1 のままだとエラーが出てしまいますので、MPI Process 数を増やして実行してください。</strong></p>
 <p><strong>Energy Barrier (NEB) では、セルのデータが初期構造と終期構造で完全に一致していないとエラーが出てしまいますのでご注意ください。</strong></p>
 <div class="line-block">
@@ -509,50 +549,53 @@
 </div>
 </section>
 <section id="flare">
-<h4><span class="section-number">15.3.3.6. </span>FLARE に関する注意事項<a class="headerlink" href="#flare" title="Link to this heading"></a></h4>
+<h4><span class="section-number">15.3.3.9. </span>FLARE に関する注意事項<a class="headerlink" href="#flare" title="Link to this heading"></a></h4>
 <p><strong>On-the-Fly MD では、Site property settings の spin 項目での各原子の初期スピンの設定、および constraint 項目での各原子の拘束条件の設定が無効となりますので、ご注意ください。</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
+<section id="hybmd">
+<h4><span class="section-number">15.3.3.10. </span>HybMD に関する注意事項<a class="headerlink" href="#hybmd" title="Link to this heading"></a></h4>
+<p>Thread 数を増やしても計算時間は短縮されず、かえって長くなる場合があります。計算時間を短縮したい場合は、Thread 数ではなく MPI Process 数を増やしてください。</p>
+<p>MLIP 計算デバイスは CPU のみで、GPU は選択できません。</p>
+<p>Edit Job で継続計算用ファイル（トラジェクトリファイル・密度ファイル）の一方だけを差し替えた場合、もう一方の欄には既に何が添付されているかが画面に表示されません。ファイルを差し替える際はご注意ください。</p>
+<p>継続計算では、ファイルを直接アップロードする方法のほか、完了した Job を選んで続きを計算する「Continue Job」も利用できます（<a class="reference internal" href="runjob.html"><span class="doc">計算 Job の実行</span></a> の章）。「Continue Job」では、擬ポテンシャルファイルを含む元の Job の入力一式がそのまま引き継がれます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="psi4">
+<h4><span class="section-number">15.3.3.11. </span>Psi4 に関する注意事項<a class="headerlink" href="#psi4" title="Link to this heading"></a></h4>
+<p>Psi4 は結晶（Crystal）の Material では選択できません。分子系の Material のみが対象です。</p>
+<p>参照波動関数（Reference）に ROHF を選んだ場合、組み合わせられる計算手法は HF または MP2 だけです。DFT 系の交換相関汎関数とは組み合わせられません。画面の選択肢自体は絞り込まれないため、この組み合わせのまま「作成」を押すとエラーになりますのでご注意ください。</p>
+<p>基底関数系によっては対応していない元素があり、その組み合わせで Job を作成しようとするとエラーになります。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</section>
 <section id="sprkkr">
-<h4><span class="section-number">15.3.3.7. </span>SPRKKR に関する注意事項<a class="headerlink" href="#sprkkr" title="Link to this heading"></a></h4>
+<h4><span class="section-number">15.3.3.12. </span>SPRKKR に関する注意事項<a class="headerlink" href="#sprkkr" title="Link to this heading"></a></h4>
 <p><strong>SPRKKR では、Conventional Cell での計算を想定していないため、結晶構造の対称性情報の読み込みでエラーが出てしまう場合がありますので、モデリングの際にはなるべく Primitive Cell を使用してください。</strong></p>
+<p>SCF 計算では、反復回数の上限に達した場合でも Job の Status は Succeeded のまま完了します。収束したかどうかは、Status だけでなく反復回数や計算結果の値もあわせてご確認ください。</p>
+<p>交換結合パラメータ（JXC）の計算結果は、ステップ 2（交換結合パラメータ）のタブに表示されます。「結果を解析」の直後はステップ 1（SCF結果選択）のタブが選ばれた状態になりますので、キュリー温度などの結果をご覧になる場合はステップ 2 のタブを選び直してください。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </section>
+<section id="quloud-mag">
+<h4><span class="section-number">15.3.3.13. </span>Quloud-Mag に関する注意事項<a class="headerlink" href="#quloud-mag" title="Link to this heading"></a></h4>
+<p>モンテカルロ磁性計算は、あらかじめ SPRKKR で計算した交換結合パラメータ（JXC）の Job を選んだうえで実行します。交換結合定数（J_ij）は選んだ Job の計算結果から自動的に引き継がれるため、この画面自体で J_ij の値を入力する項目はありません。</p>
+<p>LLGダイナミクスは SPRKKR の計算を経由せず、Material の構造だけを入力として実行できます。</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
 </section>
-<section id="id6">
-<h3><span class="section-number">15.3.4. </span>モデリングに関する注意事項<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<p>モデリング機能に関して、下記の不具合がありますのでご注意ください。</p>
-<ul>
-<li><p>Supercell 項目</p>
-<ul class="simple">
-<li><p>Supercell の値を増やしてから 1×1×1 に戻しても、モデルのサイズが元に戻りません。</p></li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</li>
-<li><p>Sueface 項目</p>
-<ul class="simple">
-<li><p>原子を追加 / 削除してからスラブモデルを生成すると、原子の個数がおかしくなります。</p></li>
-<li><p>原子を追加 / 削除してからスラブモデルを生成後、Undo ボタンで原子追加 / 削除前の状態に戻り、原子を追加 / 削除せずにスラブモデルを生成すると、以前追加 / 削除した原子が再度追加 / 削除されてしまいます。</p></li>
-</ul>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-</li>
-<li><p>Packmol 項目</p>
-<ul class="simple">
-<li><p>バルク構造の原子数を増やしてから、Packmol でモデルを生成すると、バルク構造の原子数が元に戻ってしまいます。</p></li>
-<li><p>Packmol でモデルを生成後、Undo ボタンが効かなくなります。</p></li>
-</ul>
-</li>
-</ul>
 </section>
 </section>
 </section>
@@ -569,7 +612,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2026, Quemix Inc.
-      <span class="lastupdated">最終更新: 9月 08, 2026
+      <span class="lastupdated">最終更新: 9月 14, 2026
       </span></p>
   </div>
 

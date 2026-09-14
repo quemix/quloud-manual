@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-09-08T10:58:35+09:00" />
+    <meta property="article:modified_time" content="2026-09-14T11:34:31+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>9. 計算 Job の登録</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -206,7 +206,7 @@
 <span id="job-section"></span><h1><span class="section-number">9. </span>計算 Job の登録<a class="headerlink" href="#job" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 8 日です。</p>
+<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 14 日です。</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -309,6 +309,13 @@ Ver.7.0 では、選んだ計算ソフトと計算機能の組み合わせに応
 <p><span class="caption-number">図 9.5 </span><span class="caption-text">まとまりごとの見出し（スクロール後）</span><a class="headerlink" href="#id160" title="Link to this image"></a></p>
 </figcaption>
 </figure>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>数値を入力する欄の右側には、値を1段階ずつ増減できる ▲▼ ボタンが付いています。
+キーボードからの直接入力もできます。ボタンで範囲外の値になった場合も、
+その値のまま「範囲・制約」から外れたものとして扱われ、入力欄の下にエラーが
+表示されます。</p>
+</div>
 <p>計算機能によっては、既存の Job の結果や構造を選ぶタブが加わります。</p>
 <ul class="simple">
 <li><p><strong>NEB（Nudged Elastic Band）</strong> — 「初期構造選択」「終期構造選択」</p></li>
@@ -410,12 +417,33 @@ Job を登録する前にご確認ください。</p></li>
 「装置パラメータ」に分けています。フォームでも同じ見出しでまとまって表示されます。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>次の入力は、この表には含まれません。項目が固定ではなく、選んだ Material の元素や
-構造から組み立てられるためです。</p>
+<p>次の項目は表に行がありますが、単純な入力欄ではなく専用の画面で編集します。</p>
+<ul class="simple">
+<li><p><strong>温度スケジュール**（LAMMPS の分子動力学、アンサンブルが「NVT（カノニカル）」
+「NPT（等温等圧）」のとき）— 温度・（NPT ではさらに圧力）・ステップ数の組を
+行として複数並べて指定します。「行を追加」で行を増やし、行の右端のボタンで
+削除できます。**最後の行</strong>の温度・圧力・ステップ数で、計測を含む本番の MD を
+実行します。それより前の行は、そのステップ数をかけて次の行の値へ遷移させる
+区間になります。アンサンブルが「NVE（ミクロカノニカル）」のときはこの欄は
+表示されず、従来どおり単一の温度とステップ数を指定します。</p></li>
+<li><p><strong>サイト占有率**（SPRKKR の自己無撞着電子状態計算）— 原子サイトごとに、
+元素と占有率の組を表で編集します。欄の右上のボタンから周期表を開いて元素を
+追加でき、追加した元素は削除もできます。**同じサイト内の占有率の合計は 1 に
+する必要があります。</strong>ずれている間はサイト番号が赤字になり、エラー
+メッセージが表示されます。</p></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>次の入力・表示は、この表には含まれません。項目が固定ではなく、選んだ Material の
+元素や構造から組み立てられるためです。</p>
 <ul class="simple">
 <li><p><strong>擬ポテンシャル</strong> — 「擬ポテンシャルセット」と、元素ごとの擬ポテンシャルファイル</p></li>
 <li><p><strong>原子ごとの拘束条件・初期スピン</strong> — Material の原子サイトごとに指定します</p></li>
 <li><p><strong>DFT-1/2 の対象元素</strong>、<strong>HybMD の擬ポテンシャル</strong></p></li>
+<li><p><strong>X線吸収スペクトル用SCF の原子対応表</strong> — 「擬ポテンシャル」の節に、構造の
+原子の並び順と元素を対応付けた表が参考として表示されます。「吸収原子
+インデックス」欄には、この表のインデックス番号を入力します。</p></li>
 </ul>
 </div>
 <section id="ase-md">
@@ -1816,30 +1844,6 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>トポロジーファイル</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">topology_file</span></code></p></td>
-<td><p>ファイル</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -2000,30 +2004,6 @@ Job を登録する前にご確認ください。</p></li>
 <td><p><code class="docutils literal notranslate"><span class="pre">xyz</span></code></p></td>
 <td><p>必須</p></td>
 <td><p>xyz（全方向周期）（<code class="docutils literal notranslate"><span class="pre">xyz</span></code>） / xy（z方向非周期）（<code class="docutils literal notranslate"><span class="pre">xy</span></code>） / no（非周期）（<code class="docutils literal notranslate"><span class="pre">False</span></code>）</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>トポロジーファイル</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">topology_file</span></code></p></td>
-<td><p>ファイル</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -2392,7 +2372,7 @@ Job を登録する前にご確認ください。</p></li>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">cpu</span></code></p></td>
 <td><p>必須</p></td>
-<td><p>CPU（<code class="docutils literal notranslate"><span class="pre">cpu</span></code>） / CUDA GPU（<code class="docutils literal notranslate"><span class="pre">cuda</span></code>）</p></td>
+<td><p>CPU（<code class="docutils literal notranslate"><span class="pre">cpu</span></code>）</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -2413,25 +2393,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>初期構造ファイル</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">hybmd_structure_file</span></code></p></td>
-<td><p>ファイル</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><code class="docutils literal notranslate"><span class="pre">rsdft.atom</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>「初期化モード」が「新規開始」のとき</p></td>
-</tr>
-<tr class="row-even"><td><p>初期構造フォーマット</p></td>
+<tr class="row-odd"><td><p>初期構造フォーマット</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_structure_format</span></code></p></td>
 <td><p>選択</p></td>
 <td><ul class="simple">
@@ -2446,7 +2408,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>CIF（<code class="docutils literal notranslate"><span class="pre">cif</span></code>） / Extended XYZ（<code class="docutils literal notranslate"><span class="pre">extxyz</span></code>） / VASP（<code class="docutils literal notranslate"><span class="pre">vasp</span></code>）</p></td>
 <td><p>「初期化モード」が「新規開始」のとき</p></td>
 </tr>
-<tr class="row-odd"><td><p>再開用trajectory</p></td>
+<tr class="row-even"><td><p>再開用trajectory</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_restart_file</span></code></p></td>
 <td><p>ファイル</p></td>
 <td><ul class="simple">
@@ -2466,24 +2428,6 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p>「初期化モード」が「継続計算」のとき</p></td>
-</tr>
-<tr class="row-even"><td><p>OFDFT入力ファイル</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">hybmd_dftinput_file</span></code></p></td>
-<td><p>ファイル</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><code class="docutils literal notranslate"><span class="pre">scf.ini</span></code></p></td>
-<td><p>必須</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
 </tr>
 <tr class="row-odd"><td><p>Langevin摩擦係数</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_friction</span></code></p></td>
@@ -2539,34 +2483,13 @@ Job を登録する前にご確認ください。</p></li>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">pybader</span></code></p></td>
 <td><p>必須</p></td>
-<td><p>pybader（<code class="docutils literal notranslate"><span class="pre">pybader</span></code>） / Henkelman bader（<code class="docutils literal notranslate"><span class="pre">henkelman</span></code>）</p></td>
+<td><p>pybader（<code class="docutils literal notranslate"><span class="pre">pybader</span></code>）</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Henkelman Baderを併用</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">hybmd_bader_henkelman</span></code></p></td>
-<td><p>有効・無効</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>無効</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><p>乱数シード</p></td>
+<tr class="row-odd"><td><p>乱数シード</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_seed</span></code></p></td>
 <td><p>整数</p></td>
 <td><ul class="simple">
@@ -2584,7 +2507,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>trajectory出力ファイル名</p></td>
+<tr class="row-even"><td><p>trajectory出力ファイル名</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_traj_file</span></code></p></td>
 <td><p>文字列</p></td>
 <td><ul class="simple">
@@ -2602,7 +2525,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>MDログファイル名</p></td>
+<tr class="row-odd"><td><p>MDログファイル名</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_log_file</span></code></p></td>
 <td><p>文字列</p></td>
 <td><ul class="simple">
@@ -2620,7 +2543,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Bader電荷ログファイル名</p></td>
+<tr class="row-even"><td><p>Bader電荷ログファイル名</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_bader_log_file</span></code></p></td>
 <td><p>文字列</p></td>
 <td><ul class="simple">
@@ -2638,7 +2561,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>停止ファイル名</p></td>
+<tr class="row-odd"><td><p>停止ファイル名</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_stopfile_name</span></code></p></td>
 <td><p>文字列</p></td>
 <td><ul class="simple">
@@ -3085,7 +3008,6 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><p><code class="docutils literal notranslate"><span class="pre">den.cube</span></code></p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -3098,42 +3020,10 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-</tr>
-<tr class="row-even"><td><p>参照密度出力ファイル名（Henkelman用）</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">hybmd_density_ref_output</span></code></p></td>
-<td><p>文字列</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
 </td>
-<td><p><code class="docutils literal notranslate"><span class="pre">refden.cube</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>「Henkelman Bader用密度出力」が「有効」のとき</p></td>
-</tr>
-<tr class="row-odd"><td><p>Henkelman参照密度出力（計算用）</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">hybmd_density_ref_output_calc</span></code></p></td>
-<td><p>文字列</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><code class="docutils literal notranslate"><span class="pre">refden_calc.cube</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>「Henkelman Bader用密度出力」が「有効」のとき</p></td>
 </tr>
 <tr class="row-even"><td><p>Bader解析を出力</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_output_write_bader</span></code></p></td>
@@ -3240,28 +3130,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Henkelman Bader用密度出力</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">hybmd_henkelman_density</span></code></p></td>
-<td><p>有効・無効</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>無効</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-even"><td><p>擬ポテンシャルファイル（元素 = ファイル名）</p></td>
+<tr class="row-odd"><td><p>擬ポテンシャルファイル（元素 = ファイル名）</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_pp_files</span></code></p></td>
 <td><p>textarea</p></td>
 <td><ul class="simple">
@@ -3282,7 +3151,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Core Width（元素 = 値）</p></td>
+<tr class="row-even"><td><p>Core Width（元素 = 値）</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">hybmd_core_widths</span></code></p></td>
 <td><p>textarea</p></td>
 <td><ul class="simple">
@@ -3349,7 +3218,7 @@ Job を登録する前にご確認ください。</p></li>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">chgnet</span></code></p></td>
 <td><p>必須</p></td>
-<td><p>CHGNet（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">chgnet</span></code>） / SevenNet（機械学習ポテンシャル、GPU専用）（<code class="docutils literal notranslate"><span class="pre">sevennet</span></code>） / FairChem UMA（機械学習ポテンシャル、GPU専用）（<code class="docutils literal notranslate"><span class="pre">fairchem</span></code>） / ファイルアップロード（<code class="docutils literal notranslate"><span class="pre">file</span></code>）</p></td>
+<td><p>CHGNet（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">chgnet</span></code>） / SevenNet（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">sevennet</span></code>） / FairChem UMA（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">fairchem</span></code>） / ファイルアップロード（<code class="docutils literal notranslate"><span class="pre">file</span></code>）</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -3368,7 +3237,7 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><p>「原子間ポテンシャル」が「SevenNet（機械学習ポテンシャル、GPU専用）」のとき</p></td>
+<td><p>「原子間ポテンシャル」が「SevenNet（機械学習ポテンシャル）」のとき</p></td>
 </tr>
 <tr class="row-even"><td><p>原子間ポテンシャルファイル</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lammps_iap_file</span></code></p></td>
@@ -3705,7 +3574,7 @@ Job を登録する前にご確認ください。</p></li>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">chgnet</span></code></p></td>
 <td><p>必須</p></td>
-<td><p>CHGNet（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">chgnet</span></code>） / SevenNet（機械学習ポテンシャル、GPU専用）（<code class="docutils literal notranslate"><span class="pre">sevennet</span></code>） / FairChem UMA（機械学習ポテンシャル、GPU専用）（<code class="docutils literal notranslate"><span class="pre">fairchem</span></code>） / ファイルアップロード（<code class="docutils literal notranslate"><span class="pre">file</span></code>）</p></td>
+<td><p>CHGNet（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">chgnet</span></code>） / SevenNet（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">sevennet</span></code>） / FairChem UMA（機械学習ポテンシャル）（<code class="docutils literal notranslate"><span class="pre">fairchem</span></code>） / ファイルアップロード（<code class="docutils literal notranslate"><span class="pre">file</span></code>）</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -3724,7 +3593,7 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><p>「原子間ポテンシャル」が「SevenNet（機械学習ポテンシャル、GPU専用）」のとき</p></td>
+<td><p>「原子間ポテンシャル」が「SevenNet（機械学習ポテンシャル）」のとき</p></td>
 </tr>
 <tr class="row-even"><td><p>原子間ポテンシャルファイル</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lammps_iap_file</span></code></p></td>
@@ -3874,9 +3743,9 @@ Job を登録する前にご確認ください。</p></li>
 <tr class="row-even"><td><p>タイムステップ</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">timestep</span></code></p></td>
 <td><p>数値</p></td>
-<td><p>fs</p></td>
+<td><p>ps</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.001</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>0.0001 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -3899,10 +3768,7 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>「アンサンブル」が「NVE（ミクロカノニカル）」のとき</p></td>
 </tr>
 <tr class="row-even"><td><p>温度</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
@@ -3914,10 +3780,7 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>「アンサンブル」が「NVE（ミクロカノニカル）」のとき</p></td>
 </tr>
 <tr class="row-odd"><td><p>アンサンブル</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lammps_ensemble</span></code></p></td>
@@ -3934,17 +3797,20 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 </tr>
-<tr class="row-even"><td><p>圧力</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">lammps_pressure</span></code></p></td>
-<td><p>数値</p></td>
-<td><p>bars</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
-<td><p>0.0 以上、必須</p></td>
+<tr class="row-even"><td><p>温度スケジュール</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">lammps_temperature_schedule</span></code></p></td>
+<td><p>lammps_temperature_schedule</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
 </td>
-<td><p>「アンサンブル」が「NPT（等温等圧）」のとき</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[{&quot;temp&quot;:</span> <span class="pre">300.0,</span> <span class="pre">&quot;pres&quot;:</span> <span class="pre">0.0,</span> <span class="pre">&quot;steps&quot;:</span> <span class="pre">10000}]</span></code></p></td>
+<td><p>必須</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">params.lammps_ensemble</span> <span class="pre">===</span> <span class="pre">'nvt'</span> <span class="pre">||</span> <span class="pre">params.lammps_ensemble</span> <span class="pre">===</span> <span class="pre">'npt'</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>圧力異方性</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">lammps_aniso</span></code></p></td>
@@ -4165,10 +4031,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上 1000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4186,10 +4049,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上 1000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4207,10 +4067,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上 1000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4228,10 +4085,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>0 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4249,10 +4103,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1200</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>0 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4270,10 +4121,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">100</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>0 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4291,10 +4139,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">10000</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4312,10 +4157,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">10000</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4333,10 +4175,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4354,10 +4193,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>0 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4375,10 +4211,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.1</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>0 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4396,10 +4229,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>0 以上 10000 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4417,10 +4247,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4438,10 +4265,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4459,10 +4283,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4724,7 +4545,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値（指数表記）</p></td>
 <td><p>m</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-08</span></code></p></td>
-<td><p>0 以上、必須</p></td>
+<td><p>1e-15 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4739,7 +4560,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値（指数表記）</p></td>
 <td><p>m</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-08</span></code></p></td>
-<td><p>0 以上、必須</p></td>
+<td><p>1e-15 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4754,7 +4575,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値（指数表記）</p></td>
 <td><p>m</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-08</span></code></p></td>
-<td><p>0 以上、必須</p></td>
+<td><p>1e-15 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -4943,7 +4764,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">0.002847469702</span></code></p></td>
-<td><p>0 以上、必須</p></td>
+<td><p>0 以上 1 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -5057,7 +4878,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値（指数表記）</p></td>
 <td><p>s</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">1e-13</span></code></p></td>
-<td><p>0 以上、必須</p></td>
+<td><p>1e-20 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -5244,7 +5065,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -5850,7 +5671,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -6540,7 +6361,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -7230,7 +7051,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -7857,7 +7678,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -8547,7 +8368,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -9228,7 +9049,7 @@ Job を登録する前にご確認ください。</p></li>
 <td><p>数値</p></td>
 <td><p>K</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">300.0</span></code></p></td>
-<td><p>0.0 以上 1000.0 以下、必須</p></td>
+<td><p>1e-06 以上 1000.0 以下、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -12754,10 +12575,7 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>「計算タイプ」が「XANES 四重極」のとき</p></td>
 </tr>
 </tbody>
 </table>
@@ -13650,22 +13468,7 @@ Job を登録する前にご確認ください。</p></li>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>構造入力形式</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">radonpy_structure_input_type</span></code></p></td>
-<td><p>選択</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p><code class="docutils literal notranslate"><span class="pre">smiles</span></code></p></td>
-<td><p>必須</p></td>
-<td><p>SMILES（<code class="docutils literal notranslate"><span class="pre">smiles</span></code>） / 3次元構造ファイル（mol2/xyz/sdf/pdb）（<code class="docutils literal notranslate"><span class="pre">file</span></code>）</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-</tr>
-<tr class="row-odd"><td><p>SMILES（モノマー繰り返し単位）</p></td>
+<tr class="row-even"><td><p>SMILES（モノマー繰り返し単位）</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">radonpy_smiles</span></code></p></td>
 <td><p>文字列</p></td>
 <td><ul class="simple">
@@ -13681,25 +13484,10 @@ Job を登録する前にご確認ください。</p></li>
 <li></li>
 </ul>
 </td>
-<td><p>「構造入力形式」が「SMILES」のとき</p></td>
-</tr>
-<tr class="row-even"><td><p>構造ファイル（mol2/xyz/sdf/pdb）</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">radonpy_structure_file</span></code></p></td>
-<td><p>ファイル</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
 </td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>必須</p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><p>「構造入力形式」が「3次元構造ファイル（mol2/xyz/sdf/pdb）」のとき</p></td>
 </tr>
 <tr class="row-odd"><td><p>QM手法</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">exchange_correlation</span></code></p></td>
@@ -13774,7 +13562,7 @@ Job を登録する前にご確認ください。</p></li>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">GAFF2</span></code></p></td>
 <td><p>必須</p></td>
-<td><p>GAFF2（推奨）（<code class="docutils literal notranslate"><span class="pre">GAFF2</span></code>） / GAFF2_mod（<code class="docutils literal notranslate"><span class="pre">GAFF2_mod</span></code>） / GAFF（<code class="docutils literal notranslate"><span class="pre">GAFF</span></code>） / Dreiding（<code class="docutils literal notranslate"><span class="pre">Dreiding</span></code>）</p></td>
+<td><p>GAFF2（推奨）（<code class="docutils literal notranslate"><span class="pre">GAFF2</span></code>） / GAFF2_mod（<code class="docutils literal notranslate"><span class="pre">GAFF2_mod</span></code>） / GAFF（<code class="docutils literal notranslate"><span class="pre">GAFF</span></code>）</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -17573,10 +17361,7 @@ Job を登録する前にご確認ください。</p></li>
 </ul>
 </td>
 <td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<td><p>1 以上、必須</p></td>
 <td><ul class="simple">
 <li></li>
 </ul>
@@ -17606,7 +17391,7 @@ Job を登録する前にご確認ください。</p></li>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2026, Quemix Inc.
-      <span class="lastupdated">最終更新: 9月 08, 2026
+      <span class="lastupdated">最終更新: 9月 14, 2026
       </span></p>
   </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-09-08T10:17:55+09:00" />
+    <meta property="article:modified_time" content="2026-09-14T11:34:31+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>10. 計算 Job の実行</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -123,7 +123,7 @@
 <span id="runjob-section"></span><h1><span class="section-number">10. </span>計算 Job の実行<a class="headerlink" href="#job" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 8 日です。</p>
+<p>本章は Quloud Ver.7.0 を対象としています。記載内容の確認日は 2026 年 9 月 14 日です。</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -283,6 +283,12 @@
 </tr>
 </tbody>
 </table>
+<p><strong>GPU 区分を選べるかどうかは、実行するソフトウェアによって異なります。</strong> 対応していない
+ソフトウェアでは GPU タブ自体が押せない状態になり、タブにカーソルを合わせると
+「この計算ソフトウェアはGPU区分に対応していません」と表示されます。</p>
+<p>対応している場合も、選べる GPU 数はソフトウェアによって 1 基だけに絞られることが
+あります。選べない枚数の列は押せない状態になり、絞られている場合は表の下に選べる
+枚数が注記されます。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -415,9 +421,17 @@ Status が「Submitted」に変わります。</p>
 <p>計算結果の見かたは <a class="reference internal" href="visualization.html"><span class="doc">計算結果の可視化</span></a> の章で説明します。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>画面は自動では更新されません。</strong> Status の変化を確認するには、画面を
-再読み込みしてください。</p>
+<p><strong>Job 詳細画面を開いている間、Status が「Submitted」「Prepared」「Running」の
+いずれかであれば、この画面は約 20 秒ごとに自動で更新されます。</strong> 「ジョブ概要」の
+Status・計算ログ・ファイル一覧のいずれも、画面を再読み込みしなくても最新の状態に
+変わります。自動更新は、この画面をタブで表示している間だけ働き、他のタブに
+切り替えている間は止まります。</p>
+<p><strong>一覧画面（プロジェクトのジョブ一覧、ホーム画面のジョブ一覧など）は自動では
+更新されません。</strong> Status の変化を確認するには、画面を再読み込みしてください。</p>
 </div>
+<p>計算ログは Job 詳細画面の「ログ」で確認できます。<strong>実行中の Job では、画面を
+表示している間、ログも約 20 秒ごとに自動で末尾が更新されます。</strong> ログの中身の
+見かたは <a class="reference internal" href="files.html"><span class="doc">入出力ファイルとログ</span></a> の章で説明します。</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -437,16 +451,36 @@ Status が「Submitted」に変わります。</p>
 </section>
 <section id="id11">
 <h2><span class="section-number">10.7. </span>Job の継続実行<a class="headerlink" href="#id11" title="Link to this heading"></a></h2>
-<p>OpenMX の Job に限り、終了した計算の続きから実行し直せます。Status が
-「Failed」「Timeout」「Cancelled」の OpenMX の Job には、画面右上に
-「Continue Job」が表示されます。</p>
+<p>OpenMX と HybMD の Job に限り、終了した計算の続きから実行し直せます。継続元にできる
+Status はソフトウェアによって異なります。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ソフトウェア</p></th>
+<th class="head"><p>継続元にできる Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OpenMX</p></td>
+<td><p>Failed ／ Timeout ／ Cancelled</p></td>
+</tr>
+<tr class="row-odd"><td><p>HybMD</p></td>
+<td><p>Succeeded ／ Failed ／ Timeout ／ Cancelled</p></td>
+</tr>
+</tbody>
+</table>
+<p>上の Status に当てはまる Job には、画面右上に「Continue Job」が表示されます。</p>
 <ul class="simple">
 <li><p>押すと「Run Job」と同じダイアログが開き、計算リソースと実行時間の上限を
 選び直せます</p></li>
-<li><p>元の Job の restart データを引き継ぐため、<strong>OpenMX の入力条件は変更できません</strong></p></li>
+<li><p>元の Job の実行結果を引き継ぐため、<strong>入力条件は変更できません</strong></p></li>
 <li><p>継続して実行した Job は別の Job として作られ、Job 詳細画面の「継続履歴」に
 継続元との関係が表示されます</p></li>
 </ul>
+<p>HybMD では、正常終了した MD 計算をさらに継続して延長する使い方もできます。</p>
 <p>継続できない Job では「Continue Job」は表示されません。</p>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -513,7 +547,7 @@ Job にだけ表示されます。実行し直したい場合は「ジョブを�
 
   <div role="contentinfo">
     <p>&#169; Copyright 2026, Quemix Inc.
-      <span class="lastupdated">最終更新: 9月 08, 2026
+      <span class="lastupdated">最終更新: 9月 14, 2026
       </span></p>
   </div>
 

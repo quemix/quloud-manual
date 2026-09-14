@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-09-08T11:33:08+09:00" />
+    <meta property="article:modified_time" content="2026-09-14T11:34:31+09:00" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>13. 入出力ファイルとログ</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
@@ -377,8 +377,14 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><strong>Job の実行中は、出力ファイルの途中経過が表示されません。</strong> 計算の完了時に
-まとめて現れます（<a class="reference internal" href="specifications.html"><span class="doc">仕様</span></a> の章）。</p>
+<p><strong>Job の実行中も、出力ファイルの一覧はその場で更新されます。</strong> Job 詳細画面の
+「ファイル」タブを開いている間、実行中の Job では約 20 秒ごとに自動で最新化され、
+転送前のファイルも「実行中」のラベル付きで名前・サイズ・更新日時が表示されます。
+ただし転送前のファイルは実体がまだ届いていないため、「表示」「ダウンロード」は
+行えません。中身を確認できるのは、計算が完了して通常のファイルとして現れた後です。</p>
+<p><strong>自動更新は、このタブを表示している間だけ働きます。</strong> 他のタブに切り替えている
+間や離席中は更新が止まり、タブに戻ると自動的に最新の状態を取得し直します。
+Status の自動更新については <a class="reference internal" href="runjob.html"><span class="doc">計算 Job の実行</span></a> の章をご参照ください。</p>
 </div>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -4394,6 +4400,14 @@ DFT-1/2）もここに含まれます。</p>
 </td>
 <td><p>text</p></td>
 </tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">neb_summary.json</span></code></p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>json</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4493,7 +4507,93 @@ DFT-1/2）もここに含まれます。</p>
 <h3><span class="section-number">13.10.3. </span>FLARE<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
 <section id="id30">
 <h4><span class="section-number">13.10.3.1. </span>機械学習ポテンシャル MD<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
-<p>この計算には、Quloud が登録する入出力ファイルはありません。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>役割</p></th>
+<th class="head"><p>ファイル</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>形式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.yaml</span></code></p></td>
+<td><p>FLARE OTF設定ファイル（flare-otf の唯一の引数）</p></td>
+<td><p>yaml</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*lmp.flare</span></code></p></td>
+<td><p>LAMMPS用ポテンシャル係数（lmp.flare / L_inv_lmp.flare / sparse_desc_lmp.flare）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf.out</span></code></p></td>
+<td><p>OTF実行ログ（エネルギー・温度・不確実性の時系列。CreateJobMdServiceが mdeneflare / md_flaretrj の両方のソースにする）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf_flare.json</span></code></p></td>
+<td><p>学習済みFLAREモデル（スパースGP）</p></td>
+<td><p>json</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.mdene</span></code></p></td>
+<td><p>MDエネルギー系列（parse_output_flare.py が myotf.out から生成する派生ファイル）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">espresso.pwi</span></code></p></td>
+<td><p>FLAREが内部で呼ぶQEの入力（最後のDFT呼び出し）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">espresso.pwo</span></code></p></td>
+<td><p>FLAREが内部で呼ぶQEの出力（最後のDFT呼び出し）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf-hyps.dat</span></code></p></td>
+<td><p>ガウス過程ハイパーパラメータの学習履歴</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf_atoms.json</span></code></p></td>
+<td><p>最終ステップの原子配置（ASE Atoms のJSON表現）</p></td>
+<td><p>json</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf_checkpt.json</span></code></p></td>
+<td><p>OTF再開用チェックポイント（otf.mode が restart のとき読む）</p></td>
+<td><p>json</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf_dft.pickle</span></code></p></td>
+<td><p>DFT calculator の内部状態（Python pickle。ダウンロード不可）</p></td>
+<td><p>binary</p></td>
+</tr>
+<tr class="row-odd"><td><p>トラジェクトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.md</span></code></p></td>
+<td><p>トラジェクトリ（parse_traj_flare.py が myotf.out から生成する派生ファイル）</p></td>
+<td><p>ext_xyz</p></td>
+</tr>
+<tr class="row-even"><td><p>トラジェクトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf.xyz</span></code></p></td>
+<td><p>OTF全ステップの構造（拡張XYZ）</p></td>
+<td><p>xyz</p></td>
+</tr>
+<tr class="row-odd"><td><p>構造</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">myotf_dft.xyz</span></code></p></td>
+<td><p>DFT（QE）を実際に呼んだフレームの構造</p></td>
+<td><p>xyz</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="gromacs">
@@ -4791,11 +4891,123 @@ DFT-1/2）もここに含まれます。</p>
 <h3><span class="section-number">13.10.7. </span>Quloud-Mag<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
 <section id="id38">
 <h4><span class="section-number">13.10.7.1. </span>モンテカルロ磁性計算<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
-<p>この計算には、Quloud が登録する入出力ファイルはありません。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>役割</p></th>
+<th class="head"><p>ファイル</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>形式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boundary.in</span></code></p></td>
+<td><p>境界条件</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">control.in</span></code></p></td>
+<td><p>制御パラメータ</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heis.in</span></code></p></td>
+<td><p>Heisenbergモデル入力ファイル</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">omp.in</span></code></p></td>
+<td><p>OpenMPスレッド数設定</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">entropy_max*.txt</span></code></p></td>
+<td><p>エントロピーの温度依存性（総和/x/y/z成分/印加磁場方向成分）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">magnetic_susceptibility*.txt</span></code></p></td>
+<td><p>帯磁率の温度依存性（総和/x/y/z成分/印加磁場方向成分）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">magnetization_T*.txt</span></code></p></td>
+<td><p>磁化の温度依存性（総和/x/y/z成分/印加磁場方向成分）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">total_energy_T_1_max.txt</span></code></p></td>
+<td><p>全エネルギーの温度依存性</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">magnetization_loop*.txt</span></code></p></td>
+<td><p>磁化ループ生データ（大容量、ダウンロード専用）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">total_energy_loop*.txt</span></code></p></td>
+<td><p>全エネルギーループ生データ（大容量、ダウンロード専用）</p></td>
+<td><p>text</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="llg">
 <h4><span class="section-number">13.10.7.2. </span>LLG ダイナミクス<a class="headerlink" href="#llg" title="Link to this heading"></a></h4>
-<p>この計算には、Quloud が登録する入出力ファイルはありません。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>役割</p></th>
+<th class="head"><p>ファイル</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>形式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">control.in</span></code></p></td>
+<td><p>制御パラメータ</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">omp.in</span></code></p></td>
+<td><p>OpenMPスレッド数設定</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">structure.in</span></code></p></td>
+<td><p>マイクロマグネティクス構造入力ファイル</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*_energy_micro_loop.txt</span></code></p></td>
+<td><p>エネルギー内訳の時間発展（交換/異方性/反磁場/外部磁場/全エネルギー）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">magnetization_micro_loop_*.txt</span></code></p></td>
+<td><p>磁化の時間発展（総和/x/y/z成分）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*configuration_micro_loop.txt</span></code></p></td>
+<td><p>空間分布スナップショット（大容量、ダウンロード専用）</p></td>
+<td><p>text</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="id39">
@@ -4977,15 +5189,163 @@ DFT-1/2）もここに含まれます。</p>
 </section>
 <section id="id44">
 <h4><span class="section-number">13.10.8.6. </span>分子動力学<a class="headerlink" href="#id44" title="Link to this heading"></a></h4>
-<p>この計算には、Quloud が登録する入出力ファイルはありません。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>役割</p></th>
+<th class="head"><p>ファイル</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>形式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">openmx.in</span></code></p></td>
+<td><p>OpenMX入力ファイル</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.ene</span></code></p></td>
+<td><p>MDステップごとのエネルギー・温度・セル情報の表（CreateJobMdService が mdeneomx のソースにする）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.out</span></code></p></td>
+<td><p>OpenMX標準出力（SCF収束履歴・全エネルギー・固有値等）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.md2</span></code></p></td>
+<td><p>最終ステップの構造（Mulliken電荷・スピン付き）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">openmx.in#</span></code></p></td>
+<td><p>OpenMXが解釈後に書き戻す入力（既定値が補われた状態）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>トラジェクトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.md</span></code></p></td>
+<td><p>MDトラジェクトリ（ステップごとに time= / Energy= / Cell_Vectors= 付きのXYZフレーム。CreateJobMdService が md_mdtrj のソースにする）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>構造</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.bulk.xyz</span></code></p></td>
+<td><p>周期境界を展開したバルク構造（XYZ）</p></td>
+<td><p>xyz</p></td>
+</tr>
+<tr class="row-odd"><td><p>構造</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.cif</span></code></p></td>
+<td><p>最終構造（CIF）</p></td>
+<td><p>cif</p></td>
+</tr>
+<tr class="row-even"><td><p>構造</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.xyz</span></code></p></td>
+<td><p>最終構造（XYZ）</p></td>
+<td><p>xyz</p></td>
+</tr>
+<tr class="row-odd"><td><p>ログ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.err</span></code></p></td>
+<td><p>OpenMX標準エラー出力</p></td>
+<td><p>text</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="id45">
 <h4><span class="section-number">13.10.8.7. </span>NEB（Nudged Elastic Band）<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
-<p>この計算には、Quloud が登録する入出力ファイルはありません。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>役割</p></th>
+<th class="head"><p>ファイル</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>形式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">openmx.in</span></code></p></td>
+<td><p>OpenMX入力ファイル</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.neb.ene</span></code></p></td>
+<td><p>反応経路のエネルギープロファイル（イメージ別エネルギー）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.out</span></code></p></td>
+<td><p>OpenMX標準出力（SCF収束履歴・全エネルギー・固有値等）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.neb.opt</span></code></p></td>
+<td><p>NEB経路最適化のログ（イメージ別最大力等）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>トラジェクトリ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.neb.md</span></code></p></td>
+<td><p>全イメージのアニメーション構造（Image index形式、CreateJobNebTrajectoryServiceが読む）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>構造</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.neb.xyz</span></code></p></td>
+<td><p>全イメージの構造（neb.mdからCell_Vectors列を除いた形式）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>ログ</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.err</span></code></p></td>
+<td><p>OpenMX標準エラー出力</p></td>
+<td><p>text</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="id46">
 <h4><span class="section-number">13.10.8.8. </span>交換結合パラメータ<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
-<p>この計算には、Quloud が登録する入出力ファイルはありません。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14.0%" />
+<col style="width: 34.0%" />
+<col style="width: 38.0%" />
+<col style="width: 14.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>役割</p></th>
+<th class="head"><p>ファイル</p></th>
+<th class="head"><p>内容</p></th>
+<th class="head"><p>形式</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>入力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">jx.config</span></code></p></td>
+<td><p>OpenMX jx（交換結合定数計算）設定ファイル</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-odd"><td><p>主な出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">jx.log</span></code></p></td>
+<td><p>OpenMX jx（交換結合定数計算）実行ログ（J_ijデータを含む）</p></td>
+<td><p>text</p></td>
+</tr>
+<tr class="row-even"><td><p>補助出力</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">QuloudJob.scfout</span></code></p></td>
+<td><p>OpenMX SCF波動関数・ハミルトニアン（jxの入力、バイナリ）</p></td>
+<td><p>binary</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="psi4">
@@ -6055,22 +6415,17 @@ DFT-1/2）もここに含まれます。</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>入力</p></td>
-<td><p>拡張子が <code class="docutils literal notranslate"><span class="pre">.mol2</span></code> / <code class="docutils literal notranslate"><span class="pre">.xyz</span></code> / <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> / <code class="docutils literal notranslate"><span class="pre">.pdb</span></code> のいずれか</p></td>
-<td><p>3次元構造ファイル（mol2/xyz/sdf/pdb。SMILES入力時は不要）</p></td>
-<td><p>text</p></td>
-</tr>
-<tr class="row-odd"><td><p>主な出力</p></td>
+<tr class="row-even"><td><p>主な出力</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">monomer.pickle</span></code></p></td>
 <td><p>RESP電荷付きモノマーオブジェクト（次ステップへの引き継ぎファイル）</p></td>
 <td><p>binary</p></td>
 </tr>
-<tr class="row-even"><td><p>主な出力</p></td>
+<tr class="row-odd"><td><p>主な出力</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">qm_result.json</span></code></p></td>
 <td><p>QM計算結果（HOMO/LUMO/双極子/偏極率等）</p></td>
 <td><p>json</p></td>
 </tr>
-<tr class="row-odd"><td><p>ログ</p></td>
+<tr class="row-even"><td><p>ログ</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">psi4.log</span></code></p></td>
 <td><p>Psi4計算ログ</p></td>
 <td><p>text</p></td>
@@ -6850,7 +7205,7 @@ DFT-1/2）もここに含まれます。</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2026, Quemix Inc.
-      <span class="lastupdated">最終更新: 9月 08, 2026
+      <span class="lastupdated">最終更新: 9月 14, 2026
       </span></p>
   </div>
 
