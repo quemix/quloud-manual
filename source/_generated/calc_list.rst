@@ -36,10 +36,6 @@
      - NEB（Nudged Elastic Band）
      - ``neb``
      - NEB（Nudged Elastic Band）
-   * - DFT-1/2
-     - DFT-1/2 擬ポテンシャル生成（UPF）
-     - ``dft12_upf``
-     - DFT-1/2 擬ポテンシャル生成（UPF）
    * - Quantum ESPRESSO
      - 状態密度計算（DOS）
      - ``dos``

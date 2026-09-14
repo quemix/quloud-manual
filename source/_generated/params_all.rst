@@ -414,41 +414,6 @@ NEB（Nudged Elastic Band）
 
 
 
-#######
-DFT-1/2
-#######
-
-+++++++++++++++++++++++++++++++++
-DFT-1/2 擬ポテンシャル生成（UPF）
-+++++++++++++++++++++++++++++++++
-
-~~~~~~~~~~
-物理モデル
-~~~~~~~~~~
-
-.. list-table::
-   :header-rows: 1
-   :widths: 18 16 8 6 12 16 22 22
-
-   * - 項目名
-     - キー
-     - 型
-     - 単位
-     - 既定値
-     - 範囲・制約
-     - 選択肢
-     - 表示条件
-   * - 交換相関汎関数
-     - ``exchange_correlation``
-     - 選択
-     - -
-     - ``GGA-PBE``
-     - 必須
-     - LDA-PW（Perdew-Wang 92）（``LDA-PW``） / LDA-PZ（Perdew-Zunger 81、UPFアップロードのみ）（``LDA-PZ``） / GGA-PBE（``GGA-PBE``） / GGA-PBEsol（UPFアップロードのみ）（``GGA-PBEsol``）
-     - -
-
-
-
 #####
 FLARE
 #####
