@@ -24,6 +24,10 @@ REPO = Path(__file__).resolve().parent.parent
 DEFAULT_DUMP = REPO / "meta" / "master_dump.json"
 DEFAULT_OUT = REPO / "source" / "_generated"
 
+# Ver.7.0 では公開しない計算エンジン。マスタには開発中の機能も入り得るため、
+# 公開対象の版で提供しないものは、全ての参照表から一貫して除外する。
+EXCLUDED_ENGINE_CODES = {"dft12"}
+
 # params.<key> === '<value>' / === true / === false と、
 # その否定形 params.<key> !== ... だけを解釈する。
 # それ以外の式は日本語化せず原文のまま出す。
@@ -138,6 +142,14 @@ def _capability_name(dump: dict, code: str) -> str:
     return code
 
 
+def _included_engine_capabilities(dump: dict):
+    """公開対象の engine_capability だけを返す。"""
+    return [
+        ec for ec in dump["engine_capabilities"]
+        if ec["engine"] not in EXCLUDED_ENGINE_CODES
+    ]
+
+
 def _param_rows(params: list, params_by_key: dict) -> list[list[str]]:
     rows = []
     for p in sorted(params, key=lambda x: x.get("sort_order") or 0):
@@ -181,7 +193,7 @@ def render_engine_matrix(dump: dict) -> str:
     # capability であり、逆に visible=true の bands は単独では選べない。
     # ○/× を出すと読者に「使えない機能」と読まれるので列自体を落とす。
     rows = []
-    for ec in dump["engine_capabilities"]:
+    for ec in _included_engine_capabilities(dump):
         rows.append([
             rst.escape(_engine_name(dump, ec["engine"])),
             f"``{ec['engine']}``",
@@ -223,7 +235,9 @@ def render_calc_list(dump: dict) -> str:
 
     rows = []
     for t in dump.get("workflow_templates", []):
-        if not t.get("enabled"):
+        if (not t.get("enabled")
+                or any(s["engine"] in EXCLUDED_ENGINE_CODES
+                       for s in _compute_steps(t))):
             continue
         steps = _compute_steps(t)
         engine_label = " + ".join(dict.fromkeys(engines.get(s["engine"], s["engine"]) for s in steps))
@@ -301,11 +315,12 @@ def render_params_all(dump: dict) -> str:
     cap_names = {c["code"]: c.get("name_ja") or c["code"] for c in dump.get("capabilities", [])}
 
     out = [rst.header_comment(dump, SCRIPT)]
-    for engine_code in dict.fromkeys(ec["engine"] for ec in dump["engine_capabilities"]):
+    engine_capabilities = _included_engine_capabilities(dump)
+    for engine_code in dict.fromkeys(ec["engine"] for ec in engine_capabilities):
         out.append("\n")
         out.append(rst.section(rst.escape(engine_names.get(engine_code, engine_code)), "#"))
         out.append("\n")
-        for ec in dump["engine_capabilities"]:
+        for ec in engine_capabilities:
             if ec["engine"] != engine_code:
                 continue
             cap = ec["capability"]
@@ -371,11 +386,12 @@ def render_results_all(dump: dict) -> str:
     cap_names = {c["code"]: c.get("name_ja") or c["code"] for c in dump.get("capabilities", [])}
 
     out = [rst.header_comment(dump, SCRIPT)]
-    for engine_code in dict.fromkeys(ec["engine"] for ec in dump["engine_capabilities"]):
+    engine_capabilities = _included_engine_capabilities(dump)
+    for engine_code in dict.fromkeys(ec["engine"] for ec in engine_capabilities):
         out.append("\n")
         out.append(rst.section(rst.escape(engine_names.get(engine_code, engine_code)), "#"))
         out.append("\n")
-        for ec in dump["engine_capabilities"]:
+        for ec in engine_capabilities:
             if ec["engine"] != engine_code:
                 continue
             cap = ec["capability"]
@@ -503,11 +519,12 @@ def render_artifacts_all(dump: dict) -> str:
     cap_names = {c["code"]: c.get("name_ja") or c["code"] for c in dump.get("capabilities", [])}
 
     out = [rst.header_comment(dump, SCRIPT)]
-    for engine_code in dict.fromkeys(ec["engine"] for ec in dump["engine_capabilities"]):
+    engine_capabilities = _included_engine_capabilities(dump)
+    for engine_code in dict.fromkeys(ec["engine"] for ec in engine_capabilities):
         out.append("\n")
         out.append(rst.section(rst.escape(engine_names.get(engine_code, engine_code)), "#"))
         out.append("\n")
-        for ec in dump["engine_capabilities"]:
+        for ec in engine_capabilities:
             if ec["engine"] != engine_code:
                 continue
             cap = ec["capability"]
@@ -545,7 +562,7 @@ def generate(dump: dict, out_dir: Path) -> list[Path]:
     write("params_all.rst", render_params_all(dump))
     write("results_all.rst", render_results_all(dump))
     write("artifacts_all.rst", render_artifacts_all(dump))
-    for ec in dump["engine_capabilities"]:
+    for ec in _included_engine_capabilities(dump):
         slug = f"{ec['engine']}_{ec['capability']}"
         write(f"params/{slug}.rst", render_params(ec, dump))
     return written
