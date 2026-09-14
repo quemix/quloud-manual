@@ -6,8 +6,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Quloud Ver.6.1.2 Manual'
-copyright = '2026, Quemix Inc.　Last updated on Apr. 20, 2026'
+project = 'Quloud Ver.7.0 Manual'
+copyright = '2026, Quemix Inc'
 author = 'Quemix inc'
 version = '2026.4.20'
 
@@ -18,7 +18,10 @@ extensions = ['sphinx.ext.mathjax', 'sphinx.ext.githubpages', 'sphinx_last_updat
 # extensions = ['sphinx.ext.mathjax', 'sphinx_rtd_theme']
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'docs', 'Thumbs.db', '.DS_Store', '.venv']
+exclude_patterns = [
+    '_build', 'docs', 'Thumbs.db', '.DS_Store', '.venv',
+    'source/_generated', 'meta', 'tools', 'README.md',
+]
 
 language = 'ja'
 
@@ -35,6 +38,10 @@ import sphinx_rtd_theme
 html_theme = 'sphinx_rtd_theme'
 # html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
+# 本番リポジトリ（このリポジトリ）は CNAME を置いて独自ドメイン
+# （manual.quloud-platform.quemix.com）を宣言する。stg 版
+# （quemix/quloud-manual-stg）は quemix.github.io/quloud-manual-stg/ で公開するため
+# 代わりに robots.txt を配っており、ここが唯一 stg と恒久的に食い違う設定。
 html_extra_path = ['CNAME']
 html_style = 'css/my_theme.css'
 #html_logo = '_static/Quloud_A_color.png'
