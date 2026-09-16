@@ -1,0 +1,31 @@
+# Sphinx のビルド出力（公開物は docs/ に make publish で反映する）
+_build/
+
+# Python 仮想環境
+.venv/
+
+# 実装作業の管理ディレクトリ
+.superpowers/
+
+# Python のキャッシュ
+tools/__pycache__/
+tools/tests/__pycache__/
+
+# 内部データ（設計・実装計画・issue 判定・マスタ dump）は非公開リポジトリで管理する。
+# quemix/quloud-manual-meta を meta/ にクローンして使う。
+# このリポジトリは公開なので、非公開リポジトリ由来の情報をここに置かない。
+meta/
+
+# Claude Code 用の設定（CLAUDE.md / .claude/）。実体は meta/claude/ にあり、
+# ここにはシンボリックリンクとして置く。meta/ が無い環境では存在しない
+# （symlink 切れ）。`make claude-link` で張り直せる。
+/CLAUDE.md
+/.claude
+
+# 撮影ハーネスの作業物。node_modules と資格情報つきの storageState、
+# 撮影記録の中間ファイルは公開リポジトリに入れない。
+shots/node_modules/
+shots/.auth/
+shots/.out/
+shots/playwright-report/
+shots/test-results/
