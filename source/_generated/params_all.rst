@@ -6089,6 +6089,8 @@ NEB（Nudged Elastic Band）
 X線吸収スペクトル（XSpectra）
 +++++++++++++++++++++++++++++
 
+※ XSpectra につきましては、:doc:`specifications` の章の「15.3.3.1. Quantum ESPRESSO に関する注意事項」もご覧ください。
+
 ~~~~~~~~~~~~~~
 実験パラメータ
 ~~~~~~~~~~~~~~
