@@ -33,11 +33,6 @@
      - NEB（Nudged Elastic Band）
      - ``neb``
      - 機械学習MD
-   * - DFT-1/2
-     - ``dft12``
-     - DFT-1/2 擬ポテンシャル生成（UPF）
-     - ``dft12_upf``
-     - 第一原理計算（擬ポテンシャル）
    * - FLARE
      - ``flare``
      - 機械学習ポテンシャル MD
