@@ -9,7 +9,7 @@
 project = 'Quloud Ver.7.0 Manual'
 copyright = '2026, Quemix Inc'
 author = 'Quemix inc'
-version = '2026.4.20'
+version = '2026.9.16'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
