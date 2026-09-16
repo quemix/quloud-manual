@@ -6,10 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Quloud Ver.7.0 Manual'
+project = 'Quloud Manual'
 copyright = '2026, Quemix Inc'
 author = 'Quemix inc'
-version = '2026.9.16'
+version = 'ver.7.0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
